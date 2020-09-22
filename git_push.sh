@@ -48,5 +48,5 @@ fi
 
 # Pushes (Forces) the changes in the local repository up to the remote repository
 echo "Git pushing to https://github.com/${git_user_id}/${git_repo_id}.git"
-git push origin master 2>&1 | grep -v 'To https' --force
+git push origin master --force | grep -v 'To https'
 
