@@ -56,7 +56,7 @@ class Credentials implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'email' => 'string',
+        'username' => 'string',
 'password' => 'string'    ];
 
     /**
@@ -65,7 +65,7 @@ class Credentials implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'email' => null,
+        'username' => null,
 'password' => null    ];
 
     /**
@@ -95,7 +95,7 @@ class Credentials implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'email' => 'email',
+        'username' => 'username',
 'password' => 'password'    ];
 
     /**
@@ -104,7 +104,7 @@ class Credentials implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'email' => 'setEmail',
+        'username' => 'setUsername',
 'password' => 'setPassword'    ];
 
     /**
@@ -113,7 +113,7 @@ class Credentials implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'email' => 'getEmail',
+        'username' => 'getUsername',
 'password' => 'getPassword'    ];
 
     /**
@@ -174,7 +174,7 @@ class Credentials implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['username'] = isset($data['username']) ? $data['username'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
     }
 
@@ -203,25 +203,25 @@ class Credentials implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets email
+     * Gets username
      *
      * @return string
      */
-    public function getEmail()
+    public function getUsername()
     {
-        return $this->container['email'];
+        return $this->container['username'];
     }
 
     /**
-     * Sets email
+     * Sets username
      *
-     * @param string $email email
+     * @param string $username username
      *
      * @return $this
      */
-    public function setEmail($email)
+    public function setUsername($username)
     {
-        $this->container['email'] = $email;
+        $this->container['username'] = $username;
 
         return $this;
     }
