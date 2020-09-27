@@ -81,6 +81,7 @@ Class | Method | HTTP request | Description
 *AuthApi* | [**postCredentialsItem**](docs/Api/AuthApi.md#postcredentialsitem) | **POST** /login | Gets Logged in User.
 *UserApi* | [**getUserCollection**](docs/Api/UserApi.md#getusercollection) | **GET** /api/users | Retrieves the collection of User resources.
 *UserApi* | [**getUserItem**](docs/Api/UserApi.md#getuseritem) | **GET** /api/users/{id} | Retrieves a User resource.
+*UserApi* | [**loginByTokenUserItem**](docs/Api/UserApi.md#loginbytokenuseritem) | **GET** /api/users/login-by-token/{token} | Retrieves a User resource.
 *UserApi* | [**postUserCollection**](docs/Api/UserApi.md#postusercollection) | **POST** /api/users | Creates a User resource.
 *UserApi* | [**putUserItem**](docs/Api/UserApi.md#putuseritem) | **PUT** /api/users/{id} | Replaces the User resource.
 
