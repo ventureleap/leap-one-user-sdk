@@ -316,6 +316,11 @@ class AuthApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('ApplicationId');
+        if ($apiKey !== null) {
+            $headers['ApplicationId'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
