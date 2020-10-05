@@ -4,11 +4,11 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getUserCollection**](UserApi.md#getusercollection) | **GET** /api/users | Retrieves the collection of User resources.
-[**getUserItem**](UserApi.md#getuseritem) | **GET** /api/users/{id} | Retrieves a User resource.
-[**loginByTokenUserItem**](UserApi.md#loginbytokenuseritem) | **GET** /api/users/login-by-token/{token} | Retrieves a User resource.
-[**postUserCollection**](UserApi.md#postusercollection) | **POST** /api/users | Creates a User resource.
-[**putUserItem**](UserApi.md#putuseritem) | **PUT** /api/users/{id} | Replaces the User resource.
+[**getUserCollection**](UserApi.md#getusercollection) | **GET** /users | Retrieves the collection of User resources.
+[**getUserItem**](UserApi.md#getuseritem) | **GET** /users/{id} | Retrieves a User resource.
+[**loginByTokenUserItem**](UserApi.md#loginbytokenuseritem) | **GET** /users/login-by-token/{token} | Retrieves a User resource.
+[**postUserCollection**](UserApi.md#postusercollection) | **POST** /users | Creates a User resource.
+[**putUserItem**](UserApi.md#putuseritem) | **PUT** /users/{id} | Replaces the User resource.
 
 # **getUserCollection**
 > \VentureLeap\UserService\Model\InlineResponse200 getUserCollection($username, $email, $first_name, $last_name, $application_id, $customer_id, $active, $deleted, $page)

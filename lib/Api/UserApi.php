@@ -301,7 +301,7 @@ class UserApi
     protected function getUserCollectionRequest($username = null, $email = null, $first_name = null, $last_name = null, $application_id = null, $customer_id = null, $active = null, $deleted = null, $page = '1')
     {
 
-        $resourcePath = '/api/users';
+        $resourcePath = '/users';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -596,7 +596,7 @@ class UserApi
             );
         }
 
-        $resourcePath = '/api/users/{id}';
+        $resourcePath = '/users/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -863,7 +863,7 @@ class UserApi
             );
         }
 
-        $resourcePath = '/api/users/login-by-token/{token}';
+        $resourcePath = '/users/login-by-token/{token}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1124,7 +1124,7 @@ class UserApi
     protected function postUserCollectionRequest($body = null)
     {
 
-        $resourcePath = '/api/users';
+        $resourcePath = '/users';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1391,7 +1391,7 @@ class UserApi
             );
         }
 
-        $resourcePath = '/api/users/{id}';
+        $resourcePath = '/users/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
