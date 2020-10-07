@@ -1,19 +1,19 @@
-# VentureLeap\UserService\UserApi
+# VentureLeap\UserService\ConfigurationEntryApi
 
 All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getUserCollection**](UserApi.md#getusercollection) | **GET** /users | Retrieves the collection of User resources.
-[**getUserItem**](UserApi.md#getuseritem) | **GET** /users/{id} | Retrieves a User resource.
-[**loginByTokenUserItem**](UserApi.md#loginbytokenuseritem) | **GET** /users/login-by-token/{token} | Retrieves a User resource.
-[**postUserCollection**](UserApi.md#postusercollection) | **POST** /users | Creates a User resource.
-[**putUserItem**](UserApi.md#putuseritem) | **PUT** /users/{id} | Replaces the User resource.
+[**deleteConfigurationEntryItem**](ConfigurationEntryApi.md#deleteconfigurationentryitem) | **DELETE** /configuration_entries/{id} | Removes the ConfigurationEntry resource.
+[**getConfigurationEntryCollection**](ConfigurationEntryApi.md#getconfigurationentrycollection) | **GET** /configuration_entries | Retrieves the collection of ConfigurationEntry resources.
+[**getConfigurationEntryItem**](ConfigurationEntryApi.md#getconfigurationentryitem) | **GET** /configuration_entries/{id} | Retrieves a ConfigurationEntry resource.
+[**postConfigurationEntryCollection**](ConfigurationEntryApi.md#postconfigurationentrycollection) | **POST** /configuration_entries | Creates a ConfigurationEntry resource.
+[**putConfigurationEntryItem**](ConfigurationEntryApi.md#putconfigurationentryitem) | **PUT** /configuration_entries/{id} | Replaces the ConfigurationEntry resource.
 
-# **getUserCollection**
-> \VentureLeap\UserService\Model\InlineResponse2001 getUserCollection($username, $email, $first_name, $last_name, $application_id, $customer_id, $active, $deleted, $page)
+# **deleteConfigurationEntryItem**
+> deleteConfigurationEntryItem($id)
 
-Retrieves the collection of User resources.
+Removes the ConfigurationEntry resource.
 
 ### Example
 ```php
@@ -24,27 +24,18 @@ $config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setA
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ApplicationId', 'Bearer');
 
-$apiInstance = new VentureLeap\UserService\Api\UserApi(
+$apiInstance = new VentureLeap\UserService\Api\ConfigurationEntryApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$username = "username_example"; // string | 
-$email = "email_example"; // string | 
-$first_name = "first_name_example"; // string | 
-$last_name = "last_name_example"; // string | 
-$application_id = "application_id_example"; // string | 
-$customer_id = "customer_id_example"; // string | 
-$active = true; // bool | 
-$deleted = true; // bool | 
-$page = 1; // int | The collection page number
+$id = "id_example"; // string | 
 
 try {
-    $result = $apiInstance->getUserCollection($username, $email, $first_name, $last_name, $application_id, $customer_id, $active, $deleted, $page);
-    print_r($result);
+    $apiInstance->deleteConfigurationEntryItem($id);
 } catch (Exception $e) {
-    echo 'Exception when calling UserApi->getUserCollection: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ConfigurationEntryApi->deleteConfigurationEntryItem: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -53,19 +44,67 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **username** | **string**|  | [optional]
- **email** | **string**|  | [optional]
- **first_name** | **string**|  | [optional]
- **last_name** | **string**|  | [optional]
- **application_id** | **string**|  | [optional]
- **customer_id** | **string**|  | [optional]
- **active** | **bool**|  | [optional]
- **deleted** | **bool**|  | [optional]
+ **id** | **string**|  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[applicationId](../../README.md#applicationId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getConfigurationEntryCollection**
+> \VentureLeap\UserService\Model\InlineResponse200 getConfigurationEntryCollection($key, $value, $page)
+
+Retrieves the collection of ConfigurationEntry resources.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+// Configure API key authorization: applicationId
+$config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKey('ApplicationId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ApplicationId', 'Bearer');
+
+$apiInstance = new VentureLeap\UserService\Api\ConfigurationEntryApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$key = "key_example"; // string | 
+$value = "value_example"; // string | 
+$page = 1; // int | The collection page number
+
+try {
+    $result = $apiInstance->getConfigurationEntryCollection($key, $value, $page);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ConfigurationEntryApi->getConfigurationEntryCollection: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **key** | **string**|  | [optional]
+ **value** | **string**|  | [optional]
  **page** | **int**| The collection page number | [optional] [default to 1]
 
 ### Return type
 
-[**\VentureLeap\UserService\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\VentureLeap\UserService\Model\InlineResponse200**](../Model/InlineResponse200.md)
 
 ### Authorization
 
@@ -78,10 +117,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **getUserItem**
-> \VentureLeap\UserService\Model\UserJsonldUserRead getUserItem($id)
+# **getConfigurationEntryItem**
+> \VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationRead getConfigurationEntryItem($id)
 
-Retrieves a User resource.
+Retrieves a ConfigurationEntry resource.
 
 ### Example
 ```php
@@ -92,7 +131,7 @@ $config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setA
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ApplicationId', 'Bearer');
 
-$apiInstance = new VentureLeap\UserService\Api\UserApi(
+$apiInstance = new VentureLeap\UserService\Api\ConfigurationEntryApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -101,10 +140,10 @@ $apiInstance = new VentureLeap\UserService\Api\UserApi(
 $id = "id_example"; // string | 
 
 try {
-    $result = $apiInstance->getUserItem($id);
+    $result = $apiInstance->getConfigurationEntryItem($id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling UserApi->getUserItem: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ConfigurationEntryApi->getConfigurationEntryItem: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -117,7 +156,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\VentureLeap\UserService\Model\UserJsonldUserRead**](../Model/UserJsonldUserRead.md)
+[**\VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationRead**](../Model/ConfigurationEntryJsonldConfigurationRead.md)
 
 ### Authorization
 
@@ -130,62 +169,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **loginByTokenUserItem**
-> \VentureLeap\UserService\Model\UserJsonldUserRead loginByTokenUserItem($id)
+# **postConfigurationEntryCollection**
+> \VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationRead postConfigurationEntryCollection($body)
 
-Retrieves a User resource.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-// Configure API key authorization: applicationId
-$config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKey('ApplicationId', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ApplicationId', 'Bearer');
-
-$apiInstance = new VentureLeap\UserService\Api\UserApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = "id_example"; // string | 
-
-try {
-    $result = $apiInstance->loginByTokenUserItem($id);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling UserApi->loginByTokenUserItem: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**|  |
-
-### Return type
-
-[**\VentureLeap\UserService\Model\UserJsonldUserRead**](../Model/UserJsonldUserRead.md)
-
-### Authorization
-
-[applicationId](../../README.md#applicationId)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/ld+json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **postUserCollection**
-> \VentureLeap\UserService\Model\UserJsonldUserRead postUserCollection($body)
-
-Creates a User resource.
+Creates a ConfigurationEntry resource.
 
 ### Example
 ```php
@@ -196,19 +183,19 @@ $config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setA
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ApplicationId', 'Bearer');
 
-$apiInstance = new VentureLeap\UserService\Api\UserApi(
+$apiInstance = new VentureLeap\UserService\Api\ConfigurationEntryApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \VentureLeap\UserService\Model\UserJsonldUserWrite(); // \VentureLeap\UserService\Model\UserJsonldUserWrite | The new User resource
+$body = new \VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationWrite(); // \VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationWrite | The new ConfigurationEntry resource
 
 try {
-    $result = $apiInstance->postUserCollection($body);
+    $result = $apiInstance->postConfigurationEntryCollection($body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling UserApi->postUserCollection: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ConfigurationEntryApi->postConfigurationEntryCollection: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -217,11 +204,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\VentureLeap\UserService\Model\UserJsonldUserWrite**](../Model/UserJsonldUserWrite.md)| The new User resource | [optional]
+ **body** | [**\VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationWrite**](../Model/ConfigurationEntryJsonldConfigurationWrite.md)| The new ConfigurationEntry resource | [optional]
 
 ### Return type
 
-[**\VentureLeap\UserService\Model\UserJsonldUserRead**](../Model/UserJsonldUserRead.md)
+[**\VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationRead**](../Model/ConfigurationEntryJsonldConfigurationRead.md)
 
 ### Authorization
 
@@ -234,10 +221,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **putUserItem**
-> \VentureLeap\UserService\Model\UserJsonldUserRead putUserItem($id, $body)
+# **putConfigurationEntryItem**
+> \VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationRead putConfigurationEntryItem($id, $body)
 
-Replaces the User resource.
+Replaces the ConfigurationEntry resource.
 
 ### Example
 ```php
@@ -248,20 +235,20 @@ $config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setA
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ApplicationId', 'Bearer');
 
-$apiInstance = new VentureLeap\UserService\Api\UserApi(
+$apiInstance = new VentureLeap\UserService\Api\ConfigurationEntryApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $id = "id_example"; // string | 
-$body = new \VentureLeap\UserService\Model\UserJsonldUserWrite(); // \VentureLeap\UserService\Model\UserJsonldUserWrite | The updated User resource
+$body = new \VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationWrite(); // \VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationWrite | The updated ConfigurationEntry resource
 
 try {
-    $result = $apiInstance->putUserItem($id, $body);
+    $result = $apiInstance->putConfigurationEntryItem($id, $body);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling UserApi->putUserItem: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ConfigurationEntryApi->putConfigurationEntryItem: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -271,11 +258,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**|  |
- **body** | [**\VentureLeap\UserService\Model\UserJsonldUserWrite**](../Model/UserJsonldUserWrite.md)| The updated User resource | [optional]
+ **body** | [**\VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationWrite**](../Model/ConfigurationEntryJsonldConfigurationWrite.md)| The updated ConfigurationEntry resource | [optional]
 
 ### Return type
 
-[**\VentureLeap\UserService\Model\UserJsonldUserRead**](../Model/UserJsonldUserRead.md)
+[**\VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationRead**](../Model/ConfigurationEntryJsonldConfigurationRead.md)
 
 ### Authorization
 

@@ -67,7 +67,7 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'customer_id' => 'string',
 'deleted' => 'bool',
 'additional_properties' => 'string',
-'auth_code' => 'int',
+'auth_code' => 'string',
 'failed_login_attempts' => 'int',
 'failed_login_time' => '\DateTime',
 'roles' => 'string[]',
@@ -559,7 +559,7 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
     /**
      * Gets auth_code
      *
-     * @return int
+     * @return string
      */
     public function getAuthCode()
     {
@@ -569,7 +569,7 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
     /**
      * Sets auth_code
      *
-     * @param int $auth_code auth_code
+     * @param string $auth_code auth_code
      *
      * @return $this
      */

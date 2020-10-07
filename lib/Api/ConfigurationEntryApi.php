@@ -1,6 +1,6 @@
 <?php
 /**
- * UserApi
+ * ConfigurationEntryApi
  * PHP version 5
  *
  * @category Class
@@ -39,14 +39,14 @@ use VentureLeap\UserService\HeaderSelector;
 use VentureLeap\UserService\ObjectSerializer;
 
 /**
- * UserApi Class Doc Comment
+ * ConfigurationEntryApi Class Doc Comment
  *
  * @category Class
  * @package  VentureLeap\UserService
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class UserApi
+class ConfigurationEntryApi
 {
     /**
      * @var ClientInterface
@@ -87,53 +87,271 @@ class UserApi
     }
 
     /**
-     * Operation getUserCollection
+     * Operation deleteConfigurationEntryItem
      *
-     * Retrieves the collection of User resources.
+     * Removes the ConfigurationEntry resource.
      *
-     * @param  string $username username (optional)
-     * @param  string $email email (optional)
-     * @param  string $first_name first_name (optional)
-     * @param  string $last_name last_name (optional)
-     * @param  string $application_id application_id (optional)
-     * @param  string $customer_id customer_id (optional)
-     * @param  bool $active active (optional)
-     * @param  bool $deleted deleted (optional)
+     * @param  string $id id (required)
+     *
+     * @throws \VentureLeap\UserService\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function deleteConfigurationEntryItem($id)
+    {
+        $this->deleteConfigurationEntryItemWithHttpInfo($id);
+    }
+
+    /**
+     * Operation deleteConfigurationEntryItemWithHttpInfo
+     *
+     * Removes the ConfigurationEntry resource.
+     *
+     * @param  string $id (required)
+     *
+     * @throws \VentureLeap\UserService\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function deleteConfigurationEntryItemWithHttpInfo($id)
+    {
+        $returnType = '';
+        $request = $this->deleteConfigurationEntryItemRequest($id);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation deleteConfigurationEntryItemAsync
+     *
+     * Removes the ConfigurationEntry resource.
+     *
+     * @param  string $id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteConfigurationEntryItemAsync($id)
+    {
+        return $this->deleteConfigurationEntryItemAsyncWithHttpInfo($id)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation deleteConfigurationEntryItemAsyncWithHttpInfo
+     *
+     * Removes the ConfigurationEntry resource.
+     *
+     * @param  string $id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function deleteConfigurationEntryItemAsyncWithHttpInfo($id)
+    {
+        $returnType = '';
+        $request = $this->deleteConfigurationEntryItemRequest($id);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'deleteConfigurationEntryItem'
+     *
+     * @param  string $id (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function deleteConfigurationEntryItemRequest($id)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling deleteConfigurationEntryItem'
+            );
+        }
+
+        $resourcePath = '/configuration_entries/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                []
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                [],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('ApplicationId');
+        if ($apiKey !== null) {
+            $headers['ApplicationId'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getConfigurationEntryCollection
+     *
+     * Retrieves the collection of ConfigurationEntry resources.
+     *
+     * @param  string $key key (optional)
+     * @param  string $value value (optional)
      * @param  int $page The collection page number (optional, default to 1)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \VentureLeap\UserService\Model\InlineResponse2001
+     * @return \VentureLeap\UserService\Model\InlineResponse200
      */
-    public function getUserCollection($username = null, $email = null, $first_name = null, $last_name = null, $application_id = null, $customer_id = null, $active = null, $deleted = null, $page = '1')
+    public function getConfigurationEntryCollection($key = null, $value = null, $page = '1')
     {
-        list($response) = $this->getUserCollectionWithHttpInfo($username, $email, $first_name, $last_name, $application_id, $customer_id, $active, $deleted, $page);
+        list($response) = $this->getConfigurationEntryCollectionWithHttpInfo($key, $value, $page);
         return $response;
     }
 
     /**
-     * Operation getUserCollectionWithHttpInfo
+     * Operation getConfigurationEntryCollectionWithHttpInfo
      *
-     * Retrieves the collection of User resources.
+     * Retrieves the collection of ConfigurationEntry resources.
      *
-     * @param  string $username (optional)
-     * @param  string $email (optional)
-     * @param  string $first_name (optional)
-     * @param  string $last_name (optional)
-     * @param  string $application_id (optional)
-     * @param  string $customer_id (optional)
-     * @param  bool $active (optional)
-     * @param  bool $deleted (optional)
+     * @param  string $key (optional)
+     * @param  string $value (optional)
      * @param  int $page The collection page number (optional, default to 1)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \VentureLeap\UserService\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \VentureLeap\UserService\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUserCollectionWithHttpInfo($username = null, $email = null, $first_name = null, $last_name = null, $application_id = null, $customer_id = null, $active = null, $deleted = null, $page = '1')
+    public function getConfigurationEntryCollectionWithHttpInfo($key = null, $value = null, $page = '1')
     {
-        $returnType = '\VentureLeap\UserService\Model\InlineResponse2001';
-        $request = $this->getUserCollectionRequest($username, $email, $first_name, $last_name, $application_id, $customer_id, $active, $deleted, $page);
+        $returnType = '\VentureLeap\UserService\Model\InlineResponse200';
+        $request = $this->getConfigurationEntryCollectionRequest($key, $value, $page);
 
         try {
             $options = $this->createHttpClientOption();
@@ -184,7 +402,7 @@ class UserApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\VentureLeap\UserService\Model\InlineResponse2001',
+                        '\VentureLeap\UserService\Model\InlineResponse200',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -195,26 +413,20 @@ class UserApi
     }
 
     /**
-     * Operation getUserCollectionAsync
+     * Operation getConfigurationEntryCollectionAsync
      *
-     * Retrieves the collection of User resources.
+     * Retrieves the collection of ConfigurationEntry resources.
      *
-     * @param  string $username (optional)
-     * @param  string $email (optional)
-     * @param  string $first_name (optional)
-     * @param  string $last_name (optional)
-     * @param  string $application_id (optional)
-     * @param  string $customer_id (optional)
-     * @param  bool $active (optional)
-     * @param  bool $deleted (optional)
+     * @param  string $key (optional)
+     * @param  string $value (optional)
      * @param  int $page The collection page number (optional, default to 1)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserCollectionAsync($username = null, $email = null, $first_name = null, $last_name = null, $application_id = null, $customer_id = null, $active = null, $deleted = null, $page = '1')
+    public function getConfigurationEntryCollectionAsync($key = null, $value = null, $page = '1')
     {
-        return $this->getUserCollectionAsyncWithHttpInfo($username, $email, $first_name, $last_name, $application_id, $customer_id, $active, $deleted, $page)
+        return $this->getConfigurationEntryCollectionAsyncWithHttpInfo($key, $value, $page)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -223,27 +435,21 @@ class UserApi
     }
 
     /**
-     * Operation getUserCollectionAsyncWithHttpInfo
+     * Operation getConfigurationEntryCollectionAsyncWithHttpInfo
      *
-     * Retrieves the collection of User resources.
+     * Retrieves the collection of ConfigurationEntry resources.
      *
-     * @param  string $username (optional)
-     * @param  string $email (optional)
-     * @param  string $first_name (optional)
-     * @param  string $last_name (optional)
-     * @param  string $application_id (optional)
-     * @param  string $customer_id (optional)
-     * @param  bool $active (optional)
-     * @param  bool $deleted (optional)
+     * @param  string $key (optional)
+     * @param  string $value (optional)
      * @param  int $page The collection page number (optional, default to 1)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserCollectionAsyncWithHttpInfo($username = null, $email = null, $first_name = null, $last_name = null, $application_id = null, $customer_id = null, $active = null, $deleted = null, $page = '1')
+    public function getConfigurationEntryCollectionAsyncWithHttpInfo($key = null, $value = null, $page = '1')
     {
-        $returnType = '\VentureLeap\UserService\Model\InlineResponse2001';
-        $request = $this->getUserCollectionRequest($username, $email, $first_name, $last_name, $application_id, $customer_id, $active, $deleted, $page);
+        $returnType = '\VentureLeap\UserService\Model\InlineResponse200';
+        $request = $this->getConfigurationEntryCollectionRequest($key, $value, $page);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -283,25 +489,19 @@ class UserApi
     }
 
     /**
-     * Create request for operation 'getUserCollection'
+     * Create request for operation 'getConfigurationEntryCollection'
      *
-     * @param  string $username (optional)
-     * @param  string $email (optional)
-     * @param  string $first_name (optional)
-     * @param  string $last_name (optional)
-     * @param  string $application_id (optional)
-     * @param  string $customer_id (optional)
-     * @param  bool $active (optional)
-     * @param  bool $deleted (optional)
+     * @param  string $key (optional)
+     * @param  string $value (optional)
      * @param  int $page The collection page number (optional, default to 1)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getUserCollectionRequest($username = null, $email = null, $first_name = null, $last_name = null, $application_id = null, $customer_id = null, $active = null, $deleted = null, $page = '1')
+    protected function getConfigurationEntryCollectionRequest($key = null, $value = null, $page = '1')
     {
 
-        $resourcePath = '/users';
+        $resourcePath = '/configuration_entries';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -309,36 +509,12 @@ class UserApi
         $multipart = false;
 
         // query params
-        if ($username !== null) {
-            $queryParams['username'] = ObjectSerializer::toQueryValue($username);
+        if ($key !== null) {
+            $queryParams['key'] = ObjectSerializer::toQueryValue($key);
         }
         // query params
-        if ($email !== null) {
-            $queryParams['email'] = ObjectSerializer::toQueryValue($email);
-        }
-        // query params
-        if ($first_name !== null) {
-            $queryParams['firstName'] = ObjectSerializer::toQueryValue($first_name);
-        }
-        // query params
-        if ($last_name !== null) {
-            $queryParams['lastName'] = ObjectSerializer::toQueryValue($last_name);
-        }
-        // query params
-        if ($application_id !== null) {
-            $queryParams['applicationId'] = ObjectSerializer::toQueryValue($application_id);
-        }
-        // query params
-        if ($customer_id !== null) {
-            $queryParams['customerId'] = ObjectSerializer::toQueryValue($customer_id);
-        }
-        // query params
-        if ($active !== null) {
-            $queryParams['active'] = ObjectSerializer::toQueryValue($active);
-        }
-        // query params
-        if ($deleted !== null) {
-            $queryParams['deleted'] = ObjectSerializer::toQueryValue($deleted);
+        if ($value !== null) {
+            $queryParams['value'] = ObjectSerializer::toQueryValue($value);
         }
         // query params
         if ($page !== null) {
@@ -416,37 +592,37 @@ class UserApi
     }
 
     /**
-     * Operation getUserItem
+     * Operation getConfigurationEntryItem
      *
-     * Retrieves a User resource.
+     * Retrieves a ConfigurationEntry resource.
      *
      * @param  string $id id (required)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \VentureLeap\UserService\Model\UserJsonldUserRead
+     * @return \VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationRead
      */
-    public function getUserItem($id)
+    public function getConfigurationEntryItem($id)
     {
-        list($response) = $this->getUserItemWithHttpInfo($id);
+        list($response) = $this->getConfigurationEntryItemWithHttpInfo($id);
         return $response;
     }
 
     /**
-     * Operation getUserItemWithHttpInfo
+     * Operation getConfigurationEntryItemWithHttpInfo
      *
-     * Retrieves a User resource.
+     * Retrieves a ConfigurationEntry resource.
      *
      * @param  string $id (required)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \VentureLeap\UserService\Model\UserJsonldUserRead, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationRead, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUserItemWithHttpInfo($id)
+    public function getConfigurationEntryItemWithHttpInfo($id)
     {
-        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserRead';
-        $request = $this->getUserItemRequest($id);
+        $returnType = '\VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationRead';
+        $request = $this->getConfigurationEntryItemRequest($id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -497,7 +673,7 @@ class UserApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\VentureLeap\UserService\Model\UserJsonldUserRead',
+                        '\VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationRead',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -508,18 +684,18 @@ class UserApi
     }
 
     /**
-     * Operation getUserItemAsync
+     * Operation getConfigurationEntryItemAsync
      *
-     * Retrieves a User resource.
+     * Retrieves a ConfigurationEntry resource.
      *
      * @param  string $id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserItemAsync($id)
+    public function getConfigurationEntryItemAsync($id)
     {
-        return $this->getUserItemAsyncWithHttpInfo($id)
+        return $this->getConfigurationEntryItemAsyncWithHttpInfo($id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -528,19 +704,19 @@ class UserApi
     }
 
     /**
-     * Operation getUserItemAsyncWithHttpInfo
+     * Operation getConfigurationEntryItemAsyncWithHttpInfo
      *
-     * Retrieves a User resource.
+     * Retrieves a ConfigurationEntry resource.
      *
      * @param  string $id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserItemAsyncWithHttpInfo($id)
+    public function getConfigurationEntryItemAsyncWithHttpInfo($id)
     {
-        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserRead';
-        $request = $this->getUserItemRequest($id);
+        $returnType = '\VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationRead';
+        $request = $this->getConfigurationEntryItemRequest($id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -580,23 +756,23 @@ class UserApi
     }
 
     /**
-     * Create request for operation 'getUserItem'
+     * Create request for operation 'getConfigurationEntryItem'
      *
      * @param  string $id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getUserItemRequest($id)
+    protected function getConfigurationEntryItemRequest($id)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getUserItem'
+                'Missing the required parameter $id when calling getConfigurationEntryItem'
             );
         }
 
-        $resourcePath = '/users/{id}';
+        $resourcePath = '/configuration_entries/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -683,304 +859,37 @@ class UserApi
     }
 
     /**
-     * Operation loginByTokenUserItem
+     * Operation postConfigurationEntryCollection
      *
-     * Retrieves a User resource.
+     * Creates a ConfigurationEntry resource.
      *
-     * @param  string $id id (required)
+     * @param  \VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationWrite $body The new ConfigurationEntry resource (optional)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \VentureLeap\UserService\Model\UserJsonldUserRead
+     * @return \VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationRead
      */
-    public function loginByTokenUserItem($id)
+    public function postConfigurationEntryCollection($body = null)
     {
-        list($response) = $this->loginByTokenUserItemWithHttpInfo($id);
+        list($response) = $this->postConfigurationEntryCollectionWithHttpInfo($body);
         return $response;
     }
 
     /**
-     * Operation loginByTokenUserItemWithHttpInfo
+     * Operation postConfigurationEntryCollectionWithHttpInfo
      *
-     * Retrieves a User resource.
+     * Creates a ConfigurationEntry resource.
      *
-     * @param  string $id (required)
-     *
-     * @throws \VentureLeap\UserService\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \VentureLeap\UserService\Model\UserJsonldUserRead, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function loginByTokenUserItemWithHttpInfo($id)
-    {
-        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserRead';
-        $request = $this->loginByTokenUserItemRequest($id);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if (!in_array($returnType, ['string','integer','bool'])) {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\VentureLeap\UserService\Model\UserJsonldUserRead',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation loginByTokenUserItemAsync
-     *
-     * Retrieves a User resource.
-     *
-     * @param  string $id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function loginByTokenUserItemAsync($id)
-    {
-        return $this->loginByTokenUserItemAsyncWithHttpInfo($id)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation loginByTokenUserItemAsyncWithHttpInfo
-     *
-     * Retrieves a User resource.
-     *
-     * @param  string $id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function loginByTokenUserItemAsyncWithHttpInfo($id)
-    {
-        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserRead';
-        $request = $this->loginByTokenUserItemRequest($id);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'loginByTokenUserItem'
-     *
-     * @param  string $id (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function loginByTokenUserItemRequest($id)
-    {
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling loginByTokenUserItem'
-            );
-        }
-
-        $resourcePath = '/users/login-by-token/{token}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/ld+json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/ld+json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('ApplicationId');
-        if ($apiKey !== null) {
-            $headers['ApplicationId'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation postUserCollection
-     *
-     * Creates a User resource.
-     *
-     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The new User resource (optional)
+     * @param  \VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationWrite $body The new ConfigurationEntry resource (optional)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \VentureLeap\UserService\Model\UserJsonldUserRead
+     * @return array of \VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationRead, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postUserCollection($body = null)
+    public function postConfigurationEntryCollectionWithHttpInfo($body = null)
     {
-        list($response) = $this->postUserCollectionWithHttpInfo($body);
-        return $response;
-    }
-
-    /**
-     * Operation postUserCollectionWithHttpInfo
-     *
-     * Creates a User resource.
-     *
-     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The new User resource (optional)
-     *
-     * @throws \VentureLeap\UserService\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \VentureLeap\UserService\Model\UserJsonldUserRead, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function postUserCollectionWithHttpInfo($body = null)
-    {
-        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserRead';
-        $request = $this->postUserCollectionRequest($body);
+        $returnType = '\VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationRead';
+        $request = $this->postConfigurationEntryCollectionRequest($body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1031,7 +940,7 @@ class UserApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\VentureLeap\UserService\Model\UserJsonldUserRead',
+                        '\VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationRead',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1042,18 +951,18 @@ class UserApi
     }
 
     /**
-     * Operation postUserCollectionAsync
+     * Operation postConfigurationEntryCollectionAsync
      *
-     * Creates a User resource.
+     * Creates a ConfigurationEntry resource.
      *
-     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The new User resource (optional)
+     * @param  \VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationWrite $body The new ConfigurationEntry resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postUserCollectionAsync($body = null)
+    public function postConfigurationEntryCollectionAsync($body = null)
     {
-        return $this->postUserCollectionAsyncWithHttpInfo($body)
+        return $this->postConfigurationEntryCollectionAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1062,19 +971,19 @@ class UserApi
     }
 
     /**
-     * Operation postUserCollectionAsyncWithHttpInfo
+     * Operation postConfigurationEntryCollectionAsyncWithHttpInfo
      *
-     * Creates a User resource.
+     * Creates a ConfigurationEntry resource.
      *
-     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The new User resource (optional)
+     * @param  \VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationWrite $body The new ConfigurationEntry resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postUserCollectionAsyncWithHttpInfo($body = null)
+    public function postConfigurationEntryCollectionAsyncWithHttpInfo($body = null)
     {
-        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserRead';
-        $request = $this->postUserCollectionRequest($body);
+        $returnType = '\VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationRead';
+        $request = $this->postConfigurationEntryCollectionRequest($body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1114,17 +1023,17 @@ class UserApi
     }
 
     /**
-     * Create request for operation 'postUserCollection'
+     * Create request for operation 'postConfigurationEntryCollection'
      *
-     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The new User resource (optional)
+     * @param  \VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationWrite $body The new ConfigurationEntry resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function postUserCollectionRequest($body = null)
+    protected function postConfigurationEntryCollectionRequest($body = null)
     {
 
-        $resourcePath = '/users';
+        $resourcePath = '/configuration_entries';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1206,39 +1115,39 @@ class UserApi
     }
 
     /**
-     * Operation putUserItem
+     * Operation putConfigurationEntryItem
      *
-     * Replaces the User resource.
+     * Replaces the ConfigurationEntry resource.
      *
      * @param  string $id id (required)
-     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The updated User resource (optional)
+     * @param  \VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationWrite $body The updated ConfigurationEntry resource (optional)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \VentureLeap\UserService\Model\UserJsonldUserRead
+     * @return \VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationRead
      */
-    public function putUserItem($id, $body = null)
+    public function putConfigurationEntryItem($id, $body = null)
     {
-        list($response) = $this->putUserItemWithHttpInfo($id, $body);
+        list($response) = $this->putConfigurationEntryItemWithHttpInfo($id, $body);
         return $response;
     }
 
     /**
-     * Operation putUserItemWithHttpInfo
+     * Operation putConfigurationEntryItemWithHttpInfo
      *
-     * Replaces the User resource.
+     * Replaces the ConfigurationEntry resource.
      *
      * @param  string $id (required)
-     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The updated User resource (optional)
+     * @param  \VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationWrite $body The updated ConfigurationEntry resource (optional)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \VentureLeap\UserService\Model\UserJsonldUserRead, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationRead, HTTP status code, HTTP response headers (array of strings)
      */
-    public function putUserItemWithHttpInfo($id, $body = null)
+    public function putConfigurationEntryItemWithHttpInfo($id, $body = null)
     {
-        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserRead';
-        $request = $this->putUserItemRequest($id, $body);
+        $returnType = '\VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationRead';
+        $request = $this->putConfigurationEntryItemRequest($id, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1289,7 +1198,7 @@ class UserApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\VentureLeap\UserService\Model\UserJsonldUserRead',
+                        '\VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationRead',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1300,19 +1209,19 @@ class UserApi
     }
 
     /**
-     * Operation putUserItemAsync
+     * Operation putConfigurationEntryItemAsync
      *
-     * Replaces the User resource.
+     * Replaces the ConfigurationEntry resource.
      *
      * @param  string $id (required)
-     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The updated User resource (optional)
+     * @param  \VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationWrite $body The updated ConfigurationEntry resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putUserItemAsync($id, $body = null)
+    public function putConfigurationEntryItemAsync($id, $body = null)
     {
-        return $this->putUserItemAsyncWithHttpInfo($id, $body)
+        return $this->putConfigurationEntryItemAsyncWithHttpInfo($id, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1321,20 +1230,20 @@ class UserApi
     }
 
     /**
-     * Operation putUserItemAsyncWithHttpInfo
+     * Operation putConfigurationEntryItemAsyncWithHttpInfo
      *
-     * Replaces the User resource.
+     * Replaces the ConfigurationEntry resource.
      *
      * @param  string $id (required)
-     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The updated User resource (optional)
+     * @param  \VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationWrite $body The updated ConfigurationEntry resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putUserItemAsyncWithHttpInfo($id, $body = null)
+    public function putConfigurationEntryItemAsyncWithHttpInfo($id, $body = null)
     {
-        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserRead';
-        $request = $this->putUserItemRequest($id, $body);
+        $returnType = '\VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationRead';
+        $request = $this->putConfigurationEntryItemRequest($id, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1374,24 +1283,24 @@ class UserApi
     }
 
     /**
-     * Create request for operation 'putUserItem'
+     * Create request for operation 'putConfigurationEntryItem'
      *
      * @param  string $id (required)
-     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The updated User resource (optional)
+     * @param  \VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationWrite $body The updated ConfigurationEntry resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function putUserItemRequest($id, $body = null)
+    protected function putConfigurationEntryItemRequest($id, $body = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling putUserItem'
+                'Missing the required parameter $id when calling putConfigurationEntryItem'
             );
         }
 
-        $resourcePath = '/users/{id}';
+        $resourcePath = '/configuration_entries/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

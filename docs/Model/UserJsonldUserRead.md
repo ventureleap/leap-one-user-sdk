@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **additional_properties** | **string** | An explicit json array would make much more sense here. Unfortunately, the SDK generator does not understand this properly, so we have to encode and decode id manually. | [optional] 
 **created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
-**auth_code** | **int** |  | [optional] 
+**auth_code** | **string** |  | [optional] 
 **failed_login_attempts** | **int** |  | [optional] 
 **failed_login_time** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **roles** | **string[]** | First time I do that ever, but it seems necessary here. | [optional] 

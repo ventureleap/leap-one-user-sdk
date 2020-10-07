@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse200
+ * InlineResponse2001
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \VentureLeap\UserService\ObjectSerializer;
 
 /**
- * InlineResponse200 Class Doc Comment
+ * InlineResponse2001 Class Doc Comment
  *
  * @category Class
  * @package  VentureLeap\UserService
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class InlineResponse200 implements ModelInterface, ArrayAccess
+class InlineResponse2001 implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'inline_response_200';
+    protected static $swaggerModelName = 'inline_response_200_1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,7 +56,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'hydramember' => '\VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationRead[]',
+        'hydramember' => '\VentureLeap\UserService\Model\UserJsonldUserRead[]',
 'hydratotal_items' => 'int',
 'hydraview' => '\VentureLeap\UserService\Model\InlineResponse200Hydraview',
 'hydrasearch' => '\VentureLeap\UserService\Model\InlineResponse200Hydrasearch'    ];
@@ -220,7 +220,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     /**
      * Gets hydramember
      *
-     * @return \VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationRead[]
+     * @return \VentureLeap\UserService\Model\UserJsonldUserRead[]
      */
     public function getHydramember()
     {
@@ -230,7 +230,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     /**
      * Sets hydramember
      *
-     * @param \VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationRead[] $hydramember hydramember
+     * @param \VentureLeap\UserService\Model\UserJsonldUserRead[] $hydramember hydramember
      *
      * @return $this
      */
