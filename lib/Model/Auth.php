@@ -68,7 +68,10 @@ class Auth implements ModelInterface, ArrayAccess
 'deleted' => 'bool',
 'active' => 'bool',
 'additional_properties' => 'string',
-'roles' => 'string[]'    ];
+'roles' => 'string[]',
+'auth_code' => 'string',
+'failed_login_attempts' => 'int',
+'failed_login_time' => '\DateTime'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -88,7 +91,10 @@ class Auth implements ModelInterface, ArrayAccess
 'deleted' => null,
 'active' => null,
 'additional_properties' => null,
-'roles' => null    ];
+'roles' => null,
+'auth_code' => null,
+'failed_login_attempts' => null,
+'failed_login_time' => 'date-time'    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -129,7 +135,10 @@ class Auth implements ModelInterface, ArrayAccess
 'deleted' => 'deleted',
 'active' => 'active',
 'additional_properties' => 'additionalProperties',
-'roles' => 'roles'    ];
+'roles' => 'roles',
+'auth_code' => 'authCode',
+'failed_login_attempts' => 'failedLoginAttempts',
+'failed_login_time' => 'failedLoginTime'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -149,7 +158,10 @@ class Auth implements ModelInterface, ArrayAccess
 'deleted' => 'setDeleted',
 'active' => 'setActive',
 'additional_properties' => 'setAdditionalProperties',
-'roles' => 'setRoles'    ];
+'roles' => 'setRoles',
+'auth_code' => 'setAuthCode',
+'failed_login_attempts' => 'setFailedLoginAttempts',
+'failed_login_time' => 'setFailedLoginTime'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -169,7 +181,10 @@ class Auth implements ModelInterface, ArrayAccess
 'deleted' => 'getDeleted',
 'active' => 'getActive',
 'additional_properties' => 'getAdditionalProperties',
-'roles' => 'getRoles'    ];
+'roles' => 'getRoles',
+'auth_code' => 'getAuthCode',
+'failed_login_attempts' => 'getFailedLoginAttempts',
+'failed_login_time' => 'getFailedLoginTime'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -242,6 +257,9 @@ class Auth implements ModelInterface, ArrayAccess
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
         $this->container['additional_properties'] = isset($data['additional_properties']) ? $data['additional_properties'] : null;
         $this->container['roles'] = isset($data['roles']) ? $data['roles'] : null;
+        $this->container['auth_code'] = isset($data['auth_code']) ? $data['auth_code'] : null;
+        $this->container['failed_login_attempts'] = isset($data['failed_login_attempts']) ? $data['failed_login_attempts'] : null;
+        $this->container['failed_login_time'] = isset($data['failed_login_time']) ? $data['failed_login_time'] : null;
     }
 
     /**
@@ -576,6 +594,78 @@ class Auth implements ModelInterface, ArrayAccess
     public function setRoles($roles)
     {
         $this->container['roles'] = $roles;
+
+        return $this;
+    }
+
+    /**
+     * Gets auth_code
+     *
+     * @return string
+     */
+    public function getAuthCode()
+    {
+        return $this->container['auth_code'];
+    }
+
+    /**
+     * Sets auth_code
+     *
+     * @param string $auth_code auth_code
+     *
+     * @return $this
+     */
+    public function setAuthCode($auth_code)
+    {
+        $this->container['auth_code'] = $auth_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets failed_login_attempts
+     *
+     * @return int
+     */
+    public function getFailedLoginAttempts()
+    {
+        return $this->container['failed_login_attempts'];
+    }
+
+    /**
+     * Sets failed_login_attempts
+     *
+     * @param int $failed_login_attempts failed_login_attempts
+     *
+     * @return $this
+     */
+    public function setFailedLoginAttempts($failed_login_attempts)
+    {
+        $this->container['failed_login_attempts'] = $failed_login_attempts;
+
+        return $this;
+    }
+
+    /**
+     * Gets failed_login_time
+     *
+     * @return \DateTime
+     */
+    public function getFailedLoginTime()
+    {
+        return $this->container['failed_login_time'];
+    }
+
+    /**
+     * Sets failed_login_time
+     *
+     * @param \DateTime $failed_login_time failed_login_time
+     *
+     * @return $this
+     */
+    public function setFailedLoginTime($failed_login_time)
+    {
+        $this->container['failed_login_time'] = $failed_login_time;
 
         return $this;
     }
