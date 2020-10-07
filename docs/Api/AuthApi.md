@@ -18,7 +18,11 @@ require_once(__DIR__ . '/vendor/autoload.php');
 // Configure API key authorization: applicationId
 $config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKey('ApplicationId', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ApplicationId', 'Bearer');
+// $config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ApplicationId', 'Bearer');// Configure HTTP basic authorization: basicAuth
+$config = VentureLeap\UserService\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+
 
 $apiInstance = new VentureLeap\UserService\Api\AuthApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -49,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[applicationId](../../README.md#applicationId)
+[applicationId](../../README.md#applicationId), [basicAuth](../../README.md#basicAuth)
 
 ### HTTP request headers
 

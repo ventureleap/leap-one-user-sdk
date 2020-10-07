@@ -295,6 +295,10 @@ class ConfigurationEntryApi
         if ($apiKey !== null) {
             $headers['ApplicationId'] = $apiKey;
         }
+        // this endpoint requires HTTP basic authentication
+        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -323,15 +327,16 @@ class ConfigurationEntryApi
      *
      * @param  string $key key (optional)
      * @param  string $value value (optional)
+     * @param  string $application_id application_id (optional)
      * @param  int $page The collection page number (optional, default to 1)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \VentureLeap\UserService\Model\InlineResponse200
      */
-    public function getConfigurationEntryCollection($key = null, $value = null, $page = '1')
+    public function getConfigurationEntryCollection($key = null, $value = null, $application_id = null, $page = '1')
     {
-        list($response) = $this->getConfigurationEntryCollectionWithHttpInfo($key, $value, $page);
+        list($response) = $this->getConfigurationEntryCollectionWithHttpInfo($key, $value, $application_id, $page);
         return $response;
     }
 
@@ -342,16 +347,17 @@ class ConfigurationEntryApi
      *
      * @param  string $key (optional)
      * @param  string $value (optional)
+     * @param  string $application_id (optional)
      * @param  int $page The collection page number (optional, default to 1)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \VentureLeap\UserService\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getConfigurationEntryCollectionWithHttpInfo($key = null, $value = null, $page = '1')
+    public function getConfigurationEntryCollectionWithHttpInfo($key = null, $value = null, $application_id = null, $page = '1')
     {
         $returnType = '\VentureLeap\UserService\Model\InlineResponse200';
-        $request = $this->getConfigurationEntryCollectionRequest($key, $value, $page);
+        $request = $this->getConfigurationEntryCollectionRequest($key, $value, $application_id, $page);
 
         try {
             $options = $this->createHttpClientOption();
@@ -419,14 +425,15 @@ class ConfigurationEntryApi
      *
      * @param  string $key (optional)
      * @param  string $value (optional)
+     * @param  string $application_id (optional)
      * @param  int $page The collection page number (optional, default to 1)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getConfigurationEntryCollectionAsync($key = null, $value = null, $page = '1')
+    public function getConfigurationEntryCollectionAsync($key = null, $value = null, $application_id = null, $page = '1')
     {
-        return $this->getConfigurationEntryCollectionAsyncWithHttpInfo($key, $value, $page)
+        return $this->getConfigurationEntryCollectionAsyncWithHttpInfo($key, $value, $application_id, $page)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -441,15 +448,16 @@ class ConfigurationEntryApi
      *
      * @param  string $key (optional)
      * @param  string $value (optional)
+     * @param  string $application_id (optional)
      * @param  int $page The collection page number (optional, default to 1)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getConfigurationEntryCollectionAsyncWithHttpInfo($key = null, $value = null, $page = '1')
+    public function getConfigurationEntryCollectionAsyncWithHttpInfo($key = null, $value = null, $application_id = null, $page = '1')
     {
         $returnType = '\VentureLeap\UserService\Model\InlineResponse200';
-        $request = $this->getConfigurationEntryCollectionRequest($key, $value, $page);
+        $request = $this->getConfigurationEntryCollectionRequest($key, $value, $application_id, $page);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -493,12 +501,13 @@ class ConfigurationEntryApi
      *
      * @param  string $key (optional)
      * @param  string $value (optional)
+     * @param  string $application_id (optional)
      * @param  int $page The collection page number (optional, default to 1)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getConfigurationEntryCollectionRequest($key = null, $value = null, $page = '1')
+    protected function getConfigurationEntryCollectionRequest($key = null, $value = null, $application_id = null, $page = '1')
     {
 
         $resourcePath = '/configuration_entries';
@@ -515,6 +524,10 @@ class ConfigurationEntryApi
         // query params
         if ($value !== null) {
             $queryParams['value'] = ObjectSerializer::toQueryValue($value);
+        }
+        // query params
+        if ($application_id !== null) {
+            $queryParams['applicationId'] = ObjectSerializer::toQueryValue($application_id);
         }
         // query params
         if ($page !== null) {
@@ -569,6 +582,10 @@ class ConfigurationEntryApi
         $apiKey = $this->config->getApiKeyWithPrefix('ApplicationId');
         if ($apiKey !== null) {
             $headers['ApplicationId'] = $apiKey;
+        }
+        // this endpoint requires HTTP basic authentication
+        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
         }
 
         $defaultHeaders = [];
@@ -837,6 +854,10 @@ class ConfigurationEntryApi
         if ($apiKey !== null) {
             $headers['ApplicationId'] = $apiKey;
         }
+        // this endpoint requires HTTP basic authentication
+        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1092,6 +1113,10 @@ class ConfigurationEntryApi
         $apiKey = $this->config->getApiKeyWithPrefix('ApplicationId');
         if ($apiKey !== null) {
             $headers['ApplicationId'] = $apiKey;
+        }
+        // this endpoint requires HTTP basic authentication
+        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
         }
 
         $defaultHeaders = [];
@@ -1367,6 +1392,10 @@ class ConfigurationEntryApi
         $apiKey = $this->config->getApiKeyWithPrefix('ApplicationId');
         if ($apiKey !== null) {
             $headers['ApplicationId'] = $apiKey;
+        }
+        // this endpoint requires HTTP basic authentication
+        if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
         }
 
         $defaultHeaders = [];
