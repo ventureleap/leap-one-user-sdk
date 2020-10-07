@@ -56,8 +56,7 @@ class Auth implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'int',
-'email' => 'string',
+        'email' => 'string',
 'username' => 'string',
 'plain_password' => 'string',
 'application_id' => 'string',
@@ -77,8 +76,7 @@ class Auth implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => null,
-'email' => null,
+        'email' => null,
 'username' => null,
 'plain_password' => null,
 'application_id' => null,
@@ -119,8 +117,7 @@ class Auth implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-'email' => 'email',
+        'email' => 'email',
 'username' => 'username',
 'plain_password' => 'plainPassword',
 'application_id' => 'applicationId',
@@ -140,8 +137,7 @@ class Auth implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-'email' => 'setEmail',
+        'email' => 'setEmail',
 'username' => 'setUsername',
 'plain_password' => 'setPlainPassword',
 'application_id' => 'setApplicationId',
@@ -161,8 +157,7 @@ class Auth implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-'email' => 'getEmail',
+        'email' => 'getEmail',
 'username' => 'getUsername',
 'plain_password' => 'getPlainPassword',
 'application_id' => 'getApplicationId',
@@ -234,7 +229,6 @@ class Auth implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['username'] = isset($data['username']) ? $data['username'] : null;
         $this->container['plain_password'] = isset($data['plain_password']) ? $data['plain_password'] : null;
@@ -273,30 +267,6 @@ class Auth implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param int $id id
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets email

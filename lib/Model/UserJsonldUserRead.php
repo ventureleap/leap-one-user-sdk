@@ -70,6 +70,9 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
 'additional_properties' => 'string',
 'created_at' => '\DateTime',
 'updated_at' => '\DateTime',
+'auth_code' => 'int',
+'failed_login_attempts' => 'int',
+'failed_login_time' => '\DateTime',
 'roles' => 'string[]',
 'active' => 'bool'    ];
 
@@ -93,6 +96,9 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
 'additional_properties' => null,
 'created_at' => 'date-time',
 'updated_at' => 'date-time',
+'auth_code' => null,
+'failed_login_attempts' => null,
+'failed_login_time' => 'date-time',
 'roles' => null,
 'active' => null    ];
 
@@ -137,6 +143,9 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
 'additional_properties' => 'additionalProperties',
 'created_at' => 'createdAt',
 'updated_at' => 'updatedAt',
+'auth_code' => 'authCode',
+'failed_login_attempts' => 'failedLoginAttempts',
+'failed_login_time' => 'failedLoginTime',
 'roles' => 'roles',
 'active' => 'active'    ];
 
@@ -160,6 +169,9 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
 'additional_properties' => 'setAdditionalProperties',
 'created_at' => 'setCreatedAt',
 'updated_at' => 'setUpdatedAt',
+'auth_code' => 'setAuthCode',
+'failed_login_attempts' => 'setFailedLoginAttempts',
+'failed_login_time' => 'setFailedLoginTime',
 'roles' => 'setRoles',
 'active' => 'setActive'    ];
 
@@ -183,6 +195,9 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
 'additional_properties' => 'getAdditionalProperties',
 'created_at' => 'getCreatedAt',
 'updated_at' => 'getUpdatedAt',
+'auth_code' => 'getAuthCode',
+'failed_login_attempts' => 'getFailedLoginAttempts',
+'failed_login_time' => 'getFailedLoginTime',
 'roles' => 'getRoles',
 'active' => 'getActive'    ];
 
@@ -258,6 +273,9 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
         $this->container['additional_properties'] = isset($data['additional_properties']) ? $data['additional_properties'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
+        $this->container['auth_code'] = isset($data['auth_code']) ? $data['auth_code'] : null;
+        $this->container['failed_login_attempts'] = isset($data['failed_login_attempts']) ? $data['failed_login_attempts'] : null;
+        $this->container['failed_login_time'] = isset($data['failed_login_time']) ? $data['failed_login_time'] : null;
         $this->container['roles'] = isset($data['roles']) ? $data['roles'] : null;
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
     }
@@ -624,6 +642,78 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
     public function setUpdatedAt($updated_at)
     {
         $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets auth_code
+     *
+     * @return int
+     */
+    public function getAuthCode()
+    {
+        return $this->container['auth_code'];
+    }
+
+    /**
+     * Sets auth_code
+     *
+     * @param int $auth_code auth_code
+     *
+     * @return $this
+     */
+    public function setAuthCode($auth_code)
+    {
+        $this->container['auth_code'] = $auth_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets failed_login_attempts
+     *
+     * @return int
+     */
+    public function getFailedLoginAttempts()
+    {
+        return $this->container['failed_login_attempts'];
+    }
+
+    /**
+     * Sets failed_login_attempts
+     *
+     * @param int $failed_login_attempts failed_login_attempts
+     *
+     * @return $this
+     */
+    public function setFailedLoginAttempts($failed_login_attempts)
+    {
+        $this->container['failed_login_attempts'] = $failed_login_attempts;
+
+        return $this;
+    }
+
+    /**
+     * Gets failed_login_time
+     *
+     * @return \DateTime
+     */
+    public function getFailedLoginTime()
+    {
+        return $this->container['failed_login_time'];
+    }
+
+    /**
+     * Sets failed_login_time
+     *
+     * @param \DateTime $failed_login_time failed_login_time
+     *
+     * @return $this
+     */
+    public function setFailedLoginTime($failed_login_time)
+    {
+        $this->container['failed_login_time'] = $failed_login_time;
 
         return $this;
     }

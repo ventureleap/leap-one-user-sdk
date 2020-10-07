@@ -3,7 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [optional] 
 **email** | **string** |  | [optional] 
 **username** | **string** |  | [optional] 
 **plain_password** | **string** |  | [optional] 
