@@ -261,7 +261,7 @@ class AuthApi
     protected function postCredentialsItemRequest($body = null)
     {
 
-        $resourcePath = '/login';
+        $resourcePath = '/user/login';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
