@@ -4,7 +4,7 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**postCredentialsItem**](AuthApi.md#postcredentialsitem) | **POST** /user/login | Gets Logged in User.
+[**postCredentialsItem**](AuthApi.md#postcredentialsitem) | **POST** /users/login | Gets Logged in User.
 
 # **postCredentialsItem**
 > \VentureLeap\UserService\Model\Auth postCredentialsItem($body)
