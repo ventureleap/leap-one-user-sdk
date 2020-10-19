@@ -64,12 +64,12 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'password' => 'string',
 'first_name' => 'string',
 'last_name' => 'string',
-'customer_id' => 'string',
 'deleted' => 'bool',
 'additional_properties' => 'string',
 'auth_code' => 'string',
 'failed_login_attempts' => 'int',
 'failed_login_time' => '\DateTime',
+'user_type' => 'string',
 'roles' => 'string[]',
 'active' => 'bool'    ];
 
@@ -87,12 +87,12 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'password' => null,
 'first_name' => null,
 'last_name' => null,
-'customer_id' => null,
 'deleted' => null,
 'additional_properties' => null,
 'auth_code' => null,
 'failed_login_attempts' => null,
 'failed_login_time' => 'date-time',
+'user_type' => null,
 'roles' => null,
 'active' => null    ];
 
@@ -131,12 +131,12 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'password' => 'password',
 'first_name' => 'firstName',
 'last_name' => 'lastName',
-'customer_id' => 'customerId',
 'deleted' => 'deleted',
 'additional_properties' => 'additionalProperties',
 'auth_code' => 'authCode',
 'failed_login_attempts' => 'failedLoginAttempts',
 'failed_login_time' => 'failedLoginTime',
+'user_type' => 'userType',
 'roles' => 'roles',
 'active' => 'active'    ];
 
@@ -154,12 +154,12 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'password' => 'setPassword',
 'first_name' => 'setFirstName',
 'last_name' => 'setLastName',
-'customer_id' => 'setCustomerId',
 'deleted' => 'setDeleted',
 'additional_properties' => 'setAdditionalProperties',
 'auth_code' => 'setAuthCode',
 'failed_login_attempts' => 'setFailedLoginAttempts',
 'failed_login_time' => 'setFailedLoginTime',
+'user_type' => 'setUserType',
 'roles' => 'setRoles',
 'active' => 'setActive'    ];
 
@@ -177,12 +177,12 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'password' => 'getPassword',
 'first_name' => 'getFirstName',
 'last_name' => 'getLastName',
-'customer_id' => 'getCustomerId',
 'deleted' => 'getDeleted',
 'additional_properties' => 'getAdditionalProperties',
 'auth_code' => 'getAuthCode',
 'failed_login_attempts' => 'getFailedLoginAttempts',
 'failed_login_time' => 'getFailedLoginTime',
+'user_type' => 'getUserType',
 'roles' => 'getRoles',
 'active' => 'getActive'    ];
 
@@ -252,12 +252,12 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
         $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
         $this->container['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
-        $this->container['customer_id'] = isset($data['customer_id']) ? $data['customer_id'] : null;
         $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
         $this->container['additional_properties'] = isset($data['additional_properties']) ? $data['additional_properties'] : null;
         $this->container['auth_code'] = isset($data['auth_code']) ? $data['auth_code'] : null;
         $this->container['failed_login_attempts'] = isset($data['failed_login_attempts']) ? $data['failed_login_attempts'] : null;
         $this->container['failed_login_time'] = isset($data['failed_login_time']) ? $data['failed_login_time'] : null;
+        $this->container['user_type'] = isset($data['user_type']) ? $data['user_type'] : null;
         $this->container['roles'] = isset($data['roles']) ? $data['roles'] : null;
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
     }
@@ -485,30 +485,6 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets customer_id
-     *
-     * @return string
-     */
-    public function getCustomerId()
-    {
-        return $this->container['customer_id'];
-    }
-
-    /**
-     * Sets customer_id
-     *
-     * @param string $customer_id customer_id
-     *
-     * @return $this
-     */
-    public function setCustomerId($customer_id)
-    {
-        $this->container['customer_id'] = $customer_id;
-
-        return $this;
-    }
-
-    /**
      * Gets deleted
      *
      * @return bool
@@ -624,6 +600,30 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
     public function setFailedLoginTime($failed_login_time)
     {
         $this->container['failed_login_time'] = $failed_login_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_type
+     *
+     * @return string
+     */
+    public function getUserType()
+    {
+        return $this->container['user_type'];
+    }
+
+    /**
+     * Sets user_type
+     *
+     * @param string $user_type user_type
+     *
+     * @return $this
+     */
+    public function setUserType($user_type)
+    {
+        $this->container['user_type'] = $user_type;
 
         return $this;
     }
