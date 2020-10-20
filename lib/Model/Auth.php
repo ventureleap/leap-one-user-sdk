@@ -60,7 +60,6 @@ class Auth implements ModelInterface, ArrayAccess
 'username' => 'string',
 'plain_password' => 'string',
 'application_id' => 'string',
-'customer_id' => 'string',
 'uuid' => 'string',
 'login_token' => 'string',
 'first_name' => 'string',
@@ -71,7 +70,8 @@ class Auth implements ModelInterface, ArrayAccess
 'roles' => 'string[]',
 'auth_code' => 'string',
 'failed_login_attempts' => 'int',
-'failed_login_time' => '\DateTime'    ];
+'failed_login_time' => '\DateTime',
+'user_type' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -83,7 +83,6 @@ class Auth implements ModelInterface, ArrayAccess
 'username' => null,
 'plain_password' => null,
 'application_id' => null,
-'customer_id' => null,
 'uuid' => null,
 'login_token' => null,
 'first_name' => null,
@@ -94,7 +93,8 @@ class Auth implements ModelInterface, ArrayAccess
 'roles' => null,
 'auth_code' => null,
 'failed_login_attempts' => null,
-'failed_login_time' => 'date-time'    ];
+'failed_login_time' => 'date-time',
+'user_type' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -127,7 +127,6 @@ class Auth implements ModelInterface, ArrayAccess
 'username' => 'username',
 'plain_password' => 'plainPassword',
 'application_id' => 'applicationId',
-'customer_id' => 'customerId',
 'uuid' => 'uuid',
 'login_token' => 'loginToken',
 'first_name' => 'firstName',
@@ -138,7 +137,8 @@ class Auth implements ModelInterface, ArrayAccess
 'roles' => 'roles',
 'auth_code' => 'authCode',
 'failed_login_attempts' => 'failedLoginAttempts',
-'failed_login_time' => 'failedLoginTime'    ];
+'failed_login_time' => 'failedLoginTime',
+'user_type' => 'userType'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -150,7 +150,6 @@ class Auth implements ModelInterface, ArrayAccess
 'username' => 'setUsername',
 'plain_password' => 'setPlainPassword',
 'application_id' => 'setApplicationId',
-'customer_id' => 'setCustomerId',
 'uuid' => 'setUuid',
 'login_token' => 'setLoginToken',
 'first_name' => 'setFirstName',
@@ -161,7 +160,8 @@ class Auth implements ModelInterface, ArrayAccess
 'roles' => 'setRoles',
 'auth_code' => 'setAuthCode',
 'failed_login_attempts' => 'setFailedLoginAttempts',
-'failed_login_time' => 'setFailedLoginTime'    ];
+'failed_login_time' => 'setFailedLoginTime',
+'user_type' => 'setUserType'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -173,7 +173,6 @@ class Auth implements ModelInterface, ArrayAccess
 'username' => 'getUsername',
 'plain_password' => 'getPlainPassword',
 'application_id' => 'getApplicationId',
-'customer_id' => 'getCustomerId',
 'uuid' => 'getUuid',
 'login_token' => 'getLoginToken',
 'first_name' => 'getFirstName',
@@ -184,7 +183,8 @@ class Auth implements ModelInterface, ArrayAccess
 'roles' => 'getRoles',
 'auth_code' => 'getAuthCode',
 'failed_login_attempts' => 'getFailedLoginAttempts',
-'failed_login_time' => 'getFailedLoginTime'    ];
+'failed_login_time' => 'getFailedLoginTime',
+'user_type' => 'getUserType'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -248,7 +248,6 @@ class Auth implements ModelInterface, ArrayAccess
         $this->container['username'] = isset($data['username']) ? $data['username'] : null;
         $this->container['plain_password'] = isset($data['plain_password']) ? $data['plain_password'] : null;
         $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
-        $this->container['customer_id'] = isset($data['customer_id']) ? $data['customer_id'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
         $this->container['login_token'] = isset($data['login_token']) ? $data['login_token'] : null;
         $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
@@ -260,6 +259,7 @@ class Auth implements ModelInterface, ArrayAccess
         $this->container['auth_code'] = isset($data['auth_code']) ? $data['auth_code'] : null;
         $this->container['failed_login_attempts'] = isset($data['failed_login_attempts']) ? $data['failed_login_attempts'] : null;
         $this->container['failed_login_time'] = isset($data['failed_login_time']) ? $data['failed_login_time'] : null;
+        $this->container['user_type'] = isset($data['user_type']) ? $data['user_type'] : null;
     }
 
     /**
@@ -378,30 +378,6 @@ class Auth implements ModelInterface, ArrayAccess
     public function setApplicationId($application_id)
     {
         $this->container['application_id'] = $application_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets customer_id
-     *
-     * @return string
-     */
-    public function getCustomerId()
-    {
-        return $this->container['customer_id'];
-    }
-
-    /**
-     * Sets customer_id
-     *
-     * @param string $customer_id customer_id
-     *
-     * @return $this
-     */
-    public function setCustomerId($customer_id)
-    {
-        $this->container['customer_id'] = $customer_id;
 
         return $this;
     }
@@ -666,6 +642,30 @@ class Auth implements ModelInterface, ArrayAccess
     public function setFailedLoginTime($failed_login_time)
     {
         $this->container['failed_login_time'] = $failed_login_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_type
+     *
+     * @return string
+     */
+    public function getUserType()
+    {
+        return $this->container['user_type'];
+    }
+
+    /**
+     * Sets user_type
+     *
+     * @param string $user_type user_type
+     *
+     * @return $this
+     */
+    public function setUserType($user_type)
+    {
+        $this->container['user_type'] = $user_type;
 
         return $this;
     }
