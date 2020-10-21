@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **auth_code** | **string** |  | [optional] 
 **failed_login_attempts** | **int** |  | [optional] 
 **failed_login_time** | [**\DateTime**](\DateTime.md) |  | [optional] 
-**user_type** | **string** |  | [optional] 
+**user_type** | **string** |  | 
 **roles** | **string[]** | First time I do that ever, but it seems necessary here. | [optional] 
 **active** | **bool** |  | [optional] 
 
