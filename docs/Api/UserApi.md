@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**putUserItem**](UserApi.md#putuseritem) | **PUT** /users/{id} | Replaces the User resource.
 
 # **getUserCollection**
-> \VentureLeap\UserService\Model\InlineResponse2001 getUserCollection($username, $email, $first_name, $last_name, $application_id, $additional_properties, $user_type, $active, $deleted, $page)
+> \VentureLeap\UserService\Model\InlineResponse2001 getUserCollection($username, $email, $first_name, $last_name, $additional_properties, $user_type, $active, $deleted, $page)
 
 Retrieves the collection of User resources.
 
@@ -38,7 +38,6 @@ $username = "username_example"; // string |
 $email = "email_example"; // string | 
 $first_name = "first_name_example"; // string | 
 $last_name = "last_name_example"; // string | 
-$application_id = "application_id_example"; // string | 
 $additional_properties = "additional_properties_example"; // string | 
 $user_type = "user_type_example"; // string | 
 $active = true; // bool | 
@@ -46,7 +45,7 @@ $deleted = true; // bool |
 $page = 1; // int | The collection page number
 
 try {
-    $result = $apiInstance->getUserCollection($username, $email, $first_name, $last_name, $application_id, $additional_properties, $user_type, $active, $deleted, $page);
+    $result = $apiInstance->getUserCollection($username, $email, $first_name, $last_name, $additional_properties, $user_type, $active, $deleted, $page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->getUserCollection: ', $e->getMessage(), PHP_EOL;
@@ -62,7 +61,6 @@ Name | Type | Description  | Notes
  **email** | **string**|  | [optional]
  **first_name** | **string**|  | [optional]
  **last_name** | **string**|  | [optional]
- **application_id** | **string**|  | [optional]
  **additional_properties** | **string**|  | [optional]
  **user_type** | **string**|  | [optional]
  **active** | **bool**|  | [optional]
