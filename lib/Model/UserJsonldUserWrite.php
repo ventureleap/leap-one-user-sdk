@@ -67,6 +67,10 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'last_name' => 'string',
 'deleted' => 'bool',
 'additional_properties' => 'string',
+'auth_code' => 'string',
+'failed_login_attempts' => 'int',
+'failed_login_time' => '\DateTime',
+'user_type' => 'string',
 'roles' => 'string[]',
 'active' => 'bool'    ];
 
@@ -87,6 +91,10 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'last_name' => null,
 'deleted' => null,
 'additional_properties' => null,
+'auth_code' => null,
+'failed_login_attempts' => null,
+'failed_login_time' => 'date-time',
+'user_type' => null,
 'roles' => null,
 'active' => null    ];
 
@@ -128,6 +136,10 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'last_name' => 'lastName',
 'deleted' => 'deleted',
 'additional_properties' => 'additionalProperties',
+'auth_code' => 'authCode',
+'failed_login_attempts' => 'failedLoginAttempts',
+'failed_login_time' => 'failedLoginTime',
+'user_type' => 'userType',
 'roles' => 'roles',
 'active' => 'active'    ];
 
@@ -148,6 +160,10 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'last_name' => 'setLastName',
 'deleted' => 'setDeleted',
 'additional_properties' => 'setAdditionalProperties',
+'auth_code' => 'setAuthCode',
+'failed_login_attempts' => 'setFailedLoginAttempts',
+'failed_login_time' => 'setFailedLoginTime',
+'user_type' => 'setUserType',
 'roles' => 'setRoles',
 'active' => 'setActive'    ];
 
@@ -168,6 +184,10 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'last_name' => 'getLastName',
 'deleted' => 'getDeleted',
 'additional_properties' => 'getAdditionalProperties',
+'auth_code' => 'getAuthCode',
+'failed_login_attempts' => 'getFailedLoginAttempts',
+'failed_login_time' => 'getFailedLoginTime',
+'user_type' => 'getUserType',
 'roles' => 'getRoles',
 'active' => 'getActive'    ];
 
@@ -240,6 +260,10 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
         $this->container['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
         $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
         $this->container['additional_properties'] = isset($data['additional_properties']) ? $data['additional_properties'] : null;
+        $this->container['auth_code'] = isset($data['auth_code']) ? $data['auth_code'] : null;
+        $this->container['failed_login_attempts'] = isset($data['failed_login_attempts']) ? $data['failed_login_attempts'] : null;
+        $this->container['failed_login_time'] = isset($data['failed_login_time']) ? $data['failed_login_time'] : null;
+        $this->container['user_type'] = isset($data['user_type']) ? $data['user_type'] : null;
         $this->container['roles'] = isset($data['roles']) ? $data['roles'] : null;
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
     }
@@ -258,6 +282,9 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
         }
         if ($this->container['username'] === null) {
             $invalidProperties[] = "'username' can't be null";
+        }
+        if ($this->container['user_type'] === null) {
+            $invalidProperties[] = "'user_type' can't be null";
         }
         return $invalidProperties;
     }
@@ -534,6 +561,102 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
     public function setAdditionalProperties($additional_properties)
     {
         $this->container['additional_properties'] = $additional_properties;
+
+        return $this;
+    }
+
+    /**
+     * Gets auth_code
+     *
+     * @return string
+     */
+    public function getAuthCode()
+    {
+        return $this->container['auth_code'];
+    }
+
+    /**
+     * Sets auth_code
+     *
+     * @param string $auth_code auth_code
+     *
+     * @return $this
+     */
+    public function setAuthCode($auth_code)
+    {
+        $this->container['auth_code'] = $auth_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets failed_login_attempts
+     *
+     * @return int
+     */
+    public function getFailedLoginAttempts()
+    {
+        return $this->container['failed_login_attempts'];
+    }
+
+    /**
+     * Sets failed_login_attempts
+     *
+     * @param int $failed_login_attempts failed_login_attempts
+     *
+     * @return $this
+     */
+    public function setFailedLoginAttempts($failed_login_attempts)
+    {
+        $this->container['failed_login_attempts'] = $failed_login_attempts;
+
+        return $this;
+    }
+
+    /**
+     * Gets failed_login_time
+     *
+     * @return \DateTime
+     */
+    public function getFailedLoginTime()
+    {
+        return $this->container['failed_login_time'];
+    }
+
+    /**
+     * Sets failed_login_time
+     *
+     * @param \DateTime $failed_login_time failed_login_time
+     *
+     * @return $this
+     */
+    public function setFailedLoginTime($failed_login_time)
+    {
+        $this->container['failed_login_time'] = $failed_login_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_type
+     *
+     * @return string
+     */
+    public function getUserType()
+    {
+        return $this->container['user_type'];
+    }
+
+    /**
+     * Sets user_type
+     *
+     * @param string $user_type user_type
+     *
+     * @return $this
+     */
+    public function setUserType($user_type)
+    {
+        $this->container['user_type'] = $user_type;
 
         return $this;
     }
