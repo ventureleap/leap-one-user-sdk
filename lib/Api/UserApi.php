@@ -390,9 +390,9 @@ class UserApi
         }
 
         // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('ApplicationId');
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
         if ($apiKey !== null) {
-            $headers['ApplicationId'] = $apiKey;
+            $headers['Authorization'] = $apiKey;
         }
         // this endpoint requires HTTP basic authentication
         if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
@@ -661,9 +661,9 @@ class UserApi
         }
 
         // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('ApplicationId');
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
         if ($apiKey !== null) {
-            $headers['ApplicationId'] = $apiKey;
+            $headers['Authorization'] = $apiKey;
         }
         // this endpoint requires HTTP basic authentication
         if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
@@ -932,9 +932,9 @@ class UserApi
         }
 
         // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('ApplicationId');
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
         if ($apiKey !== null) {
-            $headers['ApplicationId'] = $apiKey;
+            $headers['Authorization'] = $apiKey;
         }
         // this endpoint requires HTTP basic authentication
         if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
@@ -1192,9 +1192,9 @@ class UserApi
         }
 
         // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('ApplicationId');
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
         if ($apiKey !== null) {
-            $headers['ApplicationId'] = $apiKey;
+            $headers['Authorization'] = $apiKey;
         }
         // this endpoint requires HTTP basic authentication
         if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
@@ -1471,9 +1471,9 @@ class UserApi
         }
 
         // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('ApplicationId');
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
         if ($apiKey !== null) {
-            $headers['ApplicationId'] = $apiKey;
+            $headers['Authorization'] = $apiKey;
         }
         // this endpoint requires HTTP basic authentication
         if ($this->config->getUsername() !== null || $this->config->getPassword() !== null) {
