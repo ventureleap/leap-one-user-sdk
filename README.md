@@ -85,16 +85,16 @@ All URIs are relative to */*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AuthApi* | [**postCredentialsItem**](docs/Api/AuthApi.md#postcredentialsitem) | **POST** /users/login | Gets Logged in User.
-*ConfigurationEntryApi* | [**deleteConfigurationEntryItem**](docs/Api/ConfigurationEntryApi.md#deleteconfigurationentryitem) | **DELETE** /configuration_entries/{id} | Removes the ConfigurationEntry resource.
-*ConfigurationEntryApi* | [**getConfigurationEntryCollection**](docs/Api/ConfigurationEntryApi.md#getconfigurationentrycollection) | **GET** /configuration_entries | Retrieves the collection of ConfigurationEntry resources.
-*ConfigurationEntryApi* | [**getConfigurationEntryItem**](docs/Api/ConfigurationEntryApi.md#getconfigurationentryitem) | **GET** /configuration_entries/{id} | Retrieves a ConfigurationEntry resource.
-*ConfigurationEntryApi* | [**postConfigurationEntryCollection**](docs/Api/ConfigurationEntryApi.md#postconfigurationentrycollection) | **POST** /configuration_entries | Creates a ConfigurationEntry resource.
-*ConfigurationEntryApi* | [**putConfigurationEntryItem**](docs/Api/ConfigurationEntryApi.md#putconfigurationentryitem) | **PUT** /configuration_entries/{id} | Replaces the ConfigurationEntry resource.
-*UserApi* | [**getUserCollection**](docs/Api/UserApi.md#getusercollection) | **GET** /users | Retrieves the collection of User resources.
-*UserApi* | [**getUserItem**](docs/Api/UserApi.md#getuseritem) | **GET** /users/{id} | Retrieves a User resource.
-*UserApi* | [**loginByTokenUserItem**](docs/Api/UserApi.md#loginbytokenuseritem) | **GET** /users/login-by-token/{token} | Retrieves a User resource.
-*UserApi* | [**postUserCollection**](docs/Api/UserApi.md#postusercollection) | **POST** /users | Creates a User resource.
-*UserApi* | [**putUserItem**](docs/Api/UserApi.md#putuseritem) | **PUT** /users/{id} | Replaces the User resource.
+*ConfigurationEntryApi* | [**deleteConfigurationEntryItem**](docs/Api/ConfigurationEntryApi.md#deleteconfigurationentryitem) | **DELETE** /user/configuration_entries/{id} | Removes the ConfigurationEntry resource.
+*ConfigurationEntryApi* | [**getConfigurationEntryCollection**](docs/Api/ConfigurationEntryApi.md#getconfigurationentrycollection) | **GET** /user/configuration_entries | Retrieves the collection of ConfigurationEntry resources.
+*ConfigurationEntryApi* | [**getConfigurationEntryItem**](docs/Api/ConfigurationEntryApi.md#getconfigurationentryitem) | **GET** /user/configuration_entries/{id} | Retrieves a ConfigurationEntry resource.
+*ConfigurationEntryApi* | [**postConfigurationEntryCollection**](docs/Api/ConfigurationEntryApi.md#postconfigurationentrycollection) | **POST** /user/configuration_entries | Creates a ConfigurationEntry resource.
+*ConfigurationEntryApi* | [**putConfigurationEntryItem**](docs/Api/ConfigurationEntryApi.md#putconfigurationentryitem) | **PUT** /user/configuration_entries/{id} | Replaces the ConfigurationEntry resource.
+*UserApi* | [**getUserCollection**](docs/Api/UserApi.md#getusercollection) | **GET** /user/users | Retrieves the collection of User resources.
+*UserApi* | [**getUserItem**](docs/Api/UserApi.md#getuseritem) | **GET** /user/users/{id} | Retrieves a User resource.
+*UserApi* | [**loginByTokenUserItem**](docs/Api/UserApi.md#loginbytokenuseritem) | **GET** /user/users/login-by-token/{token} | Retrieves a User resource.
+*UserApi* | [**postUserCollection**](docs/Api/UserApi.md#postusercollection) | **POST** /user/users | Creates a User resource.
+*UserApi* | [**putUserItem**](docs/Api/UserApi.md#putuseritem) | **PUT** /user/users/{id} | Replaces the User resource.
 
 ## Documentation For Models
 

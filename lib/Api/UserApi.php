@@ -100,14 +100,16 @@ class UserApi
      * @param  bool $active active (optional)
      * @param  bool $deleted deleted (optional)
      * @param  int $page The collection page number (optional, default to 1)
+     * @param  int $items_per_page The number of items per page (optional, default to 10)
+     * @param  bool $pagination Enable or disable pagination (optional)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \VentureLeap\UserService\Model\InlineResponse2001
      */
-    public function getUserCollection($username = null, $email = null, $first_name = null, $last_name = null, $additional_properties = null, $user_type = null, $active = null, $deleted = null, $page = '1')
+    public function getUserCollection($username = null, $email = null, $first_name = null, $last_name = null, $additional_properties = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
     {
-        list($response) = $this->getUserCollectionWithHttpInfo($username, $email, $first_name, $last_name, $additional_properties, $user_type, $active, $deleted, $page);
+        list($response) = $this->getUserCollectionWithHttpInfo($username, $email, $first_name, $last_name, $additional_properties, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
         return $response;
     }
 
@@ -125,15 +127,17 @@ class UserApi
      * @param  bool $active (optional)
      * @param  bool $deleted (optional)
      * @param  int $page The collection page number (optional, default to 1)
+     * @param  int $items_per_page The number of items per page (optional, default to 10)
+     * @param  bool $pagination Enable or disable pagination (optional)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \VentureLeap\UserService\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUserCollectionWithHttpInfo($username = null, $email = null, $first_name = null, $last_name = null, $additional_properties = null, $user_type = null, $active = null, $deleted = null, $page = '1')
+    public function getUserCollectionWithHttpInfo($username = null, $email = null, $first_name = null, $last_name = null, $additional_properties = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
     {
         $returnType = '\VentureLeap\UserService\Model\InlineResponse2001';
-        $request = $this->getUserCollectionRequest($username, $email, $first_name, $last_name, $additional_properties, $user_type, $active, $deleted, $page);
+        $request = $this->getUserCollectionRequest($username, $email, $first_name, $last_name, $additional_properties, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
 
         try {
             $options = $this->createHttpClientOption();
@@ -208,13 +212,15 @@ class UserApi
      * @param  bool $active (optional)
      * @param  bool $deleted (optional)
      * @param  int $page The collection page number (optional, default to 1)
+     * @param  int $items_per_page The number of items per page (optional, default to 10)
+     * @param  bool $pagination Enable or disable pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserCollectionAsync($username = null, $email = null, $first_name = null, $last_name = null, $additional_properties = null, $user_type = null, $active = null, $deleted = null, $page = '1')
+    public function getUserCollectionAsync($username = null, $email = null, $first_name = null, $last_name = null, $additional_properties = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
     {
-        return $this->getUserCollectionAsyncWithHttpInfo($username, $email, $first_name, $last_name, $additional_properties, $user_type, $active, $deleted, $page)
+        return $this->getUserCollectionAsyncWithHttpInfo($username, $email, $first_name, $last_name, $additional_properties, $user_type, $active, $deleted, $page, $items_per_page, $pagination)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -236,14 +242,16 @@ class UserApi
      * @param  bool $active (optional)
      * @param  bool $deleted (optional)
      * @param  int $page The collection page number (optional, default to 1)
+     * @param  int $items_per_page The number of items per page (optional, default to 10)
+     * @param  bool $pagination Enable or disable pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserCollectionAsyncWithHttpInfo($username = null, $email = null, $first_name = null, $last_name = null, $additional_properties = null, $user_type = null, $active = null, $deleted = null, $page = '1')
+    public function getUserCollectionAsyncWithHttpInfo($username = null, $email = null, $first_name = null, $last_name = null, $additional_properties = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
     {
         $returnType = '\VentureLeap\UserService\Model\InlineResponse2001';
-        $request = $this->getUserCollectionRequest($username, $email, $first_name, $last_name, $additional_properties, $user_type, $active, $deleted, $page);
+        $request = $this->getUserCollectionRequest($username, $email, $first_name, $last_name, $additional_properties, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -294,14 +302,16 @@ class UserApi
      * @param  bool $active (optional)
      * @param  bool $deleted (optional)
      * @param  int $page The collection page number (optional, default to 1)
+     * @param  int $items_per_page The number of items per page (optional, default to 10)
+     * @param  bool $pagination Enable or disable pagination (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getUserCollectionRequest($username = null, $email = null, $first_name = null, $last_name = null, $additional_properties = null, $user_type = null, $active = null, $deleted = null, $page = '1')
+    protected function getUserCollectionRequest($username = null, $email = null, $first_name = null, $last_name = null, $additional_properties = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
     {
 
-        $resourcePath = '/users';
+        $resourcePath = '/user/users';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -343,6 +353,14 @@ class UserApi
         // query params
         if ($page !== null) {
             $queryParams['page'] = ObjectSerializer::toQueryValue($page);
+        }
+        // query params
+        if ($items_per_page !== null) {
+            $queryParams['itemsPerPage'] = ObjectSerializer::toQueryValue($items_per_page);
+        }
+        // query params
+        if ($pagination !== null) {
+            $queryParams['pagination'] = ObjectSerializer::toQueryValue($pagination);
         }
 
 
@@ -596,7 +614,7 @@ class UserApi
             );
         }
 
-        $resourcePath = '/users/{id}';
+        $resourcePath = '/user/users/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -863,7 +881,7 @@ class UserApi
             );
         }
 
-        $resourcePath = '/users/login-by-token/{token}';
+        $resourcePath = '/user/users/login-by-token/{token}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1124,7 +1142,7 @@ class UserApi
     protected function postUserCollectionRequest($body = null)
     {
 
-        $resourcePath = '/users';
+        $resourcePath = '/user/users';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1391,7 +1409,7 @@ class UserApi
             );
         }
 
-        $resourcePath = '/users/{id}';
+        $resourcePath = '/user/users/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

@@ -4,14 +4,14 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getUserCollection**](UserApi.md#getusercollection) | **GET** /users | Retrieves the collection of User resources.
-[**getUserItem**](UserApi.md#getuseritem) | **GET** /users/{id} | Retrieves a User resource.
-[**loginByTokenUserItem**](UserApi.md#loginbytokenuseritem) | **GET** /users/login-by-token/{token} | Retrieves a User resource.
-[**postUserCollection**](UserApi.md#postusercollection) | **POST** /users | Creates a User resource.
-[**putUserItem**](UserApi.md#putuseritem) | **PUT** /users/{id} | Replaces the User resource.
+[**getUserCollection**](UserApi.md#getusercollection) | **GET** /user/users | Retrieves the collection of User resources.
+[**getUserItem**](UserApi.md#getuseritem) | **GET** /user/users/{id} | Retrieves a User resource.
+[**loginByTokenUserItem**](UserApi.md#loginbytokenuseritem) | **GET** /user/users/login-by-token/{token} | Retrieves a User resource.
+[**postUserCollection**](UserApi.md#postusercollection) | **POST** /user/users | Creates a User resource.
+[**putUserItem**](UserApi.md#putuseritem) | **PUT** /user/users/{id} | Replaces the User resource.
 
 # **getUserCollection**
-> \VentureLeap\UserService\Model\InlineResponse2001 getUserCollection($username, $email, $first_name, $last_name, $additional_properties, $user_type, $active, $deleted, $page)
+> \VentureLeap\UserService\Model\InlineResponse2001 getUserCollection($username, $email, $first_name, $last_name, $additional_properties, $user_type, $active, $deleted, $page, $items_per_page, $pagination)
 
 Retrieves the collection of User resources.
 
@@ -39,9 +39,11 @@ $user_type = "user_type_example"; // string |
 $active = true; // bool | 
 $deleted = true; // bool | 
 $page = 1; // int | The collection page number
+$items_per_page = 10; // int | The number of items per page
+$pagination = true; // bool | Enable or disable pagination
 
 try {
-    $result = $apiInstance->getUserCollection($username, $email, $first_name, $last_name, $additional_properties, $user_type, $active, $deleted, $page);
+    $result = $apiInstance->getUserCollection($username, $email, $first_name, $last_name, $additional_properties, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->getUserCollection: ', $e->getMessage(), PHP_EOL;
@@ -62,6 +64,8 @@ Name | Type | Description  | Notes
  **active** | **bool**|  | [optional]
  **deleted** | **bool**|  | [optional]
  **page** | **int**| The collection page number | [optional] [default to 1]
+ **items_per_page** | **int**| The number of items per page | [optional] [default to 10]
+ **pagination** | **bool**| Enable or disable pagination | [optional]
 
 ### Return type
 

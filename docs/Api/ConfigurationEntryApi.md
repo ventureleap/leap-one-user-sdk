@@ -4,11 +4,11 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteConfigurationEntryItem**](ConfigurationEntryApi.md#deleteconfigurationentryitem) | **DELETE** /configuration_entries/{id} | Removes the ConfigurationEntry resource.
-[**getConfigurationEntryCollection**](ConfigurationEntryApi.md#getconfigurationentrycollection) | **GET** /configuration_entries | Retrieves the collection of ConfigurationEntry resources.
-[**getConfigurationEntryItem**](ConfigurationEntryApi.md#getconfigurationentryitem) | **GET** /configuration_entries/{id} | Retrieves a ConfigurationEntry resource.
-[**postConfigurationEntryCollection**](ConfigurationEntryApi.md#postconfigurationentrycollection) | **POST** /configuration_entries | Creates a ConfigurationEntry resource.
-[**putConfigurationEntryItem**](ConfigurationEntryApi.md#putconfigurationentryitem) | **PUT** /configuration_entries/{id} | Replaces the ConfigurationEntry resource.
+[**deleteConfigurationEntryItem**](ConfigurationEntryApi.md#deleteconfigurationentryitem) | **DELETE** /user/configuration_entries/{id} | Removes the ConfigurationEntry resource.
+[**getConfigurationEntryCollection**](ConfigurationEntryApi.md#getconfigurationentrycollection) | **GET** /user/configuration_entries | Retrieves the collection of ConfigurationEntry resources.
+[**getConfigurationEntryItem**](ConfigurationEntryApi.md#getconfigurationentryitem) | **GET** /user/configuration_entries/{id} | Retrieves a ConfigurationEntry resource.
+[**postConfigurationEntryCollection**](ConfigurationEntryApi.md#postconfigurationentrycollection) | **POST** /user/configuration_entries | Creates a ConfigurationEntry resource.
+[**putConfigurationEntryItem**](ConfigurationEntryApi.md#putconfigurationentryitem) | **PUT** /user/configuration_entries/{id} | Replaces the ConfigurationEntry resource.
 
 # **deleteConfigurationEntryItem**
 > deleteConfigurationEntryItem($id)
@@ -62,7 +62,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getConfigurationEntryCollection**
-> \VentureLeap\UserService\Model\InlineResponse200 getConfigurationEntryCollection($key, $value, $application_id, $page)
+> \VentureLeap\UserService\Model\InlineResponse200 getConfigurationEntryCollection($key, $value, $application_id, $page, $items_per_page, $pagination)
 
 Retrieves the collection of ConfigurationEntry resources.
 
@@ -85,9 +85,11 @@ $key = "key_example"; // string |
 $value = "value_example"; // string | 
 $application_id = "application_id_example"; // string | 
 $page = 1; // int | The collection page number
+$items_per_page = 30; // int | The number of items per page
+$pagination = true; // bool | Enable or disable pagination
 
 try {
-    $result = $apiInstance->getConfigurationEntryCollection($key, $value, $application_id, $page);
+    $result = $apiInstance->getConfigurationEntryCollection($key, $value, $application_id, $page, $items_per_page, $pagination);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ConfigurationEntryApi->getConfigurationEntryCollection: ', $e->getMessage(), PHP_EOL;
@@ -103,6 +105,8 @@ Name | Type | Description  | Notes
  **value** | **string**|  | [optional]
  **application_id** | **string**|  | [optional]
  **page** | **int**| The collection page number | [optional] [default to 1]
+ **items_per_page** | **int**| The number of items per page | [optional] [default to 30]
+ **pagination** | **bool**| Enable or disable pagination | [optional]
 
 ### Return type
 
