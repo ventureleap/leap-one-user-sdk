@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**getUserCollection**](UserApi.md#getusercollection) | **GET** /user/users | Retrieves the collection of User resources.
 [**getUserItem**](UserApi.md#getuseritem) | **GET** /user/users/{id} | Retrieves a User resource.
 [**loginByTokenUserItem**](UserApi.md#loginbytokenuseritem) | **GET** /user/users/login-by-token/{token} | Retrieves a User resource.
+[**postCredentialsItem**](UserApi.md#postcredentialsitem) | **POST** /user/users/login | Gets Logged in User.
 [**postUserCollection**](UserApi.md#postusercollection) | **POST** /user/users | Creates a User resource.
 [**putUserItem**](UserApi.md#putuseritem) | **PUT** /user/users/{id} | Replaces the User resource.
 
@@ -183,6 +184,58 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/ld+json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **postCredentialsItem**
+> \VentureLeap\UserService\Model\User postCredentialsItem($body)
+
+Gets Logged in User.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+// Configure API key authorization: apiKey
+$config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$apiInstance = new VentureLeap\UserService\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$body = new \VentureLeap\UserService\Model\Credentials(); // \VentureLeap\UserService\Model\Credentials | Authenticates user based on credentials
+
+try {
+    $result = $apiInstance->postCredentialsItem($body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->postCredentialsItem: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\VentureLeap\UserService\Model\Credentials**](../Model/Credentials.md)| Authenticates user based on credentials | [optional]
+
+### Return type
+
+[**\VentureLeap\UserService\Model\User**](../Model/User.md)
+
+### Authorization
+
+[apiKey](../../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

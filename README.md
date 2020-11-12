@@ -61,19 +61,104 @@ $config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setA
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
-$apiInstance = new VentureLeap\UserService\Api\AuthApi(
+$apiInstance = new VentureLeap\UserService\Api\ConfigurationEntryApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \VentureLeap\UserService\Model\Credentials(); // \VentureLeap\UserService\Model\Credentials | Authenticates user based on credentials
+$id = "id_example"; // string | 
 
 try {
-    $result = $apiInstance->postCredentialsItem($body);
+    $apiInstance->deleteConfigurationEntryItem($id);
+} catch (Exception $e) {
+    echo 'Exception when calling ConfigurationEntryApi->deleteConfigurationEntryItem: ', $e->getMessage(), PHP_EOL;
+}
+
+// Configure API key authorization: apiKey
+$config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$apiInstance = new VentureLeap\UserService\Api\ConfigurationEntryApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$key = "key_example"; // string | 
+$value = "value_example"; // string | 
+$application_id = "application_id_example"; // string | 
+$page = 1; // int | The collection page number
+$items_per_page = 30; // int | The number of items per page
+$pagination = true; // bool | Enable or disable pagination
+
+try {
+    $result = $apiInstance->getConfigurationEntryCollection($key, $value, $application_id, $page, $items_per_page, $pagination);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling AuthApi->postCredentialsItem: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ConfigurationEntryApi->getConfigurationEntryCollection: ', $e->getMessage(), PHP_EOL;
+}
+
+// Configure API key authorization: apiKey
+$config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$apiInstance = new VentureLeap\UserService\Api\ConfigurationEntryApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = "id_example"; // string | 
+
+try {
+    $result = $apiInstance->getConfigurationEntryItem($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ConfigurationEntryApi->getConfigurationEntryItem: ', $e->getMessage(), PHP_EOL;
+}
+
+// Configure API key authorization: apiKey
+$config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$apiInstance = new VentureLeap\UserService\Api\ConfigurationEntryApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$body = new \VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationWrite(); // \VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationWrite | The new ConfigurationEntry resource
+
+try {
+    $result = $apiInstance->postConfigurationEntryCollection($body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ConfigurationEntryApi->postConfigurationEntryCollection: ', $e->getMessage(), PHP_EOL;
+}
+
+// Configure API key authorization: apiKey
+$config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$apiInstance = new VentureLeap\UserService\Api\ConfigurationEntryApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = "id_example"; // string | 
+$body = new \VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationWrite(); // \VentureLeap\UserService\Model\ConfigurationEntryJsonldConfigurationWrite | The updated ConfigurationEntry resource
+
+try {
+    $result = $apiInstance->putConfigurationEntryItem($id, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ConfigurationEntryApi->putConfigurationEntryItem: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -84,7 +169,6 @@ All URIs are relative to */*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AuthApi* | [**postCredentialsItem**](docs/Api/AuthApi.md#postcredentialsitem) | **POST** /users/login | Gets Logged in User.
 *ConfigurationEntryApi* | [**deleteConfigurationEntryItem**](docs/Api/ConfigurationEntryApi.md#deleteconfigurationentryitem) | **DELETE** /user/configuration_entries/{id} | Removes the ConfigurationEntry resource.
 *ConfigurationEntryApi* | [**getConfigurationEntryCollection**](docs/Api/ConfigurationEntryApi.md#getconfigurationentrycollection) | **GET** /user/configuration_entries | Retrieves the collection of ConfigurationEntry resources.
 *ConfigurationEntryApi* | [**getConfigurationEntryItem**](docs/Api/ConfigurationEntryApi.md#getconfigurationentryitem) | **GET** /user/configuration_entries/{id} | Retrieves a ConfigurationEntry resource.
@@ -93,12 +177,12 @@ Class | Method | HTTP request | Description
 *UserApi* | [**getUserCollection**](docs/Api/UserApi.md#getusercollection) | **GET** /user/users | Retrieves the collection of User resources.
 *UserApi* | [**getUserItem**](docs/Api/UserApi.md#getuseritem) | **GET** /user/users/{id} | Retrieves a User resource.
 *UserApi* | [**loginByTokenUserItem**](docs/Api/UserApi.md#loginbytokenuseritem) | **GET** /user/users/login-by-token/{token} | Retrieves a User resource.
+*UserApi* | [**postCredentialsItem**](docs/Api/UserApi.md#postcredentialsitem) | **POST** /user/users/login | Gets Logged in User.
 *UserApi* | [**postUserCollection**](docs/Api/UserApi.md#postusercollection) | **POST** /user/users | Creates a User resource.
 *UserApi* | [**putUserItem**](docs/Api/UserApi.md#putuseritem) | **PUT** /user/users/{id} | Replaces the User resource.
 
 ## Documentation For Models
 
- - [Auth](docs/Model/Auth.md)
  - [ConfigurationEntryJsonldConfigurationRead](docs/Model/ConfigurationEntryJsonldConfigurationRead.md)
  - [ConfigurationEntryJsonldConfigurationWrite](docs/Model/ConfigurationEntryJsonldConfigurationWrite.md)
  - [Credentials](docs/Model/Credentials.md)
@@ -107,6 +191,7 @@ Class | Method | HTTP request | Description
  - [InlineResponse200Hydrasearch](docs/Model/InlineResponse200Hydrasearch.md)
  - [InlineResponse200HydrasearchHydramapping](docs/Model/InlineResponse200HydrasearchHydramapping.md)
  - [InlineResponse200Hydraview](docs/Model/InlineResponse200Hydraview.md)
+ - [User](docs/Model/User.md)
  - [UserJsonldUserRead](docs/Model/UserJsonldUserRead.md)
  - [UserJsonldUserWrite](docs/Model/UserJsonldUserWrite.md)
 
