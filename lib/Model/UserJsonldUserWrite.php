@@ -283,8 +283,14 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
         if ($this->container['username'] === null) {
             $invalidProperties[] = "'username' can't be null";
         }
+        if ($this->container['additional_properties'] === null) {
+            $invalidProperties[] = "'additional_properties' can't be null";
+        }
         if ($this->container['user_type'] === null) {
             $invalidProperties[] = "'user_type' can't be null";
+        }
+        if ($this->container['roles'] === null) {
+            $invalidProperties[] = "'roles' can't be null";
         }
         return $invalidProperties;
     }
