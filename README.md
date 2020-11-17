@@ -180,8 +180,6 @@ Class | Method | HTTP request | Description
 *UserApi* | [**postCredentialsItem**](docs/Api/UserApi.md#postcredentialsitem) | **POST** /user/users/login | Gets Logged in User.
 *UserApi* | [**postUserCollection**](docs/Api/UserApi.md#postusercollection) | **POST** /user/users | Creates a User resource.
 *UserApi* | [**putUserItem**](docs/Api/UserApi.md#putuseritem) | **PUT** /user/users/{id} | Replaces the User resource.
-*UserApi* | [**resetUserPasswordUserItem**](docs/Api/UserApi.md#resetuserpassworduseritem) | **PATCH** /user/users/{id}/reset-password | Updates the User resource.
-*UserApi* | [**sendInvitationEmailUserItem**](docs/Api/UserApi.md#sendinvitationemailuseritem) | **GET** /user/users/{id}/invitation-email | Retrieves a User resource.
 
 ## Documentation For Models
 
@@ -196,7 +194,6 @@ Class | Method | HTTP request | Description
  - [User](docs/Model/User.md)
  - [UserJsonldUserRead](docs/Model/UserJsonldUserRead.md)
  - [UserJsonldUserWrite](docs/Model/UserJsonldUserWrite.md)
- - [UserPasswordReset](docs/Model/UserPasswordReset.md)
 
 ## Documentation For Authorization
 
