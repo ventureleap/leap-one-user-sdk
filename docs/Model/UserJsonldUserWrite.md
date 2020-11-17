@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **failed_login_time** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **user_type** | **string** |  | 
 **roles** | **string[]** | First time I do that ever, but it seems necessary here. | 
-**active** | **bool** |  | [optional] 
+**active** | **bool** |  | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

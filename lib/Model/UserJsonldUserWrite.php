@@ -292,6 +292,9 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
         if ($this->container['roles'] === null) {
             $invalidProperties[] = "'roles' can't be null";
         }
+        if ($this->container['active'] === null) {
+            $invalidProperties[] = "'active' can't be null";
+        }
         return $invalidProperties;
     }
 
