@@ -62,6 +62,7 @@ class ConfigurationEntryJsonldConfigurationRead implements ModelInterface, Array
 'created_at' => '\DateTime',
 'updated_at' => '\DateTime',
 'key' => 'string',
+'sub_key' => 'string',
 'value' => 'string'    ];
 
     /**
@@ -76,6 +77,7 @@ class ConfigurationEntryJsonldConfigurationRead implements ModelInterface, Array
 'created_at' => 'date-time',
 'updated_at' => 'date-time',
 'key' => null,
+'sub_key' => null,
 'value' => null    ];
 
     /**
@@ -111,6 +113,7 @@ class ConfigurationEntryJsonldConfigurationRead implements ModelInterface, Array
 'created_at' => 'createdAt',
 'updated_at' => 'updatedAt',
 'key' => 'key',
+'sub_key' => 'subKey',
 'value' => 'value'    ];
 
     /**
@@ -125,6 +128,7 @@ class ConfigurationEntryJsonldConfigurationRead implements ModelInterface, Array
 'created_at' => 'setCreatedAt',
 'updated_at' => 'setUpdatedAt',
 'key' => 'setKey',
+'sub_key' => 'setSubKey',
 'value' => 'setValue'    ];
 
     /**
@@ -139,6 +143,7 @@ class ConfigurationEntryJsonldConfigurationRead implements ModelInterface, Array
 'created_at' => 'getCreatedAt',
 'updated_at' => 'getUpdatedAt',
 'key' => 'getKey',
+'sub_key' => 'getSubKey',
 'value' => 'getValue'    ];
 
     /**
@@ -205,6 +210,7 @@ class ConfigurationEntryJsonldConfigurationRead implements ModelInterface, Array
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['sub_key'] = isset($data['sub_key']) ? $data['sub_key'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
@@ -372,6 +378,30 @@ class ConfigurationEntryJsonldConfigurationRead implements ModelInterface, Array
     public function setKey($key)
     {
         $this->container['key'] = $key;
+
+        return $this;
+    }
+
+    /**
+     * Gets sub_key
+     *
+     * @return string
+     */
+    public function getSubKey()
+    {
+        return $this->container['sub_key'];
+    }
+
+    /**
+     * Sets sub_key
+     *
+     * @param string $sub_key sub_key
+     *
+     * @return $this
+     */
+    public function setSubKey($sub_key)
+    {
+        $this->container['sub_key'] = $sub_key;
 
         return $this;
     }

@@ -57,7 +57,8 @@ class Credentials implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'username' => 'string',
-'password' => 'string'    ];
+'password' => 'string',
+'user_type' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -66,7 +67,8 @@ class Credentials implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'username' => null,
-'password' => null    ];
+'password' => null,
+'user_type' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -96,7 +98,8 @@ class Credentials implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'username' => 'username',
-'password' => 'password'    ];
+'password' => 'password',
+'user_type' => 'userType'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -105,7 +108,8 @@ class Credentials implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'username' => 'setUsername',
-'password' => 'setPassword'    ];
+'password' => 'setPassword',
+'user_type' => 'setUserType'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -114,7 +118,8 @@ class Credentials implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'username' => 'getUsername',
-'password' => 'getPassword'    ];
+'password' => 'getPassword',
+'user_type' => 'getUserType'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -176,6 +181,7 @@ class Credentials implements ModelInterface, ArrayAccess
     {
         $this->container['username'] = isset($data['username']) ? $data['username'] : null;
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
+        $this->container['user_type'] = isset($data['user_type']) ? $data['user_type'] : 'user';
     }
 
     /**
@@ -246,6 +252,30 @@ class Credentials implements ModelInterface, ArrayAccess
     public function setPassword($password)
     {
         $this->container['password'] = $password;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_type
+     *
+     * @return string
+     */
+    public function getUserType()
+    {
+        return $this->container['user_type'];
+    }
+
+    /**
+     * Sets user_type
+     *
+     * @param string $user_type user_type
+     *
+     * @return $this
+     */
+    public function setUserType($user_type)
+    {
+        $this->container['user_type'] = $user_type;
 
         return $this;
     }

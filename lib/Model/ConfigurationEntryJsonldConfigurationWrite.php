@@ -60,6 +60,7 @@ class ConfigurationEntryJsonldConfigurationWrite implements ModelInterface, Arra
 'id' => 'string',
 'type' => 'string',
 'key' => 'string',
+'sub_key' => 'string',
 'value' => 'string'    ];
 
     /**
@@ -72,6 +73,7 @@ class ConfigurationEntryJsonldConfigurationWrite implements ModelInterface, Arra
 'id' => null,
 'type' => null,
 'key' => null,
+'sub_key' => null,
 'value' => null    ];
 
     /**
@@ -105,6 +107,7 @@ class ConfigurationEntryJsonldConfigurationWrite implements ModelInterface, Arra
 'id' => '@id',
 'type' => '@type',
 'key' => 'key',
+'sub_key' => 'subKey',
 'value' => 'value'    ];
 
     /**
@@ -117,6 +120,7 @@ class ConfigurationEntryJsonldConfigurationWrite implements ModelInterface, Arra
 'id' => 'setId',
 'type' => 'setType',
 'key' => 'setKey',
+'sub_key' => 'setSubKey',
 'value' => 'setValue'    ];
 
     /**
@@ -129,6 +133,7 @@ class ConfigurationEntryJsonldConfigurationWrite implements ModelInterface, Arra
 'id' => 'getId',
 'type' => 'getType',
 'key' => 'getKey',
+'sub_key' => 'getSubKey',
 'value' => 'getValue'    ];
 
     /**
@@ -193,6 +198,7 @@ class ConfigurationEntryJsonldConfigurationWrite implements ModelInterface, Arra
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['sub_key'] = isset($data['sub_key']) ? $data['sub_key'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
@@ -312,6 +318,30 @@ class ConfigurationEntryJsonldConfigurationWrite implements ModelInterface, Arra
     public function setKey($key)
     {
         $this->container['key'] = $key;
+
+        return $this;
+    }
+
+    /**
+     * Gets sub_key
+     *
+     * @return string
+     */
+    public function getSubKey()
+    {
+        return $this->container['sub_key'];
+    }
+
+    /**
+     * Sets sub_key
+     *
+     * @param string $sub_key sub_key
+     *
+     * @return $this
+     */
+    public function setSubKey($sub_key)
+    {
+        $this->container['sub_key'] = $sub_key;
 
         return $this;
     }
