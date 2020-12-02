@@ -56,7 +56,7 @@ class UserPasswordReset implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-            ];
+        'password' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -64,7 +64,7 @@ class UserPasswordReset implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-            ];
+        'password' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -93,7 +93,7 @@ class UserPasswordReset implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-            ];
+        'password' => 'password'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -101,7 +101,7 @@ class UserPasswordReset implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-            ];
+        'password' => 'setPassword'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -109,7 +109,7 @@ class UserPasswordReset implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-            ];
+        'password' => 'getPassword'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -169,6 +169,7 @@ class UserPasswordReset implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['password'] = isset($data['password']) ? $data['password'] : null;
     }
 
     /**
@@ -194,6 +195,30 @@ class UserPasswordReset implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets password
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->container['password'];
+    }
+
+    /**
+     * Sets password
+     *
+     * @param string $password password
+     *
+     * @return $this
+     */
+    public function setPassword($password)
+    {
+        $this->container['password'] = $password;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

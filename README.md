@@ -87,6 +87,7 @@ $apiInstance = new VentureLeap\UserService\Api\ConfigurationEntryApi(
     $config
 );
 $key = "key_example"; // string | 
+$sub_key = "sub_key_example"; // string | 
 $value = "value_example"; // string | 
 $application_id = "application_id_example"; // string | 
 $page = 1; // int | The collection page number
@@ -94,7 +95,7 @@ $items_per_page = 30; // int | The number of items per page
 $pagination = true; // bool | Enable or disable pagination
 
 try {
-    $result = $apiInstance->getConfigurationEntryCollection($key, $value, $application_id, $page, $items_per_page, $pagination);
+    $result = $apiInstance->getConfigurationEntryCollection($key, $sub_key, $value, $application_id, $page, $items_per_page, $pagination);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ConfigurationEntryApi->getConfigurationEntryCollection: ', $e->getMessage(), PHP_EOL;

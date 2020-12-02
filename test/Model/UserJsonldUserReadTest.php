@@ -167,6 +167,34 @@ class UserJsonldUserReadTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "auth_code"
+     */
+    public function testPropertyAuthCode()
+    {
+    }
+
+    /**
+     * Test attribute "failed_login_attempts"
+     */
+    public function testPropertyFailedLoginAttempts()
+    {
+    }
+
+    /**
+     * Test attribute "failed_login_time"
+     */
+    public function testPropertyFailedLoginTime()
+    {
+    }
+
+    /**
+     * Test attribute "user_type"
+     */
+    public function testPropertyUserType()
+    {
+    }
+
+    /**
      * Test attribute "roles"
      */
     public function testPropertyRoles()

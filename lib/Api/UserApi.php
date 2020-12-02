@@ -278,12 +278,12 @@ class UserApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/jsonld']
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/jsonld'],
-                ['application/jsonld']
+                ['application/json'],
+                ['application/json']
             );
         }
 
@@ -1415,12 +1415,12 @@ class UserApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/jsonld']
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/jsonld'],
-                ['application/jsonld']
+                ['application/json'],
+                ['application/json']
             );
         }
 

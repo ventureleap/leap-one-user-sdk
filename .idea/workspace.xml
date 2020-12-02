@@ -1,68 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="7c1018df-34f9-483f-b543-3b9b8b2fce10" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.swagger-codegen-ignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.swagger-codegen/VERSION" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Api/ApplicationApi.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Api/AuthApi.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Api/TokenApi.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Api/ConfigurationEntryApi.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Api/ConfigurationEntryApi.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/Api/UserApi.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Api/UserApi.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Model/ApplicationJsonldRead.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Model/ApplicationJsonldWrite.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Model/Auth.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Model/Token.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Model/ConfigurationEntryJsonldConfigurationRead.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Model/ConfigurationEntryJsonldConfigurationRead.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Model/ConfigurationEntryJsonldConfigurationWrite.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Model/ConfigurationEntryJsonldConfigurationWrite.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/Model/UserJsonldUserRead.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Model/UserJsonldUserRead.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/Model/UserJsonldUserWrite.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Model/UserJsonldUserWrite.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/Model/UserPasswordReset.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Model/UserPasswordReset.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/git_push.sh" beforeDir="false" afterPath="$PROJECT_DIR$/git_push.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Api/ApplicationApi.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Api/AuthApi.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Api/ConfigurationEntryApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Api/ConfigurationEntryApi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Api/TokenApi.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Api/UserApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Api/UserApi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ApiException.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ApiException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Configuration.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Configuration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/HeaderSelector.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/HeaderSelector.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Model/ApplicationJsonldRead.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Model/ApplicationJsonldWrite.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Model/Auth.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Model/ConfigurationEntryJsonldConfigurationRead.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Model/ConfigurationEntryJsonldConfigurationRead.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Model/ConfigurationEntryJsonldConfigurationWrite.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Model/ConfigurationEntryJsonldConfigurationWrite.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Model/Credentials.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Model/Credentials.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Model/InlineResponse200.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Model/InlineResponse200.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Model/InlineResponse2001.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Model/InlineResponse2001.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Model/InlineResponse200Hydrasearch.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Model/InlineResponse200Hydrasearch.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Model/InlineResponse200HydrasearchHydramapping.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Model/InlineResponse200HydrasearchHydramapping.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Model/InlineResponse200Hydraview.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Model/InlineResponse200Hydraview.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Model/ModelInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Model/ModelInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Model/Token.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Model/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Model/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Model/UserJsonldUserRead.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Model/UserJsonldUserRead.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Model/UserJsonldUserWrite.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Model/UserJsonldUserWrite.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Model/UserPasswordReset.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Model/UserPasswordReset.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/ObjectSerializer.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ObjectSerializer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Api/ApplicationApiTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Api/AuthApiTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Api/ConfigurationEntryApiTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/Api/ConfigurationEntryApiTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Api/TokenApiTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Api/UserApiTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/Api/UserApiTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Model/ApplicationJsonldReadTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Model/ApplicationJsonldWriteTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Model/AuthTest.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/test/Model/ConfigurationEntryJsonldConfigurationReadTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/Model/ConfigurationEntryJsonldConfigurationReadTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/Model/ConfigurationEntryJsonldConfigurationWriteTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/Model/ConfigurationEntryJsonldConfigurationWriteTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Model/CredentialsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/Model/CredentialsTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Model/InlineResponse2001Test.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/Model/InlineResponse2001Test.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Model/InlineResponse200HydrasearchHydramappingTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/Model/InlineResponse200HydrasearchHydramappingTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Model/InlineResponse200HydrasearchTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/Model/InlineResponse200HydrasearchTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Model/InlineResponse200HydraviewTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/Model/InlineResponse200HydraviewTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Model/InlineResponse200Test.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/Model/InlineResponse200Test.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Model/TokenTest.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/test/Model/UserJsonldUserReadTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/Model/UserJsonldUserReadTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/Model/UserJsonldUserWriteTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/Model/UserJsonldUserWriteTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/Model/UserPasswordResetTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/Model/UserPasswordResetTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Model/UserTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/test/Model/UserTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +76,11 @@
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -116,11 +99,23 @@
       <workItem from="1602777134996" duration="1236000" />
       <workItem from="1602841041727" duration="604000" />
       <workItem from="1606746235682" duration="1861000" />
+      <workItem from="1606910131056" duration="459000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

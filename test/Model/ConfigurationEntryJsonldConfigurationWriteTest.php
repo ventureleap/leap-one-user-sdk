@@ -116,4 +116,11 @@ class ConfigurationEntryJsonldConfigurationWriteTest extends \PHPUnit_Framework_
     public function testPropertyValue()
     {
     }
+
+    /**
+     * Test attribute "application_id"
+     */
+    public function testPropertyApplicationId()
+    {
+    }
 }

@@ -118,6 +118,13 @@ class UserJsonldUserWriteTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "encoded_password"
+     */
+    public function testPropertyEncodedPassword()
+    {
+    }
+
+    /**
      * Test attribute "first_name"
      */
     public function testPropertyFirstName()
@@ -142,6 +149,34 @@ class UserJsonldUserWriteTest extends \PHPUnit_Framework_TestCase
      * Test attribute "additional_properties"
      */
     public function testPropertyAdditionalProperties()
+    {
+    }
+
+    /**
+     * Test attribute "auth_code"
+     */
+    public function testPropertyAuthCode()
+    {
+    }
+
+    /**
+     * Test attribute "failed_login_attempts"
+     */
+    public function testPropertyFailedLoginAttempts()
+    {
+    }
+
+    /**
+     * Test attribute "failed_login_time"
+     */
+    public function testPropertyFailedLoginTime()
+    {
+    }
+
+    /**
+     * Test attribute "user_type"
+     */
+    public function testPropertyUserType()
     {
     }
 

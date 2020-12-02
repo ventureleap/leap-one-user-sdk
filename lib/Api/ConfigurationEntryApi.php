@@ -322,6 +322,7 @@ class ConfigurationEntryApi
      * Retrieves the collection of ConfigurationEntry resources.
      *
      * @param  string $key key (optional)
+     * @param  string $sub_key sub_key (optional)
      * @param  string $value value (optional)
      * @param  string $application_id application_id (optional)
      * @param  int $page The collection page number (optional, default to 1)
@@ -332,9 +333,9 @@ class ConfigurationEntryApi
      * @throws \InvalidArgumentException
      * @return \VentureLeap\UserService\Model\InlineResponse200
      */
-    public function getConfigurationEntryCollection($key = null, $value = null, $application_id = null, $page = '1', $items_per_page = '30', $pagination = null)
+    public function getConfigurationEntryCollection($key = null, $sub_key = null, $value = null, $application_id = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
-        list($response) = $this->getConfigurationEntryCollectionWithHttpInfo($key, $value, $application_id, $page, $items_per_page, $pagination);
+        list($response) = $this->getConfigurationEntryCollectionWithHttpInfo($key, $sub_key, $value, $application_id, $page, $items_per_page, $pagination);
         return $response;
     }
 
@@ -344,6 +345,7 @@ class ConfigurationEntryApi
      * Retrieves the collection of ConfigurationEntry resources.
      *
      * @param  string $key (optional)
+     * @param  string $sub_key (optional)
      * @param  string $value (optional)
      * @param  string $application_id (optional)
      * @param  int $page The collection page number (optional, default to 1)
@@ -354,10 +356,10 @@ class ConfigurationEntryApi
      * @throws \InvalidArgumentException
      * @return array of \VentureLeap\UserService\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getConfigurationEntryCollectionWithHttpInfo($key = null, $value = null, $application_id = null, $page = '1', $items_per_page = '30', $pagination = null)
+    public function getConfigurationEntryCollectionWithHttpInfo($key = null, $sub_key = null, $value = null, $application_id = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
         $returnType = '\VentureLeap\UserService\Model\InlineResponse200';
-        $request = $this->getConfigurationEntryCollectionRequest($key, $value, $application_id, $page, $items_per_page, $pagination);
+        $request = $this->getConfigurationEntryCollectionRequest($key, $sub_key, $value, $application_id, $page, $items_per_page, $pagination);
 
         try {
             $options = $this->createHttpClientOption();
@@ -424,6 +426,7 @@ class ConfigurationEntryApi
      * Retrieves the collection of ConfigurationEntry resources.
      *
      * @param  string $key (optional)
+     * @param  string $sub_key (optional)
      * @param  string $value (optional)
      * @param  string $application_id (optional)
      * @param  int $page The collection page number (optional, default to 1)
@@ -433,9 +436,9 @@ class ConfigurationEntryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getConfigurationEntryCollectionAsync($key = null, $value = null, $application_id = null, $page = '1', $items_per_page = '30', $pagination = null)
+    public function getConfigurationEntryCollectionAsync($key = null, $sub_key = null, $value = null, $application_id = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
-        return $this->getConfigurationEntryCollectionAsyncWithHttpInfo($key, $value, $application_id, $page, $items_per_page, $pagination)
+        return $this->getConfigurationEntryCollectionAsyncWithHttpInfo($key, $sub_key, $value, $application_id, $page, $items_per_page, $pagination)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -449,6 +452,7 @@ class ConfigurationEntryApi
      * Retrieves the collection of ConfigurationEntry resources.
      *
      * @param  string $key (optional)
+     * @param  string $sub_key (optional)
      * @param  string $value (optional)
      * @param  string $application_id (optional)
      * @param  int $page The collection page number (optional, default to 1)
@@ -458,10 +462,10 @@ class ConfigurationEntryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getConfigurationEntryCollectionAsyncWithHttpInfo($key = null, $value = null, $application_id = null, $page = '1', $items_per_page = '30', $pagination = null)
+    public function getConfigurationEntryCollectionAsyncWithHttpInfo($key = null, $sub_key = null, $value = null, $application_id = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
         $returnType = '\VentureLeap\UserService\Model\InlineResponse200';
-        $request = $this->getConfigurationEntryCollectionRequest($key, $value, $application_id, $page, $items_per_page, $pagination);
+        $request = $this->getConfigurationEntryCollectionRequest($key, $sub_key, $value, $application_id, $page, $items_per_page, $pagination);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -504,6 +508,7 @@ class ConfigurationEntryApi
      * Create request for operation 'getConfigurationEntryCollection'
      *
      * @param  string $key (optional)
+     * @param  string $sub_key (optional)
      * @param  string $value (optional)
      * @param  string $application_id (optional)
      * @param  int $page The collection page number (optional, default to 1)
@@ -513,7 +518,7 @@ class ConfigurationEntryApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getConfigurationEntryCollectionRequest($key = null, $value = null, $application_id = null, $page = '1', $items_per_page = '30', $pagination = null)
+    protected function getConfigurationEntryCollectionRequest($key = null, $sub_key = null, $value = null, $application_id = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
 
         $resourcePath = '/user/configuration_entries';
@@ -526,6 +531,10 @@ class ConfigurationEntryApi
         // query params
         if ($key !== null) {
             $queryParams['key'] = ObjectSerializer::toQueryValue($key, null);
+        }
+        // query params
+        if ($sub_key !== null) {
+            $queryParams['subKey'] = ObjectSerializer::toQueryValue($sub_key, null);
         }
         // query params
         if ($value !== null) {

@@ -74,4 +74,11 @@ class UserPasswordResetTest extends \PHPUnit_Framework_TestCase
     public function testUserPasswordReset()
     {
     }
+
+    /**
+     * Test attribute "password"
+     */
+    public function testPropertyPassword()
+    {
+    }
 }

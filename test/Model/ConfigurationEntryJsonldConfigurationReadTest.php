@@ -97,6 +97,13 @@ class ConfigurationEntryJsonldConfigurationReadTest extends \PHPUnit_Framework_T
     }
 
     /**
+     * Test attribute "uuid"
+     */
+    public function testPropertyUuid()
+    {
+    }
+
+    /**
      * Test attribute "created_at"
      */
     public function testPropertyCreatedAt()
@@ -128,6 +135,13 @@ class ConfigurationEntryJsonldConfigurationReadTest extends \PHPUnit_Framework_T
      * Test attribute "value"
      */
     public function testPropertyValue()
+    {
+    }
+
+    /**
+     * Test attribute "application_id"
+     */
+    public function testPropertyApplicationId()
     {
     }
 }
