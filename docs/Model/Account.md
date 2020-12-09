@@ -1,14 +1,12 @@
-# ConfigurationEntryJsonldConfigurationWrite
+# Account
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**context** | **string** |  | [optional] 
-**id** | **string** |  | [optional] 
-**type** | **string** |  | [optional] 
-**key** | **string** |  | 
-**sub_key** | **string** |  | [optional] 
-**value** | **string** |  | [optional] 
+**name** | **string** |  | [optional] 
+**account_number** | **string** |  | [optional] 
+**active** | **bool** |  | [optional] 
+**deleted** | **bool** |  | [optional] [default to false]
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * ConfigurationEntryJsonldConfigurationRead
+ * AccountJsonldAccountWriteUserWriteActiveWrite
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \VentureLeap\UserService\ObjectSerializer;
 
 /**
- * ConfigurationEntryJsonldConfigurationRead Class Doc Comment
+ * AccountJsonldAccountWriteUserWriteActiveWrite Class Doc Comment
  *
  * @category Class
  * @package  VentureLeap\UserService
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ConfigurationEntryJsonldConfigurationRead implements ModelInterface, ArrayAccess
+class AccountJsonldAccountWriteUserWriteActiveWrite implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class ConfigurationEntryJsonldConfigurationRead implements ModelInterface, Array
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConfigurationEntry:jsonld-configuration:read';
+    protected static $swaggerModelName = 'Account:jsonld-account:write_user:write_active:write';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,13 +59,10 @@ class ConfigurationEntryJsonldConfigurationRead implements ModelInterface, Array
         'context' => 'string',
 'id' => 'string',
 'type' => 'string',
-'uuid' => 'string',
-'created_at' => '\DateTime',
-'updated_at' => '\DateTime',
-'key' => 'string',
-'sub_key' => 'string',
-'value' => 'string',
-'application_id' => 'string'    ];
+'name' => 'string',
+'account_number' => 'string',
+'deleted' => 'bool',
+'active' => 'bool'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -76,13 +73,10 @@ class ConfigurationEntryJsonldConfigurationRead implements ModelInterface, Array
         'context' => null,
 'id' => null,
 'type' => null,
-'uuid' => 'uuid',
-'created_at' => 'date-time',
-'updated_at' => 'date-time',
-'key' => null,
-'sub_key' => null,
-'value' => null,
-'application_id' => null    ];
+'name' => null,
+'account_number' => null,
+'deleted' => null,
+'active' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -114,13 +108,10 @@ class ConfigurationEntryJsonldConfigurationRead implements ModelInterface, Array
         'context' => '@context',
 'id' => '@id',
 'type' => '@type',
-'uuid' => 'uuid',
-'created_at' => 'createdAt',
-'updated_at' => 'updatedAt',
-'key' => 'key',
-'sub_key' => 'subKey',
-'value' => 'value',
-'application_id' => 'applicationId'    ];
+'name' => 'name',
+'account_number' => 'accountNumber',
+'deleted' => 'deleted',
+'active' => 'active'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -131,13 +122,10 @@ class ConfigurationEntryJsonldConfigurationRead implements ModelInterface, Array
         'context' => 'setContext',
 'id' => 'setId',
 'type' => 'setType',
-'uuid' => 'setUuid',
-'created_at' => 'setCreatedAt',
-'updated_at' => 'setUpdatedAt',
-'key' => 'setKey',
-'sub_key' => 'setSubKey',
-'value' => 'setValue',
-'application_id' => 'setApplicationId'    ];
+'name' => 'setName',
+'account_number' => 'setAccountNumber',
+'deleted' => 'setDeleted',
+'active' => 'setActive'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -148,13 +136,10 @@ class ConfigurationEntryJsonldConfigurationRead implements ModelInterface, Array
         'context' => 'getContext',
 'id' => 'getId',
 'type' => 'getType',
-'uuid' => 'getUuid',
-'created_at' => 'getCreatedAt',
-'updated_at' => 'getUpdatedAt',
-'key' => 'getKey',
-'sub_key' => 'getSubKey',
-'value' => 'getValue',
-'application_id' => 'getApplicationId'    ];
+'name' => 'getName',
+'account_number' => 'getAccountNumber',
+'deleted' => 'getDeleted',
+'active' => 'getActive'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -217,13 +202,10 @@ class ConfigurationEntryJsonldConfigurationRead implements ModelInterface, Array
         $this->container['context'] = isset($data['context']) ? $data['context'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
-        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
-        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
-        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
-        $this->container['sub_key'] = isset($data['sub_key']) ? $data['sub_key'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
-        $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['account_number'] = isset($data['account_number']) ? $data['account_number'] : null;
+        $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
+        $this->container['active'] = isset($data['active']) ? $data['active'] : null;
     }
 
     /**
@@ -235,8 +217,11 @@ class ConfigurationEntryJsonldConfigurationRead implements ModelInterface, Array
     {
         $invalidProperties = [];
 
-        if ($this->container['key'] === null) {
-            $invalidProperties[] = "'key' can't be null";
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['account_number'] === null) {
+            $invalidProperties[] = "'account_number' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,169 +311,97 @@ class ConfigurationEntryJsonldConfigurationRead implements ModelInterface, Array
     }
 
     /**
-     * Gets uuid
+     * Gets name
      *
      * @return string
      */
-    public function getUuid()
+    public function getName()
     {
-        return $this->container['uuid'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets uuid
+     * Sets name
      *
-     * @param string $uuid uuid
+     * @param string $name name
      *
      * @return $this
      */
-    public function setUuid($uuid)
+    public function setName($name)
     {
-        $this->container['uuid'] = $uuid;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets created_at
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime $created_at created_at
-     *
-     * @return $this
-     */
-    public function setCreatedAt($created_at)
-    {
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param \DateTime $updated_at updated_at
-     *
-     * @return $this
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets key
+     * Gets account_number
      *
      * @return string
      */
-    public function getKey()
+    public function getAccountNumber()
     {
-        return $this->container['key'];
+        return $this->container['account_number'];
     }
 
     /**
-     * Sets key
+     * Sets account_number
      *
-     * @param string $key key
+     * @param string $account_number account_number
      *
      * @return $this
      */
-    public function setKey($key)
+    public function setAccountNumber($account_number)
     {
-        $this->container['key'] = $key;
+        $this->container['account_number'] = $account_number;
 
         return $this;
     }
 
     /**
-     * Gets sub_key
+     * Gets deleted
      *
-     * @return string
+     * @return bool
      */
-    public function getSubKey()
+    public function getDeleted()
     {
-        return $this->container['sub_key'];
+        return $this->container['deleted'];
     }
 
     /**
-     * Sets sub_key
+     * Sets deleted
      *
-     * @param string $sub_key sub_key
+     * @param bool $deleted deleted
      *
      * @return $this
      */
-    public function setSubKey($sub_key)
+    public function setDeleted($deleted)
     {
-        $this->container['sub_key'] = $sub_key;
+        $this->container['deleted'] = $deleted;
 
         return $this;
     }
 
     /**
-     * Gets value
+     * Gets active
      *
-     * @return string
+     * @return bool
      */
-    public function getValue()
+    public function getActive()
     {
-        return $this->container['value'];
+        return $this->container['active'];
     }
 
     /**
-     * Sets value
+     * Sets active
      *
-     * @param string $value value
+     * @param bool $active active
      *
      * @return $this
      */
-    public function setValue($value)
+    public function setActive($active)
     {
-        $this->container['value'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * Gets application_id
-     *
-     * @return string
-     */
-    public function getApplicationId()
-    {
-        return $this->container['application_id'];
-    }
-
-    /**
-     * Sets application_id
-     *
-     * @param string $application_id application_id
-     *
-     * @return $this
-     */
-    public function setApplicationId($application_id)
-    {
-        $this->container['application_id'] = $application_id;
+        $this->container['active'] = $active;
 
         return $this;
     }

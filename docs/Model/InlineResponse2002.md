@@ -1,9 +1,9 @@
-# InlineResponse200
+# InlineResponse2002
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hydramember** | [**\VentureLeap\UserService\Model\AccountJsonldAccountReadUserReadActiveRead[]**](AccountJsonldAccountReadUserReadActiveRead.md) |  | 
+**hydramember** | [**\VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead[]**](UserJsonldUserReadActiveReadRolesRead.md) |  | 
 **hydratotal_items** | **int** |  | [optional] 
 **hydraview** | [**\VentureLeap\UserService\Model\InlineResponse200Hydraview**](InlineResponse200Hydraview.md) |  | [optional] 
 **hydrasearch** | [**\VentureLeap\UserService\Model\InlineResponse200Hydrasearch**](InlineResponse200Hydrasearch.md) |  | [optional] 

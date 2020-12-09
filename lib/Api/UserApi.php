@@ -361,7 +361,7 @@ class UserApi
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \VentureLeap\UserService\Model\InlineResponse2001
+     * @return \VentureLeap\UserService\Model\InlineResponse2002
      */
     public function getUserCollection($username = null, $email = null, $first_name = null, $last_name = null, $additional_properties = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
     {
@@ -388,11 +388,11 @@ class UserApi
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \VentureLeap\UserService\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \VentureLeap\UserService\Model\InlineResponse2002, HTTP status code, HTTP response headers (array of strings)
      */
     public function getUserCollectionWithHttpInfo($username = null, $email = null, $first_name = null, $last_name = null, $additional_properties = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
     {
-        $returnType = '\VentureLeap\UserService\Model\InlineResponse2001';
+        $returnType = '\VentureLeap\UserService\Model\InlineResponse2002';
         $request = $this->getUserCollectionRequest($username, $email, $first_name, $last_name, $additional_properties, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
 
         try {
@@ -444,7 +444,7 @@ class UserApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\VentureLeap\UserService\Model\InlineResponse2001',
+                        '\VentureLeap\UserService\Model\InlineResponse2002',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -506,7 +506,7 @@ class UserApi
      */
     public function getUserCollectionAsyncWithHttpInfo($username = null, $email = null, $first_name = null, $last_name = null, $additional_properties = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
     {
-        $returnType = '\VentureLeap\UserService\Model\InlineResponse2001';
+        $returnType = '\VentureLeap\UserService\Model\InlineResponse2002';
         $request = $this->getUserCollectionRequest($username, $email, $first_name, $last_name, $additional_properties, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
 
         return $this->client
@@ -698,7 +698,7 @@ class UserApi
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \VentureLeap\UserService\Model\UserJsonldUserRead
+     * @return \VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead
      */
     public function getUserItem($id)
     {
@@ -715,11 +715,11 @@ class UserApi
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \VentureLeap\UserService\Model\UserJsonldUserRead, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead, HTTP status code, HTTP response headers (array of strings)
      */
     public function getUserItemWithHttpInfo($id)
     {
-        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserRead';
+        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead';
         $request = $this->getUserItemRequest($id);
 
         try {
@@ -771,7 +771,7 @@ class UserApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\VentureLeap\UserService\Model\UserJsonldUserRead',
+                        '\VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -813,7 +813,7 @@ class UserApi
      */
     public function getUserItemAsyncWithHttpInfo($id)
     {
-        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserRead';
+        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead';
         $request = $this->getUserItemRequest($id);
 
         return $this->client
@@ -965,7 +965,7 @@ class UserApi
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \VentureLeap\UserService\Model\UserJsonldUserRead
+     * @return \VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead
      */
     public function loginByTokenUserItem($token)
     {
@@ -982,11 +982,11 @@ class UserApi
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \VentureLeap\UserService\Model\UserJsonldUserRead, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead, HTTP status code, HTTP response headers (array of strings)
      */
     public function loginByTokenUserItemWithHttpInfo($token)
     {
-        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserRead';
+        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead';
         $request = $this->loginByTokenUserItemRequest($token);
 
         try {
@@ -1038,7 +1038,7 @@ class UserApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\VentureLeap\UserService\Model\UserJsonldUserRead',
+                        '\VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1080,7 +1080,7 @@ class UserApi
      */
     public function loginByTokenUserItemAsyncWithHttpInfo($token)
     {
-        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserRead';
+        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead';
         $request = $this->loginByTokenUserItemRequest($token);
 
         return $this->client
@@ -1484,11 +1484,11 @@ class UserApi
      *
      * Creates a User resource.
      *
-     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The new User resource (optional)
+     * @param  \VentureLeap\UserService\Model\UserJsonldUserWriteActiveWriteRolesWrite $body The new User resource (optional)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \VentureLeap\UserService\Model\UserJsonldUserRead
+     * @return \VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead
      */
     public function postUserCollection($body = null)
     {
@@ -1501,15 +1501,15 @@ class UserApi
      *
      * Creates a User resource.
      *
-     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The new User resource (optional)
+     * @param  \VentureLeap\UserService\Model\UserJsonldUserWriteActiveWriteRolesWrite $body The new User resource (optional)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \VentureLeap\UserService\Model\UserJsonldUserRead, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead, HTTP status code, HTTP response headers (array of strings)
      */
     public function postUserCollectionWithHttpInfo($body = null)
     {
-        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserRead';
+        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead';
         $request = $this->postUserCollectionRequest($body);
 
         try {
@@ -1561,7 +1561,7 @@ class UserApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\VentureLeap\UserService\Model\UserJsonldUserRead',
+                        '\VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1576,7 +1576,7 @@ class UserApi
      *
      * Creates a User resource.
      *
-     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The new User resource (optional)
+     * @param  \VentureLeap\UserService\Model\UserJsonldUserWriteActiveWriteRolesWrite $body The new User resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1596,14 +1596,14 @@ class UserApi
      *
      * Creates a User resource.
      *
-     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The new User resource (optional)
+     * @param  \VentureLeap\UserService\Model\UserJsonldUserWriteActiveWriteRolesWrite $body The new User resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function postUserCollectionAsyncWithHttpInfo($body = null)
     {
-        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserRead';
+        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead';
         $request = $this->postUserCollectionRequest($body);
 
         return $this->client
@@ -1646,7 +1646,7 @@ class UserApi
     /**
      * Create request for operation 'postUserCollection'
      *
-     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The new User resource (optional)
+     * @param  \VentureLeap\UserService\Model\UserJsonldUserWriteActiveWriteRolesWrite $body The new User resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1741,11 +1741,11 @@ class UserApi
      * Replaces the User resource.
      *
      * @param  string $id id (required)
-     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The updated User resource (optional)
+     * @param  \VentureLeap\UserService\Model\UserJsonldUserWriteActiveWriteRolesWrite $body The updated User resource (optional)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \VentureLeap\UserService\Model\UserJsonldUserRead
+     * @return \VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead
      */
     public function putUserItem($id, $body = null)
     {
@@ -1759,15 +1759,15 @@ class UserApi
      * Replaces the User resource.
      *
      * @param  string $id (required)
-     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The updated User resource (optional)
+     * @param  \VentureLeap\UserService\Model\UserJsonldUserWriteActiveWriteRolesWrite $body The updated User resource (optional)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \VentureLeap\UserService\Model\UserJsonldUserRead, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead, HTTP status code, HTTP response headers (array of strings)
      */
     public function putUserItemWithHttpInfo($id, $body = null)
     {
-        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserRead';
+        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead';
         $request = $this->putUserItemRequest($id, $body);
 
         try {
@@ -1819,7 +1819,7 @@ class UserApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\VentureLeap\UserService\Model\UserJsonldUserRead',
+                        '\VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1835,7 +1835,7 @@ class UserApi
      * Replaces the User resource.
      *
      * @param  string $id (required)
-     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The updated User resource (optional)
+     * @param  \VentureLeap\UserService\Model\UserJsonldUserWriteActiveWriteRolesWrite $body The updated User resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1856,14 +1856,14 @@ class UserApi
      * Replaces the User resource.
      *
      * @param  string $id (required)
-     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The updated User resource (optional)
+     * @param  \VentureLeap\UserService\Model\UserJsonldUserWriteActiveWriteRolesWrite $body The updated User resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function putUserItemAsyncWithHttpInfo($id, $body = null)
     {
-        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserRead';
+        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead';
         $request = $this->putUserItemRequest($id, $body);
 
         return $this->client
@@ -1907,7 +1907,7 @@ class UserApi
      * Create request for operation 'putUserItem'
      *
      * @param  string $id (required)
-     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The updated User resource (optional)
+     * @param  \VentureLeap\UserService\Model\UserJsonldUserWriteActiveWriteRolesWrite $body The updated User resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2020,7 +2020,7 @@ class UserApi
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \VentureLeap\UserService\Model\UserJsonldUserRead
+     * @return \VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead
      */
     public function resetUserPasswordUserItem($id, $body = null)
     {
@@ -2038,11 +2038,11 @@ class UserApi
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \VentureLeap\UserService\Model\UserJsonldUserRead, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead, HTTP status code, HTTP response headers (array of strings)
      */
     public function resetUserPasswordUserItemWithHttpInfo($id, $body = null)
     {
-        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserRead';
+        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead';
         $request = $this->resetUserPasswordUserItemRequest($id, $body);
 
         try {
@@ -2094,7 +2094,7 @@ class UserApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\VentureLeap\UserService\Model\UserJsonldUserRead',
+                        '\VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2138,7 +2138,7 @@ class UserApi
      */
     public function resetUserPasswordUserItemAsyncWithHttpInfo($id, $body = null)
     {
-        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserRead';
+        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead';
         $request = $this->resetUserPasswordUserItemRequest($id, $body);
 
         return $this->client
@@ -2294,7 +2294,7 @@ class UserApi
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \VentureLeap\UserService\Model\UserJsonldUserRead
+     * @return \VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead
      */
     public function sendInvitationEmailUserItem($id)
     {
@@ -2311,11 +2311,11 @@ class UserApi
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \VentureLeap\UserService\Model\UserJsonldUserRead, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead, HTTP status code, HTTP response headers (array of strings)
      */
     public function sendInvitationEmailUserItemWithHttpInfo($id)
     {
-        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserRead';
+        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead';
         $request = $this->sendInvitationEmailUserItemRequest($id);
 
         try {
@@ -2367,7 +2367,7 @@ class UserApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\VentureLeap\UserService\Model\UserJsonldUserRead',
+                        '\VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2409,7 +2409,7 @@ class UserApi
      */
     public function sendInvitationEmailUserItemAsyncWithHttpInfo($id)
     {
-        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserRead';
+        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead';
         $request = $this->sendInvitationEmailUserItemRequest($id);
 
         return $this->client

@@ -1,6 +1,6 @@
 <?php
 /**
- * ConfigurationEntryJsonldConfigurationRead
+ * AccountJsonldAccountReadUserReadActiveRead
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \VentureLeap\UserService\ObjectSerializer;
 
 /**
- * ConfigurationEntryJsonldConfigurationRead Class Doc Comment
+ * AccountJsonldAccountReadUserReadActiveRead Class Doc Comment
  *
  * @category Class
  * @package  VentureLeap\UserService
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ConfigurationEntryJsonldConfigurationRead implements ModelInterface, ArrayAccess
+class AccountJsonldAccountReadUserReadActiveRead implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class ConfigurationEntryJsonldConfigurationRead implements ModelInterface, Array
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ConfigurationEntry:jsonld-configuration:read';
+    protected static $swaggerModelName = 'Account:jsonld-account:read_user:read_active:read';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,12 +60,13 @@ class ConfigurationEntryJsonldConfigurationRead implements ModelInterface, Array
 'id' => 'string',
 'type' => 'string',
 'uuid' => 'string',
+'name' => 'string',
+'account_number' => 'string',
+'deleted' => 'bool',
 'created_at' => '\DateTime',
 'updated_at' => '\DateTime',
-'key' => 'string',
-'sub_key' => 'string',
-'value' => 'string',
-'application_id' => 'string'    ];
+'users' => '\VentureLeap\UserService\Model\UserJsonldAccountReadUserReadActiveRead[]',
+'active' => 'bool'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -77,12 +78,13 @@ class ConfigurationEntryJsonldConfigurationRead implements ModelInterface, Array
 'id' => null,
 'type' => null,
 'uuid' => 'uuid',
+'name' => null,
+'account_number' => null,
+'deleted' => null,
 'created_at' => 'date-time',
 'updated_at' => 'date-time',
-'key' => null,
-'sub_key' => null,
-'value' => null,
-'application_id' => null    ];
+'users' => null,
+'active' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -115,12 +117,13 @@ class ConfigurationEntryJsonldConfigurationRead implements ModelInterface, Array
 'id' => '@id',
 'type' => '@type',
 'uuid' => 'uuid',
+'name' => 'name',
+'account_number' => 'accountNumber',
+'deleted' => 'deleted',
 'created_at' => 'createdAt',
 'updated_at' => 'updatedAt',
-'key' => 'key',
-'sub_key' => 'subKey',
-'value' => 'value',
-'application_id' => 'applicationId'    ];
+'users' => 'users',
+'active' => 'active'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -132,12 +135,13 @@ class ConfigurationEntryJsonldConfigurationRead implements ModelInterface, Array
 'id' => 'setId',
 'type' => 'setType',
 'uuid' => 'setUuid',
+'name' => 'setName',
+'account_number' => 'setAccountNumber',
+'deleted' => 'setDeleted',
 'created_at' => 'setCreatedAt',
 'updated_at' => 'setUpdatedAt',
-'key' => 'setKey',
-'sub_key' => 'setSubKey',
-'value' => 'setValue',
-'application_id' => 'setApplicationId'    ];
+'users' => 'setUsers',
+'active' => 'setActive'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -149,12 +153,13 @@ class ConfigurationEntryJsonldConfigurationRead implements ModelInterface, Array
 'id' => 'getId',
 'type' => 'getType',
 'uuid' => 'getUuid',
+'name' => 'getName',
+'account_number' => 'getAccountNumber',
+'deleted' => 'getDeleted',
 'created_at' => 'getCreatedAt',
 'updated_at' => 'getUpdatedAt',
-'key' => 'getKey',
-'sub_key' => 'getSubKey',
-'value' => 'getValue',
-'application_id' => 'getApplicationId'    ];
+'users' => 'getUsers',
+'active' => 'getActive'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -218,12 +223,13 @@ class ConfigurationEntryJsonldConfigurationRead implements ModelInterface, Array
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['account_number'] = isset($data['account_number']) ? $data['account_number'] : null;
+        $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
-        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
-        $this->container['sub_key'] = isset($data['sub_key']) ? $data['sub_key'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
-        $this->container['application_id'] = isset($data['application_id']) ? $data['application_id'] : null;
+        $this->container['users'] = isset($data['users']) ? $data['users'] : null;
+        $this->container['active'] = isset($data['active']) ? $data['active'] : null;
     }
 
     /**
@@ -235,8 +241,11 @@ class ConfigurationEntryJsonldConfigurationRead implements ModelInterface, Array
     {
         $invalidProperties = [];
 
-        if ($this->container['key'] === null) {
-            $invalidProperties[] = "'key' can't be null";
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['account_number'] === null) {
+            $invalidProperties[] = "'account_number' can't be null";
         }
         return $invalidProperties;
     }
@@ -350,6 +359,78 @@ class ConfigurationEntryJsonldConfigurationRead implements ModelInterface, Array
     }
 
     /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets account_number
+     *
+     * @return string
+     */
+    public function getAccountNumber()
+    {
+        return $this->container['account_number'];
+    }
+
+    /**
+     * Sets account_number
+     *
+     * @param string $account_number account_number
+     *
+     * @return $this
+     */
+    public function setAccountNumber($account_number)
+    {
+        $this->container['account_number'] = $account_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets deleted
+     *
+     * @return bool
+     */
+    public function getDeleted()
+    {
+        return $this->container['deleted'];
+    }
+
+    /**
+     * Sets deleted
+     *
+     * @param bool $deleted deleted
+     *
+     * @return $this
+     */
+    public function setDeleted($deleted)
+    {
+        $this->container['deleted'] = $deleted;
+
+        return $this;
+    }
+
+    /**
      * Gets created_at
      *
      * @return \DateTime
@@ -398,97 +479,49 @@ class ConfigurationEntryJsonldConfigurationRead implements ModelInterface, Array
     }
 
     /**
-     * Gets key
+     * Gets users
      *
-     * @return string
+     * @return \VentureLeap\UserService\Model\UserJsonldAccountReadUserReadActiveRead[]
      */
-    public function getKey()
+    public function getUsers()
     {
-        return $this->container['key'];
+        return $this->container['users'];
     }
 
     /**
-     * Sets key
+     * Sets users
      *
-     * @param string $key key
+     * @param \VentureLeap\UserService\Model\UserJsonldAccountReadUserReadActiveRead[] $users users
      *
      * @return $this
      */
-    public function setKey($key)
+    public function setUsers($users)
     {
-        $this->container['key'] = $key;
+        $this->container['users'] = $users;
 
         return $this;
     }
 
     /**
-     * Gets sub_key
+     * Gets active
      *
-     * @return string
+     * @return bool
      */
-    public function getSubKey()
+    public function getActive()
     {
-        return $this->container['sub_key'];
+        return $this->container['active'];
     }
 
     /**
-     * Sets sub_key
+     * Sets active
      *
-     * @param string $sub_key sub_key
+     * @param bool $active active
      *
      * @return $this
      */
-    public function setSubKey($sub_key)
+    public function setActive($active)
     {
-        $this->container['sub_key'] = $sub_key;
-
-        return $this;
-    }
-
-    /**
-     * Gets value
-     *
-     * @return string
-     */
-    public function getValue()
-    {
-        return $this->container['value'];
-    }
-
-    /**
-     * Sets value
-     *
-     * @param string $value value
-     *
-     * @return $this
-     */
-    public function setValue($value)
-    {
-        $this->container['value'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * Gets application_id
-     *
-     * @return string
-     */
-    public function getApplicationId()
-    {
-        return $this->container['application_id'];
-    }
-
-    /**
-     * Sets application_id
-     *
-     * @param string $application_id application_id
-     *
-     * @return $this
-     */
-    public function setApplicationId($application_id)
-    {
-        $this->container['application_id'] = $application_id;
+        $this->container['active'] = $active;
 
         return $this;
     }
