@@ -112,7 +112,7 @@ $apiInstance = new VentureLeap\UserService\Api\AccountApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \VentureLeap\UserService\Model\AccountJsonldAccountWriteActiveWrite(); // \VentureLeap\UserService\Model\AccountJsonldAccountWriteActiveWrite | The new Account resource
+$body = new \VentureLeap\UserService\Model\AccountJsonldAccountWrite(); // \VentureLeap\UserService\Model\AccountJsonldAccountWrite | The new Account resource
 
 try {
     $result = $apiInstance->postAccountCollection($body);
@@ -133,7 +133,7 @@ $apiInstance = new VentureLeap\UserService\Api\AccountApi(
     $config
 );
 $id = "id_example"; // string | 
-$body = new \VentureLeap\UserService\Model\AccountJsonldAccountWriteActiveWrite(); // \VentureLeap\UserService\Model\AccountJsonldAccountWriteActiveWrite | The updated Account resource
+$body = new \VentureLeap\UserService\Model\AccountJsonldAccountWrite(); // \VentureLeap\UserService\Model\AccountJsonldAccountWrite | The updated Account resource
 
 try {
     $result = $apiInstance->putAccountItem($id, $body);
@@ -174,8 +174,8 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [Account](docs/Model/Account.md)
- - [AccountJsonldAccountReadActiveRead](docs/Model/AccountJsonldAccountReadActiveRead.md)
- - [AccountJsonldAccountWriteActiveWrite](docs/Model/AccountJsonldAccountWriteActiveWrite.md)
+ - [AccountJsonldAccountRead](docs/Model/AccountJsonldAccountRead.md)
+ - [AccountJsonldAccountWrite](docs/Model/AccountJsonldAccountWrite.md)
  - [ConfigurationEntryJsonldConfigurationRead](docs/Model/ConfigurationEntryJsonldConfigurationRead.md)
  - [ConfigurationEntryJsonldConfigurationWrite](docs/Model/ConfigurationEntryJsonldConfigurationWrite.md)
  - [Credentials](docs/Model/Credentials.md)

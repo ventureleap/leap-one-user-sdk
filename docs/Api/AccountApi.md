@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAccountItem**
-> \VentureLeap\UserService\Model\AccountJsonldAccountReadActiveRead getAccountItem($id)
+> \VentureLeap\UserService\Model\AccountJsonldAccountRead getAccountItem($id)
 
 Retrieves a Account resource.
 
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\VentureLeap\UserService\Model\AccountJsonldAccountReadActiveRead**](../Model/AccountJsonldAccountReadActiveRead.md)
+[**\VentureLeap\UserService\Model\AccountJsonldAccountRead**](../Model/AccountJsonldAccountRead.md)
 
 ### Authorization
 
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **postAccountCollection**
-> \VentureLeap\UserService\Model\AccountJsonldAccountReadActiveRead postAccountCollection($body)
+> \VentureLeap\UserService\Model\AccountJsonldAccountRead postAccountCollection($body)
 
 Creates a Account resource.
 
@@ -143,7 +143,7 @@ $apiInstance = new VentureLeap\UserService\Api\AccountApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \VentureLeap\UserService\Model\AccountJsonldAccountWriteActiveWrite(); // \VentureLeap\UserService\Model\AccountJsonldAccountWriteActiveWrite | The new Account resource
+$body = new \VentureLeap\UserService\Model\AccountJsonldAccountWrite(); // \VentureLeap\UserService\Model\AccountJsonldAccountWrite | The new Account resource
 
 try {
     $result = $apiInstance->postAccountCollection($body);
@@ -158,11 +158,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\VentureLeap\UserService\Model\AccountJsonldAccountWriteActiveWrite**](../Model/AccountJsonldAccountWriteActiveWrite.md)| The new Account resource | [optional]
+ **body** | [**\VentureLeap\UserService\Model\AccountJsonldAccountWrite**](../Model/AccountJsonldAccountWrite.md)| The new Account resource | [optional]
 
 ### Return type
 
-[**\VentureLeap\UserService\Model\AccountJsonldAccountReadActiveRead**](../Model/AccountJsonldAccountReadActiveRead.md)
+[**\VentureLeap\UserService\Model\AccountJsonldAccountRead**](../Model/AccountJsonldAccountRead.md)
 
 ### Authorization
 
@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **putAccountItem**
-> \VentureLeap\UserService\Model\AccountJsonldAccountReadActiveRead putAccountItem($id, $body)
+> \VentureLeap\UserService\Model\AccountJsonldAccountRead putAccountItem($id, $body)
 
 Replaces the Account resource.
 
@@ -196,7 +196,7 @@ $apiInstance = new VentureLeap\UserService\Api\AccountApi(
     $config
 );
 $id = "id_example"; // string | 
-$body = new \VentureLeap\UserService\Model\AccountJsonldAccountWriteActiveWrite(); // \VentureLeap\UserService\Model\AccountJsonldAccountWriteActiveWrite | The updated Account resource
+$body = new \VentureLeap\UserService\Model\AccountJsonldAccountWrite(); // \VentureLeap\UserService\Model\AccountJsonldAccountWrite | The updated Account resource
 
 try {
     $result = $apiInstance->putAccountItem($id, $body);
@@ -212,11 +212,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**|  |
- **body** | [**\VentureLeap\UserService\Model\AccountJsonldAccountWriteActiveWrite**](../Model/AccountJsonldAccountWriteActiveWrite.md)| The updated Account resource | [optional]
+ **body** | [**\VentureLeap\UserService\Model\AccountJsonldAccountWrite**](../Model/AccountJsonldAccountWrite.md)| The updated Account resource | [optional]
 
 ### Return type
 
-[**\VentureLeap\UserService\Model\AccountJsonldAccountReadActiveRead**](../Model/AccountJsonldAccountReadActiveRead.md)
+[**\VentureLeap\UserService\Model\AccountJsonldAccountRead**](../Model/AccountJsonldAccountRead.md)
 
 ### Authorization
 
