@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUserItem**
-> \VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead getUserItem($id)
+> \VentureLeap\UserService\Model\UserJsonldUserRead getUserItem($id)
 
 Retrieves a User resource.
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead**](../Model/UserJsonldUserReadActiveReadRolesRead.md)
+[**\VentureLeap\UserService\Model\UserJsonldUserRead**](../Model/UserJsonldUserRead.md)
 
 ### Authorization
 
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **loginByTokenUserItem**
-> \VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead loginByTokenUserItem($token)
+> \VentureLeap\UserService\Model\UserJsonldUserRead loginByTokenUserItem($token)
 
 Retrieves a User resource.
 
@@ -229,7 +229,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead**](../Model/UserJsonldUserReadActiveReadRolesRead.md)
+[**\VentureLeap\UserService\Model\UserJsonldUserRead**](../Model/UserJsonldUserRead.md)
 
 ### Authorization
 
@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **postUserCollection**
-> \VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead postUserCollection($body)
+> \VentureLeap\UserService\Model\UserJsonldUserRead postUserCollection($body)
 
 Creates a User resource.
 
@@ -314,7 +314,7 @@ $apiInstance = new VentureLeap\UserService\Api\UserApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \VentureLeap\UserService\Model\UserJsonldUserWriteActiveWriteRolesWrite(); // \VentureLeap\UserService\Model\UserJsonldUserWriteActiveWriteRolesWrite | The new User resource
+$body = new \VentureLeap\UserService\Model\UserJsonldUserWrite(); // \VentureLeap\UserService\Model\UserJsonldUserWrite | The new User resource
 
 try {
     $result = $apiInstance->postUserCollection($body);
@@ -329,11 +329,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\VentureLeap\UserService\Model\UserJsonldUserWriteActiveWriteRolesWrite**](../Model/UserJsonldUserWriteActiveWriteRolesWrite.md)| The new User resource | [optional]
+ **body** | [**\VentureLeap\UserService\Model\UserJsonldUserWrite**](../Model/UserJsonldUserWrite.md)| The new User resource | [optional]
 
 ### Return type
 
-[**\VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead**](../Model/UserJsonldUserReadActiveReadRolesRead.md)
+[**\VentureLeap\UserService\Model\UserJsonldUserRead**](../Model/UserJsonldUserRead.md)
 
 ### Authorization
 
@@ -347,7 +347,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **putUserItem**
-> \VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead putUserItem($id, $body)
+> \VentureLeap\UserService\Model\UserJsonldUserRead putUserItem($id, $body)
 
 Replaces the User resource.
 
@@ -367,7 +367,7 @@ $apiInstance = new VentureLeap\UserService\Api\UserApi(
     $config
 );
 $id = "id_example"; // string | 
-$body = new \VentureLeap\UserService\Model\UserJsonldUserWriteActiveWriteRolesWrite(); // \VentureLeap\UserService\Model\UserJsonldUserWriteActiveWriteRolesWrite | The updated User resource
+$body = new \VentureLeap\UserService\Model\UserJsonldUserWrite(); // \VentureLeap\UserService\Model\UserJsonldUserWrite | The updated User resource
 
 try {
     $result = $apiInstance->putUserItem($id, $body);
@@ -383,11 +383,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**|  |
- **body** | [**\VentureLeap\UserService\Model\UserJsonldUserWriteActiveWriteRolesWrite**](../Model/UserJsonldUserWriteActiveWriteRolesWrite.md)| The updated User resource | [optional]
+ **body** | [**\VentureLeap\UserService\Model\UserJsonldUserWrite**](../Model/UserJsonldUserWrite.md)| The updated User resource | [optional]
 
 ### Return type
 
-[**\VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead**](../Model/UserJsonldUserReadActiveReadRolesRead.md)
+[**\VentureLeap\UserService\Model\UserJsonldUserRead**](../Model/UserJsonldUserRead.md)
 
 ### Authorization
 
@@ -401,7 +401,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **resetUserPasswordUserItem**
-> \VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead resetUserPasswordUserItem($id, $body)
+> \VentureLeap\UserService\Model\UserJsonldUserRead resetUserPasswordUserItem($id, $body)
 
 Updates the User resource.
 
@@ -441,7 +441,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead**](../Model/UserJsonldUserReadActiveReadRolesRead.md)
+[**\VentureLeap\UserService\Model\UserJsonldUserRead**](../Model/UserJsonldUserRead.md)
 
 ### Authorization
 
@@ -455,7 +455,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **sendInvitationEmailUserItem**
-> \VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead sendInvitationEmailUserItem($id)
+> \VentureLeap\UserService\Model\UserJsonldUserRead sendInvitationEmailUserItem($id)
 
 Retrieves a User resource.
 
@@ -493,7 +493,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\VentureLeap\UserService\Model\UserJsonldUserReadActiveReadRolesRead**](../Model/UserJsonldUserReadActiveReadRolesRead.md)
+[**\VentureLeap\UserService\Model\UserJsonldUserRead**](../Model/UserJsonldUserRead.md)
 
 ### Authorization
 

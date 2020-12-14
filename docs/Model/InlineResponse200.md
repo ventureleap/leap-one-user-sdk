@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hydramember** | [**\VentureLeap\UserService\Model\AccountJsonldAccountReadUserReadActiveRead[]**](AccountJsonldAccountReadUserReadActiveRead.md) |  | 
+**hydramember** | [**\VentureLeap\UserService\Model\AccountJsonldAccountReadActiveRead[]**](AccountJsonldAccountReadActiveRead.md) |  | 
 **hydratotal_items** | **int** |  | [optional] 
 **hydraview** | [**\VentureLeap\UserService\Model\InlineResponse200Hydraview**](InlineResponse200Hydraview.md) |  | [optional] 
 **hydrasearch** | [**\VentureLeap\UserService\Model\InlineResponse200Hydrasearch**](InlineResponse200Hydrasearch.md) |  | [optional] 

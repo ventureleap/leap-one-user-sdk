@@ -56,7 +56,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'hydramember' => '\VentureLeap\UserService\Model\AccountJsonldAccountReadUserReadActiveRead[]',
+        'hydramember' => '\VentureLeap\UserService\Model\AccountJsonldAccountReadActiveRead[]',
 'hydratotal_items' => 'int',
 'hydraview' => '\VentureLeap\UserService\Model\InlineResponse200Hydraview',
 'hydrasearch' => '\VentureLeap\UserService\Model\InlineResponse200Hydrasearch'    ];
@@ -220,7 +220,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     /**
      * Gets hydramember
      *
-     * @return \VentureLeap\UserService\Model\AccountJsonldAccountReadUserReadActiveRead[]
+     * @return \VentureLeap\UserService\Model\AccountJsonldAccountReadActiveRead[]
      */
     public function getHydramember()
     {
@@ -230,7 +230,7 @@ class InlineResponse200 implements ModelInterface, ArrayAccess
     /**
      * Sets hydramember
      *
-     * @param \VentureLeap\UserService\Model\AccountJsonldAccountReadUserReadActiveRead[] $hydramember hydramember
+     * @param \VentureLeap\UserService\Model\AccountJsonldAccountReadActiveRead[] $hydramember hydramember
      *
      * @return $this
      */

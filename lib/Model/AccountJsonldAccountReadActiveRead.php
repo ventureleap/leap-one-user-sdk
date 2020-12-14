@@ -1,6 +1,6 @@
 <?php
 /**
- * UserJsonldUserRead
+ * AccountJsonldAccountReadActiveRead
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \VentureLeap\UserService\ObjectSerializer;
 
 /**
- * UserJsonldUserRead Class Doc Comment
+ * AccountJsonldAccountReadActiveRead Class Doc Comment
  *
  * @category Class
  * @package  VentureLeap\UserService
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class UserJsonldUserRead implements ModelInterface, ArrayAccess
+class AccountJsonldAccountReadActiveRead implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'User:jsonld-user:read';
+    protected static $swaggerModelName = 'Account:jsonld-account:read_active:read';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,21 +60,12 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
 'id' => 'string',
 'type' => 'string',
 'uuid' => 'string',
-'email' => 'string',
-'username' => 'string',
-'first_name' => 'string',
-'last_name' => 'string',
-'login_token' => 'string',
+'name' => 'string',
+'account_number' => 'string',
 'deleted' => 'bool',
-'additional_properties' => 'string',
 'created_at' => '\DateTime',
 'updated_at' => '\DateTime',
-'auth_code' => 'string',
-'failed_login_attempts' => 'int',
-'failed_login_time' => '\DateTime',
-'user_type' => 'string',
-'roles' => 'string[]',
-'active' => 'bool'    ];
+'users' => 'string[]'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -86,21 +77,12 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
 'id' => null,
 'type' => null,
 'uuid' => 'uuid',
-'email' => null,
-'username' => null,
-'first_name' => null,
-'last_name' => null,
-'login_token' => null,
+'name' => null,
+'account_number' => null,
 'deleted' => null,
-'additional_properties' => null,
 'created_at' => 'date-time',
 'updated_at' => 'date-time',
-'auth_code' => null,
-'failed_login_attempts' => null,
-'failed_login_time' => 'date-time',
-'user_type' => null,
-'roles' => null,
-'active' => null    ];
+'users' => 'iri-reference'    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -133,21 +115,12 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
 'id' => '@id',
 'type' => '@type',
 'uuid' => 'uuid',
-'email' => 'email',
-'username' => 'username',
-'first_name' => 'firstName',
-'last_name' => 'lastName',
-'login_token' => 'loginToken',
+'name' => 'name',
+'account_number' => 'accountNumber',
 'deleted' => 'deleted',
-'additional_properties' => 'additionalProperties',
 'created_at' => 'createdAt',
 'updated_at' => 'updatedAt',
-'auth_code' => 'authCode',
-'failed_login_attempts' => 'failedLoginAttempts',
-'failed_login_time' => 'failedLoginTime',
-'user_type' => 'userType',
-'roles' => 'roles',
-'active' => 'active'    ];
+'users' => 'users'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -159,21 +132,12 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
 'id' => 'setId',
 'type' => 'setType',
 'uuid' => 'setUuid',
-'email' => 'setEmail',
-'username' => 'setUsername',
-'first_name' => 'setFirstName',
-'last_name' => 'setLastName',
-'login_token' => 'setLoginToken',
+'name' => 'setName',
+'account_number' => 'setAccountNumber',
 'deleted' => 'setDeleted',
-'additional_properties' => 'setAdditionalProperties',
 'created_at' => 'setCreatedAt',
 'updated_at' => 'setUpdatedAt',
-'auth_code' => 'setAuthCode',
-'failed_login_attempts' => 'setFailedLoginAttempts',
-'failed_login_time' => 'setFailedLoginTime',
-'user_type' => 'setUserType',
-'roles' => 'setRoles',
-'active' => 'setActive'    ];
+'users' => 'setUsers'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -185,21 +149,12 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
 'id' => 'getId',
 'type' => 'getType',
 'uuid' => 'getUuid',
-'email' => 'getEmail',
-'username' => 'getUsername',
-'first_name' => 'getFirstName',
-'last_name' => 'getLastName',
-'login_token' => 'getLoginToken',
+'name' => 'getName',
+'account_number' => 'getAccountNumber',
 'deleted' => 'getDeleted',
-'additional_properties' => 'getAdditionalProperties',
 'created_at' => 'getCreatedAt',
 'updated_at' => 'getUpdatedAt',
-'auth_code' => 'getAuthCode',
-'failed_login_attempts' => 'getFailedLoginAttempts',
-'failed_login_time' => 'getFailedLoginTime',
-'user_type' => 'getUserType',
-'roles' => 'getRoles',
-'active' => 'getActive'    ];
+'users' => 'getUsers'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -263,21 +218,12 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
-        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
-        $this->container['username'] = isset($data['username']) ? $data['username'] : null;
-        $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
-        $this->container['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
-        $this->container['login_token'] = isset($data['login_token']) ? $data['login_token'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['account_number'] = isset($data['account_number']) ? $data['account_number'] : null;
         $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
-        $this->container['additional_properties'] = isset($data['additional_properties']) ? $data['additional_properties'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
-        $this->container['auth_code'] = isset($data['auth_code']) ? $data['auth_code'] : null;
-        $this->container['failed_login_attempts'] = isset($data['failed_login_attempts']) ? $data['failed_login_attempts'] : null;
-        $this->container['failed_login_time'] = isset($data['failed_login_time']) ? $data['failed_login_time'] : null;
-        $this->container['user_type'] = isset($data['user_type']) ? $data['user_type'] : null;
-        $this->container['roles'] = isset($data['roles']) ? $data['roles'] : null;
-        $this->container['active'] = isset($data['active']) ? $data['active'] : null;
+        $this->container['users'] = isset($data['users']) ? $data['users'] : null;
     }
 
     /**
@@ -289,11 +235,11 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['email'] === null) {
-            $invalidProperties[] = "'email' can't be null";
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
         }
-        if ($this->container['roles'] === null) {
-            $invalidProperties[] = "'roles' can't be null";
+        if ($this->container['account_number'] === null) {
+            $invalidProperties[] = "'account_number' can't be null";
         }
         return $invalidProperties;
     }
@@ -407,121 +353,49 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets email
+     * Gets name
      *
      * @return string
      */
-    public function getEmail()
+    public function getName()
     {
-        return $this->container['email'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets email
+     * Sets name
      *
-     * @param string $email email
+     * @param string $name name
      *
      * @return $this
      */
-    public function setEmail($email)
+    public function setName($name)
     {
-        $this->container['email'] = $email;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets username
+     * Gets account_number
      *
      * @return string
      */
-    public function getUsername()
+    public function getAccountNumber()
     {
-        return $this->container['username'];
+        return $this->container['account_number'];
     }
 
     /**
-     * Sets username
+     * Sets account_number
      *
-     * @param string $username username
+     * @param string $account_number account_number
      *
      * @return $this
      */
-    public function setUsername($username)
+    public function setAccountNumber($account_number)
     {
-        $this->container['username'] = $username;
-
-        return $this;
-    }
-
-    /**
-     * Gets first_name
-     *
-     * @return string
-     */
-    public function getFirstName()
-    {
-        return $this->container['first_name'];
-    }
-
-    /**
-     * Sets first_name
-     *
-     * @param string $first_name first_name
-     *
-     * @return $this
-     */
-    public function setFirstName($first_name)
-    {
-        $this->container['first_name'] = $first_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets last_name
-     *
-     * @return string
-     */
-    public function getLastName()
-    {
-        return $this->container['last_name'];
-    }
-
-    /**
-     * Sets last_name
-     *
-     * @param string $last_name last_name
-     *
-     * @return $this
-     */
-    public function setLastName($last_name)
-    {
-        $this->container['last_name'] = $last_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets login_token
-     *
-     * @return string
-     */
-    public function getLoginToken()
-    {
-        return $this->container['login_token'];
-    }
-
-    /**
-     * Sets login_token
-     *
-     * @param string $login_token login_token
-     *
-     * @return $this
-     */
-    public function setLoginToken($login_token)
-    {
-        $this->container['login_token'] = $login_token;
+        $this->container['account_number'] = $account_number;
 
         return $this;
     }
@@ -546,30 +420,6 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
     public function setDeleted($deleted)
     {
         $this->container['deleted'] = $deleted;
-
-        return $this;
-    }
-
-    /**
-     * Gets additional_properties
-     *
-     * @return string
-     */
-    public function getAdditionalProperties()
-    {
-        return $this->container['additional_properties'];
-    }
-
-    /**
-     * Sets additional_properties
-     *
-     * @param string $additional_properties An explicit json array would make much more sense here. Unfortunately, the SDK generator does not understand this properly, so we have to encode and decode id manually.
-     *
-     * @return $this
-     */
-    public function setAdditionalProperties($additional_properties)
-    {
-        $this->container['additional_properties'] = $additional_properties;
 
         return $this;
     }
@@ -623,145 +473,25 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets auth_code
-     *
-     * @return string
-     */
-    public function getAuthCode()
-    {
-        return $this->container['auth_code'];
-    }
-
-    /**
-     * Sets auth_code
-     *
-     * @param string $auth_code auth_code
-     *
-     * @return $this
-     */
-    public function setAuthCode($auth_code)
-    {
-        $this->container['auth_code'] = $auth_code;
-
-        return $this;
-    }
-
-    /**
-     * Gets failed_login_attempts
-     *
-     * @return int
-     */
-    public function getFailedLoginAttempts()
-    {
-        return $this->container['failed_login_attempts'];
-    }
-
-    /**
-     * Sets failed_login_attempts
-     *
-     * @param int $failed_login_attempts failed_login_attempts
-     *
-     * @return $this
-     */
-    public function setFailedLoginAttempts($failed_login_attempts)
-    {
-        $this->container['failed_login_attempts'] = $failed_login_attempts;
-
-        return $this;
-    }
-
-    /**
-     * Gets failed_login_time
-     *
-     * @return \DateTime
-     */
-    public function getFailedLoginTime()
-    {
-        return $this->container['failed_login_time'];
-    }
-
-    /**
-     * Sets failed_login_time
-     *
-     * @param \DateTime $failed_login_time failed_login_time
-     *
-     * @return $this
-     */
-    public function setFailedLoginTime($failed_login_time)
-    {
-        $this->container['failed_login_time'] = $failed_login_time;
-
-        return $this;
-    }
-
-    /**
-     * Gets user_type
-     *
-     * @return string
-     */
-    public function getUserType()
-    {
-        return $this->container['user_type'];
-    }
-
-    /**
-     * Sets user_type
-     *
-     * @param string $user_type user_type
-     *
-     * @return $this
-     */
-    public function setUserType($user_type)
-    {
-        $this->container['user_type'] = $user_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets roles
+     * Gets users
      *
      * @return string[]
      */
-    public function getRoles()
+    public function getUsers()
     {
-        return $this->container['roles'];
+        return $this->container['users'];
     }
 
     /**
-     * Sets roles
+     * Sets users
      *
-     * @param string[] $roles roles
+     * @param string[] $users users
      *
      * @return $this
      */
-    public function setRoles($roles)
+    public function setUsers($users)
     {
-        $this->container['roles'] = $roles;
-
-        return $this;
-    }
-
-    /**
-     * Gets active
-     *
-     * @return bool
-     */
-    public function getActive()
-    {
-        return $this->container['active'];
-    }
-
-    /**
-     * Sets active
-     *
-     * @param bool $active active
-     *
-     * @return $this
-     */
-    public function setActive($active)
-    {
-        $this->container['active'] = $active;
+        $this->container['users'] = $users;
 
         return $this;
     }

@@ -112,7 +112,7 @@ $apiInstance = new VentureLeap\UserService\Api\AccountApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \VentureLeap\UserService\Model\AccountJsonldAccountWriteUserWriteActiveWrite(); // \VentureLeap\UserService\Model\AccountJsonldAccountWriteUserWriteActiveWrite | The new Account resource
+$body = new \VentureLeap\UserService\Model\AccountJsonldAccountWriteActiveWrite(); // \VentureLeap\UserService\Model\AccountJsonldAccountWriteActiveWrite | The new Account resource
 
 try {
     $result = $apiInstance->postAccountCollection($body);
@@ -133,7 +133,7 @@ $apiInstance = new VentureLeap\UserService\Api\AccountApi(
     $config
 );
 $id = "id_example"; // string | 
-$body = new \VentureLeap\UserService\Model\AccountJsonldAccountWriteUserWriteActiveWrite(); // \VentureLeap\UserService\Model\AccountJsonldAccountWriteUserWriteActiveWrite | The updated Account resource
+$body = new \VentureLeap\UserService\Model\AccountJsonldAccountWriteActiveWrite(); // \VentureLeap\UserService\Model\AccountJsonldAccountWriteActiveWrite | The updated Account resource
 
 try {
     $result = $apiInstance->putAccountItem($id, $body);
@@ -159,6 +159,8 @@ Class | Method | HTTP request | Description
 *ConfigurationEntryApi* | [**getConfigurationEntryItem**](docs/Api/ConfigurationEntryApi.md#getconfigurationentryitem) | **GET** /user/configuration_entries/{id} | Retrieves a ConfigurationEntry resource.
 *ConfigurationEntryApi* | [**postConfigurationEntryCollection**](docs/Api/ConfigurationEntryApi.md#postconfigurationentrycollection) | **POST** /user/configuration_entries | Creates a ConfigurationEntry resource.
 *ConfigurationEntryApi* | [**putConfigurationEntryItem**](docs/Api/ConfigurationEntryApi.md#putconfigurationentryitem) | **PUT** /user/configuration_entries/{id} | Replaces the ConfigurationEntry resource.
+*SocialAuthenticationApi* | [**socialLogin**](docs/Api/SocialAuthenticationApi.md#sociallogin) | **GET** /user/social/{platform}/auth-url | Get Social Platform Authorization Url
+*SocialAuthenticationApi* | [**socialLogin_0**](docs/Api/SocialAuthenticationApi.md#sociallogin_0) | **GET** /user/social/{platform} | Perform Social Login/Registration for user
 *UserApi* | [**getToken**](docs/Api/UserApi.md#gettoken) | **POST** /user/get-token | Gets JWT token for a user
 *UserApi* | [**getUserCollection**](docs/Api/UserApi.md#getusercollection) | **GET** /user/users | Retrieves the collection of User resources.
 *UserApi* | [**getUserItem**](docs/Api/UserApi.md#getuseritem) | **GET** /user/users/{id} | Retrieves a User resource.
@@ -172,21 +174,21 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [Account](docs/Model/Account.md)
- - [AccountJsonldAccountReadUserReadActiveRead](docs/Model/AccountJsonldAccountReadUserReadActiveRead.md)
- - [AccountJsonldAccountWriteUserWriteActiveWrite](docs/Model/AccountJsonldAccountWriteUserWriteActiveWrite.md)
+ - [AccountJsonldAccountReadActiveRead](docs/Model/AccountJsonldAccountReadActiveRead.md)
+ - [AccountJsonldAccountWriteActiveWrite](docs/Model/AccountJsonldAccountWriteActiveWrite.md)
  - [ConfigurationEntryJsonldConfigurationRead](docs/Model/ConfigurationEntryJsonldConfigurationRead.md)
  - [ConfigurationEntryJsonldConfigurationWrite](docs/Model/ConfigurationEntryJsonldConfigurationWrite.md)
  - [Credentials](docs/Model/Credentials.md)
  - [InlineResponse200](docs/Model/InlineResponse200.md)
  - [InlineResponse2001](docs/Model/InlineResponse2001.md)
  - [InlineResponse2002](docs/Model/InlineResponse2002.md)
+ - [InlineResponse2003](docs/Model/InlineResponse2003.md)
  - [InlineResponse200Hydrasearch](docs/Model/InlineResponse200Hydrasearch.md)
  - [InlineResponse200HydrasearchHydramapping](docs/Model/InlineResponse200HydrasearchHydramapping.md)
  - [InlineResponse200Hydraview](docs/Model/InlineResponse200Hydraview.md)
  - [User](docs/Model/User.md)
- - [UserJsonldAccountReadUserReadActiveRead](docs/Model/UserJsonldAccountReadUserReadActiveRead.md)
- - [UserJsonldUserReadActiveReadRolesRead](docs/Model/UserJsonldUserReadActiveReadRolesRead.md)
- - [UserJsonldUserWriteActiveWriteRolesWrite](docs/Model/UserJsonldUserWriteActiveWriteRolesWrite.md)
+ - [UserJsonldUserRead](docs/Model/UserJsonldUserRead.md)
+ - [UserJsonldUserWrite](docs/Model/UserJsonldUserWrite.md)
  - [UserPasswordReset](docs/Model/UserPasswordReset.md)
 
 ## Documentation For Authorization

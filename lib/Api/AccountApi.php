@@ -397,7 +397,7 @@ class AccountApi
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \VentureLeap\UserService\Model\AccountJsonldAccountReadUserReadActiveRead
+     * @return \VentureLeap\UserService\Model\AccountJsonldAccountReadActiveRead
      */
     public function getAccountItem($id)
     {
@@ -414,11 +414,11 @@ class AccountApi
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \VentureLeap\UserService\Model\AccountJsonldAccountReadUserReadActiveRead, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \VentureLeap\UserService\Model\AccountJsonldAccountReadActiveRead, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAccountItemWithHttpInfo($id)
     {
-        $returnType = '\VentureLeap\UserService\Model\AccountJsonldAccountReadUserReadActiveRead';
+        $returnType = '\VentureLeap\UserService\Model\AccountJsonldAccountReadActiveRead';
         $request = $this->getAccountItemRequest($id);
 
         try {
@@ -470,7 +470,7 @@ class AccountApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\VentureLeap\UserService\Model\AccountJsonldAccountReadUserReadActiveRead',
+                        '\VentureLeap\UserService\Model\AccountJsonldAccountReadActiveRead',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -512,7 +512,7 @@ class AccountApi
      */
     public function getAccountItemAsyncWithHttpInfo($id)
     {
-        $returnType = '\VentureLeap\UserService\Model\AccountJsonldAccountReadUserReadActiveRead';
+        $returnType = '\VentureLeap\UserService\Model\AccountJsonldAccountReadActiveRead';
         $request = $this->getAccountItemRequest($id);
 
         return $this->client
@@ -660,11 +660,11 @@ class AccountApi
      *
      * Creates a Account resource.
      *
-     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWriteUserWriteActiveWrite $body The new Account resource (optional)
+     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWriteActiveWrite $body The new Account resource (optional)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \VentureLeap\UserService\Model\AccountJsonldAccountReadUserReadActiveRead
+     * @return \VentureLeap\UserService\Model\AccountJsonldAccountReadActiveRead
      */
     public function postAccountCollection($body = null)
     {
@@ -677,15 +677,15 @@ class AccountApi
      *
      * Creates a Account resource.
      *
-     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWriteUserWriteActiveWrite $body The new Account resource (optional)
+     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWriteActiveWrite $body The new Account resource (optional)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \VentureLeap\UserService\Model\AccountJsonldAccountReadUserReadActiveRead, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \VentureLeap\UserService\Model\AccountJsonldAccountReadActiveRead, HTTP status code, HTTP response headers (array of strings)
      */
     public function postAccountCollectionWithHttpInfo($body = null)
     {
-        $returnType = '\VentureLeap\UserService\Model\AccountJsonldAccountReadUserReadActiveRead';
+        $returnType = '\VentureLeap\UserService\Model\AccountJsonldAccountReadActiveRead';
         $request = $this->postAccountCollectionRequest($body);
 
         try {
@@ -737,7 +737,7 @@ class AccountApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\VentureLeap\UserService\Model\AccountJsonldAccountReadUserReadActiveRead',
+                        '\VentureLeap\UserService\Model\AccountJsonldAccountReadActiveRead',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -752,7 +752,7 @@ class AccountApi
      *
      * Creates a Account resource.
      *
-     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWriteUserWriteActiveWrite $body The new Account resource (optional)
+     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWriteActiveWrite $body The new Account resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -772,14 +772,14 @@ class AccountApi
      *
      * Creates a Account resource.
      *
-     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWriteUserWriteActiveWrite $body The new Account resource (optional)
+     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWriteActiveWrite $body The new Account resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function postAccountCollectionAsyncWithHttpInfo($body = null)
     {
-        $returnType = '\VentureLeap\UserService\Model\AccountJsonldAccountReadUserReadActiveRead';
+        $returnType = '\VentureLeap\UserService\Model\AccountJsonldAccountReadActiveRead';
         $request = $this->postAccountCollectionRequest($body);
 
         return $this->client
@@ -822,7 +822,7 @@ class AccountApi
     /**
      * Create request for operation 'postAccountCollection'
      *
-     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWriteUserWriteActiveWrite $body The new Account resource (optional)
+     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWriteActiveWrite $body The new Account resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -917,11 +917,11 @@ class AccountApi
      * Replaces the Account resource.
      *
      * @param  string $id id (required)
-     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWriteUserWriteActiveWrite $body The updated Account resource (optional)
+     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWriteActiveWrite $body The updated Account resource (optional)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \VentureLeap\UserService\Model\AccountJsonldAccountReadUserReadActiveRead
+     * @return \VentureLeap\UserService\Model\AccountJsonldAccountReadActiveRead
      */
     public function putAccountItem($id, $body = null)
     {
@@ -935,15 +935,15 @@ class AccountApi
      * Replaces the Account resource.
      *
      * @param  string $id (required)
-     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWriteUserWriteActiveWrite $body The updated Account resource (optional)
+     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWriteActiveWrite $body The updated Account resource (optional)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \VentureLeap\UserService\Model\AccountJsonldAccountReadUserReadActiveRead, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \VentureLeap\UserService\Model\AccountJsonldAccountReadActiveRead, HTTP status code, HTTP response headers (array of strings)
      */
     public function putAccountItemWithHttpInfo($id, $body = null)
     {
-        $returnType = '\VentureLeap\UserService\Model\AccountJsonldAccountReadUserReadActiveRead';
+        $returnType = '\VentureLeap\UserService\Model\AccountJsonldAccountReadActiveRead';
         $request = $this->putAccountItemRequest($id, $body);
 
         try {
@@ -995,7 +995,7 @@ class AccountApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\VentureLeap\UserService\Model\AccountJsonldAccountReadUserReadActiveRead',
+                        '\VentureLeap\UserService\Model\AccountJsonldAccountReadActiveRead',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1011,7 +1011,7 @@ class AccountApi
      * Replaces the Account resource.
      *
      * @param  string $id (required)
-     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWriteUserWriteActiveWrite $body The updated Account resource (optional)
+     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWriteActiveWrite $body The updated Account resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1032,14 +1032,14 @@ class AccountApi
      * Replaces the Account resource.
      *
      * @param  string $id (required)
-     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWriteUserWriteActiveWrite $body The updated Account resource (optional)
+     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWriteActiveWrite $body The updated Account resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function putAccountItemAsyncWithHttpInfo($id, $body = null)
     {
-        $returnType = '\VentureLeap\UserService\Model\AccountJsonldAccountReadUserReadActiveRead';
+        $returnType = '\VentureLeap\UserService\Model\AccountJsonldAccountReadActiveRead';
         $request = $this->putAccountItemRequest($id, $body);
 
         return $this->client
@@ -1083,7 +1083,7 @@ class AccountApi
      * Create request for operation 'putAccountItem'
      *
      * @param  string $id (required)
-     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWriteUserWriteActiveWrite $body The updated Account resource (optional)
+     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWriteActiveWrite $body The updated Account resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
