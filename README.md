@@ -159,8 +159,8 @@ Class | Method | HTTP request | Description
 *ConfigurationEntryApi* | [**getConfigurationEntryItem**](docs/Api/ConfigurationEntryApi.md#getconfigurationentryitem) | **GET** /user/configuration_entries/{id} | Retrieves a ConfigurationEntry resource.
 *ConfigurationEntryApi* | [**postConfigurationEntryCollection**](docs/Api/ConfigurationEntryApi.md#postconfigurationentrycollection) | **POST** /user/configuration_entries | Creates a ConfigurationEntry resource.
 *ConfigurationEntryApi* | [**putConfigurationEntryItem**](docs/Api/ConfigurationEntryApi.md#putconfigurationentryitem) | **PUT** /user/configuration_entries/{id} | Replaces the ConfigurationEntry resource.
-*SocialAuthenticationApi* | [**socialLogin**](docs/Api/SocialAuthenticationApi.md#sociallogin) | **GET** /user/social/{platform}/auth-url | Get Social Platform Authorization Url
-*SocialAuthenticationApi* | [**socialLogin_0**](docs/Api/SocialAuthenticationApi.md#sociallogin_0) | **GET** /user/social/{platform} | Perform Social Login/Registration for user
+*SocialAuthenticationApi* | [**socialLoginGetAuthUrl**](docs/Api/SocialAuthenticationApi.md#sociallogingetauthurl) | **GET** /user/social/{platform}/auth-url | Get Social Platform Authorization Url
+*SocialAuthenticationApi* | [**socialLoginGetUser**](docs/Api/SocialAuthenticationApi.md#sociallogingetuser) | **GET** /user/social/{platform} | Perform Social Login/Registration for user
 *UserApi* | [**getToken**](docs/Api/UserApi.md#gettoken) | **POST** /user/get-token | Gets JWT token for a user
 *UserApi* | [**getUserCollection**](docs/Api/UserApi.md#getusercollection) | **GET** /user/users | Retrieves the collection of User resources.
 *UserApi* | [**getUserItem**](docs/Api/UserApi.md#getuseritem) | **GET** /user/users/{id} | Retrieves a User resource.
@@ -182,10 +182,10 @@ Class | Method | HTTP request | Description
  - [InlineResponse200](docs/Model/InlineResponse200.md)
  - [InlineResponse2001](docs/Model/InlineResponse2001.md)
  - [InlineResponse2002](docs/Model/InlineResponse2002.md)
- - [InlineResponse2003](docs/Model/InlineResponse2003.md)
  - [InlineResponse200Hydrasearch](docs/Model/InlineResponse200Hydrasearch.md)
  - [InlineResponse200HydrasearchHydramapping](docs/Model/InlineResponse200HydrasearchHydramapping.md)
  - [InlineResponse200Hydraview](docs/Model/InlineResponse200Hydraview.md)
+ - [SocialAuthUrl](docs/Model/SocialAuthUrl.md)
  - [User](docs/Model/User.md)
  - [UserJsonldUserRead](docs/Model/UserJsonldUserRead.md)
  - [UserJsonldUserWrite](docs/Model/UserJsonldUserWrite.md)

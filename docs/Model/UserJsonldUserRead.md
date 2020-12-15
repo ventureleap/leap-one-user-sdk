@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **id** | **string** |  | [optional] 
 **type** | **string** |  | [optional] 
 **uuid** | **string** |  | [optional] 
+**roles** | **string[]** |  | 
 **email** | **string** |  | 
 **username** | **string** |  | [optional] 
 **first_name** | **string** |  | [optional] 
@@ -20,7 +21,7 @@ Name | Type | Description | Notes
 **failed_login_attempts** | **int** |  | [optional] 
 **failed_login_time** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **user_type** | **string** |  | [optional] 
-**roles** | **string[]** |  | 
+**account** | **string** |  | [optional] 
 **active** | **bool** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

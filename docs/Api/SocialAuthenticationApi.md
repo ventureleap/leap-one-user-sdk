@@ -4,11 +4,11 @@ All URIs are relative to */*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**socialLogin**](SocialAuthenticationApi.md#sociallogin) | **GET** /user/social/{platform}/auth-url | Get Social Platform Authorization Url
-[**socialLogin_0**](SocialAuthenticationApi.md#sociallogin_0) | **GET** /user/social/{platform} | Perform Social Login/Registration for user
+[**socialLoginGetAuthUrl**](SocialAuthenticationApi.md#sociallogingetauthurl) | **GET** /user/social/{platform}/auth-url | Get Social Platform Authorization Url
+[**socialLoginGetUser**](SocialAuthenticationApi.md#sociallogingetuser) | **GET** /user/social/{platform} | Perform Social Login/Registration for user
 
-# **socialLogin**
-> \VentureLeap\UserService\Model\InlineResponse2003 socialLogin($platform)
+# **socialLoginGetAuthUrl**
+> \VentureLeap\UserService\Model\SocialAuthUrl socialLoginGetAuthUrl($platform)
 
 Get Social Platform Authorization Url
 
@@ -30,10 +30,10 @@ $apiInstance = new VentureLeap\UserService\Api\SocialAuthenticationApi(
 $platform = "platform_example"; // string | 
 
 try {
-    $result = $apiInstance->socialLogin($platform);
+    $result = $apiInstance->socialLoginGetAuthUrl($platform);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SocialAuthenticationApi->socialLogin: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SocialAuthenticationApi->socialLoginGetAuthUrl: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -46,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\VentureLeap\UserService\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
+[**\VentureLeap\UserService\Model\SocialAuthUrl**](../Model/SocialAuthUrl.md)
 
 ### Authorization
 
@@ -59,8 +59,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **socialLogin_0**
-> \VentureLeap\UserService\Model\User socialLogin_0($platform)
+# **socialLoginGetUser**
+> \VentureLeap\UserService\Model\User socialLoginGetUser($platform, $state, $code)
 
 Perform Social Login/Registration for user
 
@@ -80,12 +80,14 @@ $apiInstance = new VentureLeap\UserService\Api\SocialAuthenticationApi(
     $config
 );
 $platform = "platform_example"; // string | 
+$state = "state_example"; // string | 
+$code = "code_example"; // string | 
 
 try {
-    $result = $apiInstance->socialLogin_0($platform);
+    $result = $apiInstance->socialLoginGetUser($platform, $state, $code);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SocialAuthenticationApi->socialLogin_0: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SocialAuthenticationApi->socialLoginGetUser: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -95,6 +97,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **platform** | **string**|  |
+ **state** | **string**|  |
+ **code** | **string**|  |
 
 ### Return type
 

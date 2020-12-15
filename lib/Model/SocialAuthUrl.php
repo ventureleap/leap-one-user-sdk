@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse200Hydraview
+ * SocialAuthUrl
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \VentureLeap\UserService\ObjectSerializer;
 
 /**
- * InlineResponse200Hydraview Class Doc Comment
+ * SocialAuthUrl Class Doc Comment
  *
  * @category Class
  * @package  VentureLeap\UserService
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class InlineResponse200Hydraview implements ModelInterface, ArrayAccess
+class SocialAuthUrl implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class InlineResponse200Hydraview implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'inline_response_200_hydraview';
+    protected static $swaggerModelName = 'SocialAuthUrl';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,11 +56,7 @@ class InlineResponse200Hydraview implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'string',
-'type' => 'string',
-'hydrafirst' => 'string',
-'hydralast' => 'string',
-'hydranext' => 'string'    ];
+        'login_url' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -68,11 +64,7 @@ class InlineResponse200Hydraview implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => 'iri-reference',
-'type' => null,
-'hydrafirst' => 'iri-reference',
-'hydralast' => 'iri-reference',
-'hydranext' => 'iri-reference'    ];
+        'login_url' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -101,11 +93,7 @@ class InlineResponse200Hydraview implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => '@id',
-'type' => '@type',
-'hydrafirst' => 'hydra:first',
-'hydralast' => 'hydra:last',
-'hydranext' => 'hydra:next'    ];
+        'login_url' => 'loginUrl'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -113,11 +101,7 @@ class InlineResponse200Hydraview implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-'type' => 'setType',
-'hydrafirst' => 'setHydrafirst',
-'hydralast' => 'setHydralast',
-'hydranext' => 'setHydranext'    ];
+        'login_url' => 'setLoginUrl'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -125,11 +109,7 @@ class InlineResponse200Hydraview implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-'type' => 'getType',
-'hydrafirst' => 'getHydrafirst',
-'hydralast' => 'getHydralast',
-'hydranext' => 'getHydranext'    ];
+        'login_url' => 'getLoginUrl'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -189,11 +169,7 @@ class InlineResponse200Hydraview implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['hydrafirst'] = isset($data['hydrafirst']) ? $data['hydrafirst'] : null;
-        $this->container['hydralast'] = isset($data['hydralast']) ? $data['hydralast'] : null;
-        $this->container['hydranext'] = isset($data['hydranext']) ? $data['hydranext'] : null;
+        $this->container['login_url'] = isset($data['login_url']) ? $data['login_url'] : null;
     }
 
     /**
@@ -221,121 +197,25 @@ class InlineResponse200Hydraview implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets login_url
      *
      * @return string
      */
-    public function getId()
+    public function getLoginUrl()
     {
-        return $this->container['id'];
+        return $this->container['login_url'];
     }
 
     /**
-     * Sets id
+     * Sets login_url
      *
-     * @param string $id id
+     * @param string $login_url login_url
      *
      * @return $this
      */
-    public function setId($id)
+    public function setLoginUrl($login_url)
     {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type type
-     *
-     * @return $this
-     */
-    public function setType($type)
-    {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets hydrafirst
-     *
-     * @return string
-     */
-    public function getHydrafirst()
-    {
-        return $this->container['hydrafirst'];
-    }
-
-    /**
-     * Sets hydrafirst
-     *
-     * @param string $hydrafirst hydrafirst
-     *
-     * @return $this
-     */
-    public function setHydrafirst($hydrafirst)
-    {
-        $this->container['hydrafirst'] = $hydrafirst;
-
-        return $this;
-    }
-
-    /**
-     * Gets hydralast
-     *
-     * @return string
-     */
-    public function getHydralast()
-    {
-        return $this->container['hydralast'];
-    }
-
-    /**
-     * Sets hydralast
-     *
-     * @param string $hydralast hydralast
-     *
-     * @return $this
-     */
-    public function setHydralast($hydralast)
-    {
-        $this->container['hydralast'] = $hydralast;
-
-        return $this;
-    }
-
-    /**
-     * Gets hydranext
-     *
-     * @return string
-     */
-    public function getHydranext()
-    {
-        return $this->container['hydranext'];
-    }
-
-    /**
-     * Sets hydranext
-     *
-     * @param string $hydranext hydranext
-     *
-     * @return $this
-     */
-    public function setHydranext($hydranext)
-    {
-        $this->container['hydranext'] = $hydranext;
+        $this->container['login_url'] = $login_url;
 
         return $this;
     }
