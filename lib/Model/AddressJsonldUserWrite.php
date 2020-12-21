@@ -1,6 +1,6 @@
 <?php
 /**
- * AddressJsonldAddressRead
+ * AddressJsonldUserWrite
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \VentureLeap\UserService\ObjectSerializer;
 
 /**
- * AddressJsonldAddressRead Class Doc Comment
+ * AddressJsonldUserWrite Class Doc Comment
  *
  * @category Class
  * @package  VentureLeap\UserService
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class AddressJsonldAddressRead implements ModelInterface, ArrayAccess
+class AddressJsonldUserWrite implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class AddressJsonldAddressRead implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Address:jsonld-address:read';
+    protected static $swaggerModelName = 'Address:jsonld-user:write';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -65,10 +65,7 @@ class AddressJsonldAddressRead implements ModelInterface, ArrayAccess
 'city' => 'string',
 'country' => 'string',
 'additional_information' => 'string',
-'address_type' => 'string',
-'created_at' => '\DateTime',
-'updated_at' => '\DateTime',
-'user' => '\VentureLeap\UserService\Model\UserJsonldAddressRead'    ];
+'address_type' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -85,10 +82,7 @@ class AddressJsonldAddressRead implements ModelInterface, ArrayAccess
 'city' => null,
 'country' => null,
 'additional_information' => null,
-'address_type' => null,
-'created_at' => 'date-time',
-'updated_at' => 'date-time',
-'user' => null    ];
+'address_type' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -126,10 +120,7 @@ class AddressJsonldAddressRead implements ModelInterface, ArrayAccess
 'city' => 'city',
 'country' => 'country',
 'additional_information' => 'additionalInformation',
-'address_type' => 'addressType',
-'created_at' => 'createdAt',
-'updated_at' => 'updatedAt',
-'user' => 'user'    ];
+'address_type' => 'addressType'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -146,10 +137,7 @@ class AddressJsonldAddressRead implements ModelInterface, ArrayAccess
 'city' => 'setCity',
 'country' => 'setCountry',
 'additional_information' => 'setAdditionalInformation',
-'address_type' => 'setAddressType',
-'created_at' => 'setCreatedAt',
-'updated_at' => 'setUpdatedAt',
-'user' => 'setUser'    ];
+'address_type' => 'setAddressType'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -166,10 +154,7 @@ class AddressJsonldAddressRead implements ModelInterface, ArrayAccess
 'city' => 'getCity',
 'country' => 'getCountry',
 'additional_information' => 'getAdditionalInformation',
-'address_type' => 'getAddressType',
-'created_at' => 'getCreatedAt',
-'updated_at' => 'getUpdatedAt',
-'user' => 'getUser'    ];
+'address_type' => 'getAddressType'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -239,9 +224,6 @@ class AddressJsonldAddressRead implements ModelInterface, ArrayAccess
         $this->container['country'] = isset($data['country']) ? $data['country'] : null;
         $this->container['additional_information'] = isset($data['additional_information']) ? $data['additional_information'] : null;
         $this->container['address_type'] = isset($data['address_type']) ? $data['address_type'] : null;
-        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
-        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
-        $this->container['user'] = isset($data['user']) ? $data['user'] : null;
     }
 
     /**
@@ -504,78 +486,6 @@ class AddressJsonldAddressRead implements ModelInterface, ArrayAccess
     public function setAddressType($address_type)
     {
         $this->container['address_type'] = $address_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime $created_at created_at
-     *
-     * @return $this
-     */
-    public function setCreatedAt($created_at)
-    {
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param \DateTime $updated_at updated_at
-     *
-     * @return $this
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets user
-     *
-     * @return \VentureLeap\UserService\Model\UserJsonldAddressRead
-     */
-    public function getUser()
-    {
-        return $this->container['user'];
-    }
-
-    /**
-     * Sets user
-     *
-     * @param \VentureLeap\UserService\Model\UserJsonldAddressRead $user user
-     *
-     * @return $this
-     */
-    public function setUser($user)
-    {
-        $this->container['user'] = $user;
 
         return $this;
     }

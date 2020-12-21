@@ -1,6 +1,6 @@
 <?php
 /**
- * UserPasswordReset
+ * UserJsonldAddressRead
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \VentureLeap\UserService\ObjectSerializer;
 
 /**
- * UserPasswordReset Class Doc Comment
+ * UserJsonldAddressRead Class Doc Comment
  *
  * @category Class
  * @package  VentureLeap\UserService
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class UserPasswordReset implements ModelInterface, ArrayAccess
+class UserJsonldAddressRead implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class UserPasswordReset implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'User-password:reset';
+    protected static $swaggerModelName = 'User:jsonld-address:read';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,7 +56,10 @@ class UserPasswordReset implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'password' => 'string'    ];
+        'context' => 'string',
+'id' => 'string',
+'type' => 'string',
+'email' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -64,7 +67,10 @@ class UserPasswordReset implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'password' => null    ];
+        'context' => null,
+'id' => null,
+'type' => null,
+'email' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -93,7 +99,10 @@ class UserPasswordReset implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'password' => 'password'    ];
+        'context' => '@context',
+'id' => '@id',
+'type' => '@type',
+'email' => 'email'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -101,7 +110,10 @@ class UserPasswordReset implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'password' => 'setPassword'    ];
+        'context' => 'setContext',
+'id' => 'setId',
+'type' => 'setType',
+'email' => 'setEmail'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -109,7 +121,10 @@ class UserPasswordReset implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'password' => 'getPassword'    ];
+        'context' => 'getContext',
+'id' => 'getId',
+'type' => 'getType',
+'email' => 'getEmail'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -169,7 +184,10 @@ class UserPasswordReset implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['password'] = isset($data['password']) ? $data['password'] : null;
+        $this->container['context'] = isset($data['context']) ? $data['context'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
     }
 
     /**
@@ -181,6 +199,9 @@ class UserPasswordReset implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['email'] === null) {
+            $invalidProperties[] = "'email' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -197,25 +218,97 @@ class UserPasswordReset implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets password
+     * Gets context
      *
      * @return string
      */
-    public function getPassword()
+    public function getContext()
     {
-        return $this->container['password'];
+        return $this->container['context'];
     }
 
     /**
-     * Sets password
+     * Sets context
      *
-     * @param string $password password
+     * @param string $context context
      *
      * @return $this
      */
-    public function setPassword($password)
+    public function setContext($context)
     {
-        $this->container['password'] = $password;
+        $this->container['context'] = $context;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string $id id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     *
+     * @param string $email email
+     *
+     * @return $this
+     */
+    public function setEmail($email)
+    {
+        $this->container['email'] = $email;
 
         return $this;
     }

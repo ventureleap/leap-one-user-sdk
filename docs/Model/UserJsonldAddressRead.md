@@ -1,9 +1,12 @@
-# UserPasswordReset
+# UserJsonldAddressRead
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**password** | **string** |  | [optional] 
+**context** | **string** |  | [optional] 
+**id** | **string** |  | [optional] 
+**type** | **string** |  | [optional] 
+**email** | **string** |  | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
