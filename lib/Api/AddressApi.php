@@ -1,6 +1,6 @@
 <?php
 /**
- * AccountApi
+ * AddressApi
  * PHP version 5
  *
  * @category Class
@@ -39,14 +39,14 @@ use VentureLeap\UserService\HeaderSelector;
 use VentureLeap\UserService\ObjectSerializer;
 
 /**
- * AccountApi Class Doc Comment
+ * AddressApi Class Doc Comment
  *
  * @category Class
  * @package  VentureLeap\UserService
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class AccountApi
+class AddressApi
 {
     /**
      * @var ClientInterface
@@ -87,47 +87,41 @@ class AccountApi
     }
 
     /**
-     * Operation getAccountCollection
+     * Operation getAddressCollection
      *
-     * Retrieves the collection of Account resources.
+     * Retrieves the collection of Address resources.
      *
-     * @param  string $account_number account_number (optional)
-     * @param  bool $active active (optional)
-     * @param  bool $deleted deleted (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 10)
      * @param  bool $pagination Enable or disable pagination (optional)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \VentureLeap\UserService\Model\InlineResponse200
+     * @return \VentureLeap\UserService\Model\InlineResponse2001
      */
-    public function getAccountCollection($account_number = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
+    public function getAddressCollection($page = '1', $items_per_page = '10', $pagination = null)
     {
-        list($response) = $this->getAccountCollectionWithHttpInfo($account_number, $active, $deleted, $page, $items_per_page, $pagination);
+        list($response) = $this->getAddressCollectionWithHttpInfo($page, $items_per_page, $pagination);
         return $response;
     }
 
     /**
-     * Operation getAccountCollectionWithHttpInfo
+     * Operation getAddressCollectionWithHttpInfo
      *
-     * Retrieves the collection of Account resources.
+     * Retrieves the collection of Address resources.
      *
-     * @param  string $account_number (optional)
-     * @param  bool $active (optional)
-     * @param  bool $deleted (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 10)
      * @param  bool $pagination Enable or disable pagination (optional)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \VentureLeap\UserService\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \VentureLeap\UserService\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAccountCollectionWithHttpInfo($account_number = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
+    public function getAddressCollectionWithHttpInfo($page = '1', $items_per_page = '10', $pagination = null)
     {
-        $returnType = '\VentureLeap\UserService\Model\InlineResponse200';
-        $request = $this->getAccountCollectionRequest($account_number, $active, $deleted, $page, $items_per_page, $pagination);
+        $returnType = '\VentureLeap\UserService\Model\InlineResponse2001';
+        $request = $this->getAddressCollectionRequest($page, $items_per_page, $pagination);
 
         try {
             $options = $this->createHttpClientOption();
@@ -178,7 +172,7 @@ class AccountApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\VentureLeap\UserService\Model\InlineResponse200',
+                        '\VentureLeap\UserService\Model\InlineResponse2001',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -189,13 +183,10 @@ class AccountApi
     }
 
     /**
-     * Operation getAccountCollectionAsync
+     * Operation getAddressCollectionAsync
      *
-     * Retrieves the collection of Account resources.
+     * Retrieves the collection of Address resources.
      *
-     * @param  string $account_number (optional)
-     * @param  bool $active (optional)
-     * @param  bool $deleted (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 10)
      * @param  bool $pagination Enable or disable pagination (optional)
@@ -203,9 +194,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountCollectionAsync($account_number = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
+    public function getAddressCollectionAsync($page = '1', $items_per_page = '10', $pagination = null)
     {
-        return $this->getAccountCollectionAsyncWithHttpInfo($account_number, $active, $deleted, $page, $items_per_page, $pagination)
+        return $this->getAddressCollectionAsyncWithHttpInfo($page, $items_per_page, $pagination)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -214,13 +205,10 @@ class AccountApi
     }
 
     /**
-     * Operation getAccountCollectionAsyncWithHttpInfo
+     * Operation getAddressCollectionAsyncWithHttpInfo
      *
-     * Retrieves the collection of Account resources.
+     * Retrieves the collection of Address resources.
      *
-     * @param  string $account_number (optional)
-     * @param  bool $active (optional)
-     * @param  bool $deleted (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 10)
      * @param  bool $pagination Enable or disable pagination (optional)
@@ -228,10 +216,10 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountCollectionAsyncWithHttpInfo($account_number = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
+    public function getAddressCollectionAsyncWithHttpInfo($page = '1', $items_per_page = '10', $pagination = null)
     {
-        $returnType = '\VentureLeap\UserService\Model\InlineResponse200';
-        $request = $this->getAccountCollectionRequest($account_number, $active, $deleted, $page, $items_per_page, $pagination);
+        $returnType = '\VentureLeap\UserService\Model\InlineResponse2001';
+        $request = $this->getAddressCollectionRequest($page, $items_per_page, $pagination);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -271,11 +259,8 @@ class AccountApi
     }
 
     /**
-     * Create request for operation 'getAccountCollection'
+     * Create request for operation 'getAddressCollection'
      *
-     * @param  string $account_number (optional)
-     * @param  bool $active (optional)
-     * @param  bool $deleted (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 10)
      * @param  bool $pagination Enable or disable pagination (optional)
@@ -283,28 +268,16 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getAccountCollectionRequest($account_number = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
+    protected function getAddressCollectionRequest($page = '1', $items_per_page = '10', $pagination = null)
     {
 
-        $resourcePath = '/user/accounts';
+        $resourcePath = '/user/addresses';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if ($account_number !== null) {
-            $queryParams['accountNumber'] = ObjectSerializer::toQueryValue($account_number);
-        }
-        // query params
-        if ($active !== null) {
-            $queryParams['active'] = ObjectSerializer::toQueryValue($active);
-        }
-        // query params
-        if ($deleted !== null) {
-            $queryParams['deleted'] = ObjectSerializer::toQueryValue($deleted);
-        }
         // query params
         if ($page !== null) {
             $queryParams['page'] = ObjectSerializer::toQueryValue($page);
@@ -389,37 +362,37 @@ class AccountApi
     }
 
     /**
-     * Operation getAccountItem
+     * Operation getAddressItem
      *
-     * Retrieves a Account resource.
+     * Retrieves a Address resource.
      *
      * @param  string $id id (required)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \VentureLeap\UserService\Model\AccountJsonldAccountRead
+     * @return \VentureLeap\UserService\Model\AddressJsonldAddressRead
      */
-    public function getAccountItem($id)
+    public function getAddressItem($id)
     {
-        list($response) = $this->getAccountItemWithHttpInfo($id);
+        list($response) = $this->getAddressItemWithHttpInfo($id);
         return $response;
     }
 
     /**
-     * Operation getAccountItemWithHttpInfo
+     * Operation getAddressItemWithHttpInfo
      *
-     * Retrieves a Account resource.
+     * Retrieves a Address resource.
      *
      * @param  string $id (required)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \VentureLeap\UserService\Model\AccountJsonldAccountRead, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \VentureLeap\UserService\Model\AddressJsonldAddressRead, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAccountItemWithHttpInfo($id)
+    public function getAddressItemWithHttpInfo($id)
     {
-        $returnType = '\VentureLeap\UserService\Model\AccountJsonldAccountRead';
-        $request = $this->getAccountItemRequest($id);
+        $returnType = '\VentureLeap\UserService\Model\AddressJsonldAddressRead';
+        $request = $this->getAddressItemRequest($id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -470,7 +443,7 @@ class AccountApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\VentureLeap\UserService\Model\AccountJsonldAccountRead',
+                        '\VentureLeap\UserService\Model\AddressJsonldAddressRead',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -481,18 +454,18 @@ class AccountApi
     }
 
     /**
-     * Operation getAccountItemAsync
+     * Operation getAddressItemAsync
      *
-     * Retrieves a Account resource.
+     * Retrieves a Address resource.
      *
      * @param  string $id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountItemAsync($id)
+    public function getAddressItemAsync($id)
     {
-        return $this->getAccountItemAsyncWithHttpInfo($id)
+        return $this->getAddressItemAsyncWithHttpInfo($id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -501,19 +474,19 @@ class AccountApi
     }
 
     /**
-     * Operation getAccountItemAsyncWithHttpInfo
+     * Operation getAddressItemAsyncWithHttpInfo
      *
-     * Retrieves a Account resource.
+     * Retrieves a Address resource.
      *
      * @param  string $id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAccountItemAsyncWithHttpInfo($id)
+    public function getAddressItemAsyncWithHttpInfo($id)
     {
-        $returnType = '\VentureLeap\UserService\Model\AccountJsonldAccountRead';
-        $request = $this->getAccountItemRequest($id);
+        $returnType = '\VentureLeap\UserService\Model\AddressJsonldAddressRead';
+        $request = $this->getAddressItemRequest($id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -553,23 +526,23 @@ class AccountApi
     }
 
     /**
-     * Create request for operation 'getAccountItem'
+     * Create request for operation 'getAddressItem'
      *
      * @param  string $id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getAccountItemRequest($id)
+    protected function getAddressItemRequest($id)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getAccountItem'
+                'Missing the required parameter $id when calling getAddressItem'
             );
         }
 
-        $resourcePath = '/user/accounts/{id}';
+        $resourcePath = '/user/addresses/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -656,37 +629,37 @@ class AccountApi
     }
 
     /**
-     * Operation postAccountCollection
+     * Operation postAddressCollection
      *
-     * Creates a Account resource.
+     * Creates a Address resource.
      *
-     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWrite $body The new Account resource (optional)
+     * @param  \VentureLeap\UserService\Model\AddressJsonldAddressWrite $body The new Address resource (optional)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \VentureLeap\UserService\Model\AccountJsonldAccountRead
+     * @return \VentureLeap\UserService\Model\AddressJsonldAddressRead
      */
-    public function postAccountCollection($body = null)
+    public function postAddressCollection($body = null)
     {
-        list($response) = $this->postAccountCollectionWithHttpInfo($body);
+        list($response) = $this->postAddressCollectionWithHttpInfo($body);
         return $response;
     }
 
     /**
-     * Operation postAccountCollectionWithHttpInfo
+     * Operation postAddressCollectionWithHttpInfo
      *
-     * Creates a Account resource.
+     * Creates a Address resource.
      *
-     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWrite $body The new Account resource (optional)
+     * @param  \VentureLeap\UserService\Model\AddressJsonldAddressWrite $body The new Address resource (optional)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \VentureLeap\UserService\Model\AccountJsonldAccountRead, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \VentureLeap\UserService\Model\AddressJsonldAddressRead, HTTP status code, HTTP response headers (array of strings)
      */
-    public function postAccountCollectionWithHttpInfo($body = null)
+    public function postAddressCollectionWithHttpInfo($body = null)
     {
-        $returnType = '\VentureLeap\UserService\Model\AccountJsonldAccountRead';
-        $request = $this->postAccountCollectionRequest($body);
+        $returnType = '\VentureLeap\UserService\Model\AddressJsonldAddressRead';
+        $request = $this->postAddressCollectionRequest($body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -737,7 +710,7 @@ class AccountApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\VentureLeap\UserService\Model\AccountJsonldAccountRead',
+                        '\VentureLeap\UserService\Model\AddressJsonldAddressRead',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -748,18 +721,18 @@ class AccountApi
     }
 
     /**
-     * Operation postAccountCollectionAsync
+     * Operation postAddressCollectionAsync
      *
-     * Creates a Account resource.
+     * Creates a Address resource.
      *
-     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWrite $body The new Account resource (optional)
+     * @param  \VentureLeap\UserService\Model\AddressJsonldAddressWrite $body The new Address resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postAccountCollectionAsync($body = null)
+    public function postAddressCollectionAsync($body = null)
     {
-        return $this->postAccountCollectionAsyncWithHttpInfo($body)
+        return $this->postAddressCollectionAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -768,19 +741,19 @@ class AccountApi
     }
 
     /**
-     * Operation postAccountCollectionAsyncWithHttpInfo
+     * Operation postAddressCollectionAsyncWithHttpInfo
      *
-     * Creates a Account resource.
+     * Creates a Address resource.
      *
-     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWrite $body The new Account resource (optional)
+     * @param  \VentureLeap\UserService\Model\AddressJsonldAddressWrite $body The new Address resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function postAccountCollectionAsyncWithHttpInfo($body = null)
+    public function postAddressCollectionAsyncWithHttpInfo($body = null)
     {
-        $returnType = '\VentureLeap\UserService\Model\AccountJsonldAccountRead';
-        $request = $this->postAccountCollectionRequest($body);
+        $returnType = '\VentureLeap\UserService\Model\AddressJsonldAddressRead';
+        $request = $this->postAddressCollectionRequest($body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -820,17 +793,17 @@ class AccountApi
     }
 
     /**
-     * Create request for operation 'postAccountCollection'
+     * Create request for operation 'postAddressCollection'
      *
-     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWrite $body The new Account resource (optional)
+     * @param  \VentureLeap\UserService\Model\AddressJsonldAddressWrite $body The new Address resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function postAccountCollectionRequest($body = null)
+    protected function postAddressCollectionRequest($body = null)
     {
 
-        $resourcePath = '/user/accounts';
+        $resourcePath = '/user/addresses';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -912,39 +885,39 @@ class AccountApi
     }
 
     /**
-     * Operation putAccountItem
+     * Operation putAddressItem
      *
-     * Replaces the Account resource.
+     * Replaces the Address resource.
      *
      * @param  string $id id (required)
-     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWrite $body The updated Account resource (optional)
+     * @param  \VentureLeap\UserService\Model\AddressJsonldAddressWrite $body The updated Address resource (optional)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \VentureLeap\UserService\Model\AccountJsonldAccountRead
+     * @return \VentureLeap\UserService\Model\AddressJsonldAddressRead
      */
-    public function putAccountItem($id, $body = null)
+    public function putAddressItem($id, $body = null)
     {
-        list($response) = $this->putAccountItemWithHttpInfo($id, $body);
+        list($response) = $this->putAddressItemWithHttpInfo($id, $body);
         return $response;
     }
 
     /**
-     * Operation putAccountItemWithHttpInfo
+     * Operation putAddressItemWithHttpInfo
      *
-     * Replaces the Account resource.
+     * Replaces the Address resource.
      *
      * @param  string $id (required)
-     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWrite $body The updated Account resource (optional)
+     * @param  \VentureLeap\UserService\Model\AddressJsonldAddressWrite $body The updated Address resource (optional)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \VentureLeap\UserService\Model\AccountJsonldAccountRead, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \VentureLeap\UserService\Model\AddressJsonldAddressRead, HTTP status code, HTTP response headers (array of strings)
      */
-    public function putAccountItemWithHttpInfo($id, $body = null)
+    public function putAddressItemWithHttpInfo($id, $body = null)
     {
-        $returnType = '\VentureLeap\UserService\Model\AccountJsonldAccountRead';
-        $request = $this->putAccountItemRequest($id, $body);
+        $returnType = '\VentureLeap\UserService\Model\AddressJsonldAddressRead';
+        $request = $this->putAddressItemRequest($id, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -995,7 +968,7 @@ class AccountApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\VentureLeap\UserService\Model\AccountJsonldAccountRead',
+                        '\VentureLeap\UserService\Model\AddressJsonldAddressRead',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1006,19 +979,19 @@ class AccountApi
     }
 
     /**
-     * Operation putAccountItemAsync
+     * Operation putAddressItemAsync
      *
-     * Replaces the Account resource.
+     * Replaces the Address resource.
      *
      * @param  string $id (required)
-     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWrite $body The updated Account resource (optional)
+     * @param  \VentureLeap\UserService\Model\AddressJsonldAddressWrite $body The updated Address resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putAccountItemAsync($id, $body = null)
+    public function putAddressItemAsync($id, $body = null)
     {
-        return $this->putAccountItemAsyncWithHttpInfo($id, $body)
+        return $this->putAddressItemAsyncWithHttpInfo($id, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1027,20 +1000,20 @@ class AccountApi
     }
 
     /**
-     * Operation putAccountItemAsyncWithHttpInfo
+     * Operation putAddressItemAsyncWithHttpInfo
      *
-     * Replaces the Account resource.
+     * Replaces the Address resource.
      *
      * @param  string $id (required)
-     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWrite $body The updated Account resource (optional)
+     * @param  \VentureLeap\UserService\Model\AddressJsonldAddressWrite $body The updated Address resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putAccountItemAsyncWithHttpInfo($id, $body = null)
+    public function putAddressItemAsyncWithHttpInfo($id, $body = null)
     {
-        $returnType = '\VentureLeap\UserService\Model\AccountJsonldAccountRead';
-        $request = $this->putAccountItemRequest($id, $body);
+        $returnType = '\VentureLeap\UserService\Model\AddressJsonldAddressRead';
+        $request = $this->putAddressItemRequest($id, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1080,24 +1053,24 @@ class AccountApi
     }
 
     /**
-     * Create request for operation 'putAccountItem'
+     * Create request for operation 'putAddressItem'
      *
      * @param  string $id (required)
-     * @param  \VentureLeap\UserService\Model\AccountJsonldAccountWrite $body The updated Account resource (optional)
+     * @param  \VentureLeap\UserService\Model\AddressJsonldAddressWrite $body The updated Address resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function putAccountItemRequest($id, $body = null)
+    protected function putAddressItemRequest($id, $body = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling putAccountItem'
+                'Missing the required parameter $id when calling putAddressItem'
             );
         }
 
-        $resourcePath = '/user/accounts/{id}';
+        $resourcePath = '/user/addresses/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

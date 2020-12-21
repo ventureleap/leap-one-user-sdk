@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUserCollection**
-> \VentureLeap\UserService\Model\InlineResponse2002 getUserCollection($username, $email, $first_name, $last_name, $additional_properties, $user_type, $active, $deleted, $page, $items_per_page, $pagination)
+> \VentureLeap\UserService\Model\InlineResponse2003 getUserCollection($username, $email, $first_name, $last_name, $additional_properties, $user_type, $active, $deleted, $page, $items_per_page, $pagination)
 
 Retrieves the collection of User resources.
 
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\VentureLeap\UserService\Model\InlineResponse2002**](../Model/InlineResponse2002.md)
+[**\VentureLeap\UserService\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
 
 ### Authorization
 

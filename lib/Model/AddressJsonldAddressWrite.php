@@ -1,6 +1,6 @@
 <?php
 /**
- * UserJsonldUserWrite
+ * AddressJsonldAddressWrite
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \VentureLeap\UserService\ObjectSerializer;
 
 /**
- * UserJsonldUserWrite Class Doc Comment
+ * AddressJsonldAddressWrite Class Doc Comment
  *
  * @category Class
  * @package  VentureLeap\UserService
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class UserJsonldUserWrite implements ModelInterface, ArrayAccess
+class AddressJsonldAddressWrite implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'User:jsonld-user:write';
+    protected static $swaggerModelName = 'Address:jsonld-address:write';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,15 +59,14 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
         'context' => 'string',
 'id' => 'string',
 'type' => 'string',
-'email' => 'string',
-'username' => 'string',
-'password' => 'string',
-'first_name' => 'string',
-'last_name' => 'string',
-'deleted' => 'bool',
-'additional_properties' => 'string',
-'roles' => 'string[]',
-'active' => 'bool'    ];
+'street' => 'string',
+'house_number' => 'string',
+'zip_code' => 'string',
+'city' => 'string',
+'country' => 'string',
+'additional_information' => 'string',
+'address_type' => 'string',
+'user' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -78,15 +77,14 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
         'context' => null,
 'id' => null,
 'type' => null,
-'email' => null,
-'username' => null,
-'password' => null,
-'first_name' => null,
-'last_name' => null,
-'deleted' => null,
-'additional_properties' => null,
-'roles' => null,
-'active' => null    ];
+'street' => null,
+'house_number' => null,
+'zip_code' => null,
+'city' => null,
+'country' => null,
+'additional_information' => null,
+'address_type' => null,
+'user' => 'iri-reference'    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -118,15 +116,14 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
         'context' => '@context',
 'id' => '@id',
 'type' => '@type',
-'email' => 'email',
-'username' => 'username',
-'password' => 'password',
-'first_name' => 'firstName',
-'last_name' => 'lastName',
-'deleted' => 'deleted',
-'additional_properties' => 'additionalProperties',
-'roles' => 'roles',
-'active' => 'active'    ];
+'street' => 'street',
+'house_number' => 'houseNumber',
+'zip_code' => 'zipCode',
+'city' => 'city',
+'country' => 'country',
+'additional_information' => 'additionalInformation',
+'address_type' => 'addressType',
+'user' => 'user'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -137,15 +134,14 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
         'context' => 'setContext',
 'id' => 'setId',
 'type' => 'setType',
-'email' => 'setEmail',
-'username' => 'setUsername',
-'password' => 'setPassword',
-'first_name' => 'setFirstName',
-'last_name' => 'setLastName',
-'deleted' => 'setDeleted',
-'additional_properties' => 'setAdditionalProperties',
-'roles' => 'setRoles',
-'active' => 'setActive'    ];
+'street' => 'setStreet',
+'house_number' => 'setHouseNumber',
+'zip_code' => 'setZipCode',
+'city' => 'setCity',
+'country' => 'setCountry',
+'additional_information' => 'setAdditionalInformation',
+'address_type' => 'setAddressType',
+'user' => 'setUser'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -156,15 +152,14 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
         'context' => 'getContext',
 'id' => 'getId',
 'type' => 'getType',
-'email' => 'getEmail',
-'username' => 'getUsername',
-'password' => 'getPassword',
-'first_name' => 'getFirstName',
-'last_name' => 'getLastName',
-'deleted' => 'getDeleted',
-'additional_properties' => 'getAdditionalProperties',
-'roles' => 'getRoles',
-'active' => 'getActive'    ];
+'street' => 'getStreet',
+'house_number' => 'getHouseNumber',
+'zip_code' => 'getZipCode',
+'city' => 'getCity',
+'country' => 'getCountry',
+'additional_information' => 'getAdditionalInformation',
+'address_type' => 'getAddressType',
+'user' => 'getUser'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -227,15 +222,14 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
         $this->container['context'] = isset($data['context']) ? $data['context'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
-        $this->container['username'] = isset($data['username']) ? $data['username'] : null;
-        $this->container['password'] = isset($data['password']) ? $data['password'] : null;
-        $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
-        $this->container['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
-        $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
-        $this->container['additional_properties'] = isset($data['additional_properties']) ? $data['additional_properties'] : null;
-        $this->container['roles'] = isset($data['roles']) ? $data['roles'] : null;
-        $this->container['active'] = isset($data['active']) ? $data['active'] : null;
+        $this->container['street'] = isset($data['street']) ? $data['street'] : null;
+        $this->container['house_number'] = isset($data['house_number']) ? $data['house_number'] : null;
+        $this->container['zip_code'] = isset($data['zip_code']) ? $data['zip_code'] : null;
+        $this->container['city'] = isset($data['city']) ? $data['city'] : null;
+        $this->container['country'] = isset($data['country']) ? $data['country'] : null;
+        $this->container['additional_information'] = isset($data['additional_information']) ? $data['additional_information'] : null;
+        $this->container['address_type'] = isset($data['address_type']) ? $data['address_type'] : null;
+        $this->container['user'] = isset($data['user']) ? $data['user'] : null;
     }
 
     /**
@@ -247,12 +241,6 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['email'] === null) {
-            $invalidProperties[] = "'email' can't be null";
-        }
-        if ($this->container['roles'] === null) {
-            $invalidProperties[] = "'roles' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -341,217 +329,193 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets email
+     * Gets street
      *
      * @return string
      */
-    public function getEmail()
+    public function getStreet()
     {
-        return $this->container['email'];
+        return $this->container['street'];
     }
 
     /**
-     * Sets email
+     * Sets street
      *
-     * @param string $email email
+     * @param string $street street
      *
      * @return $this
      */
-    public function setEmail($email)
+    public function setStreet($street)
     {
-        $this->container['email'] = $email;
+        $this->container['street'] = $street;
 
         return $this;
     }
 
     /**
-     * Gets username
+     * Gets house_number
      *
      * @return string
      */
-    public function getUsername()
+    public function getHouseNumber()
     {
-        return $this->container['username'];
+        return $this->container['house_number'];
     }
 
     /**
-     * Sets username
+     * Sets house_number
      *
-     * @param string $username username
+     * @param string $house_number house_number
      *
      * @return $this
      */
-    public function setUsername($username)
+    public function setHouseNumber($house_number)
     {
-        $this->container['username'] = $username;
+        $this->container['house_number'] = $house_number;
 
         return $this;
     }
 
     /**
-     * Gets password
+     * Gets zip_code
      *
      * @return string
      */
-    public function getPassword()
+    public function getZipCode()
     {
-        return $this->container['password'];
+        return $this->container['zip_code'];
     }
 
     /**
-     * Sets password
+     * Sets zip_code
      *
-     * @param string $password password
+     * @param string $zip_code zip_code
      *
      * @return $this
      */
-    public function setPassword($password)
+    public function setZipCode($zip_code)
     {
-        $this->container['password'] = $password;
+        $this->container['zip_code'] = $zip_code;
 
         return $this;
     }
 
     /**
-     * Gets first_name
+     * Gets city
      *
      * @return string
      */
-    public function getFirstName()
+    public function getCity()
     {
-        return $this->container['first_name'];
+        return $this->container['city'];
     }
 
     /**
-     * Sets first_name
+     * Sets city
      *
-     * @param string $first_name first_name
+     * @param string $city city
      *
      * @return $this
      */
-    public function setFirstName($first_name)
+    public function setCity($city)
     {
-        $this->container['first_name'] = $first_name;
+        $this->container['city'] = $city;
 
         return $this;
     }
 
     /**
-     * Gets last_name
+     * Gets country
      *
      * @return string
      */
-    public function getLastName()
+    public function getCountry()
     {
-        return $this->container['last_name'];
+        return $this->container['country'];
     }
 
     /**
-     * Sets last_name
+     * Sets country
      *
-     * @param string $last_name last_name
+     * @param string $country country
      *
      * @return $this
      */
-    public function setLastName($last_name)
+    public function setCountry($country)
     {
-        $this->container['last_name'] = $last_name;
+        $this->container['country'] = $country;
 
         return $this;
     }
 
     /**
-     * Gets deleted
-     *
-     * @return bool
-     */
-    public function getDeleted()
-    {
-        return $this->container['deleted'];
-    }
-
-    /**
-     * Sets deleted
-     *
-     * @param bool $deleted deleted
-     *
-     * @return $this
-     */
-    public function setDeleted($deleted)
-    {
-        $this->container['deleted'] = $deleted;
-
-        return $this;
-    }
-
-    /**
-     * Gets additional_properties
+     * Gets additional_information
      *
      * @return string
      */
-    public function getAdditionalProperties()
+    public function getAdditionalInformation()
     {
-        return $this->container['additional_properties'];
+        return $this->container['additional_information'];
     }
 
     /**
-     * Sets additional_properties
+     * Sets additional_information
      *
-     * @param string $additional_properties An explicit json array would make much more sense here. Unfortunately, the SDK generator does not understand this properly, so we have to encode and decode id manually.
+     * @param string $additional_information additional_information
      *
      * @return $this
      */
-    public function setAdditionalProperties($additional_properties)
+    public function setAdditionalInformation($additional_information)
     {
-        $this->container['additional_properties'] = $additional_properties;
+        $this->container['additional_information'] = $additional_information;
 
         return $this;
     }
 
     /**
-     * Gets roles
+     * Gets address_type
      *
-     * @return string[]
+     * @return string
      */
-    public function getRoles()
+    public function getAddressType()
     {
-        return $this->container['roles'];
+        return $this->container['address_type'];
     }
 
     /**
-     * Sets roles
+     * Sets address_type
      *
-     * @param string[] $roles roles
+     * @param string $address_type address_type
      *
      * @return $this
      */
-    public function setRoles($roles)
+    public function setAddressType($address_type)
     {
-        $this->container['roles'] = $roles;
+        $this->container['address_type'] = $address_type;
 
         return $this;
     }
 
     /**
-     * Gets active
+     * Gets user
      *
-     * @return bool
+     * @return string
      */
-    public function getActive()
+    public function getUser()
     {
-        return $this->container['active'];
+        return $this->container['user'];
     }
 
     /**
-     * Sets active
+     * Sets user
      *
-     * @param bool $active active
+     * @param string $user user
      *
      * @return $this
      */
-    public function setActive($active)
+    public function setUser($user)
     {
-        $this->container['active'] = $active;
+        $this->container['user'] = $user;
 
         return $this;
     }

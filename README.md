@@ -154,6 +154,10 @@ Class | Method | HTTP request | Description
 *AccountApi* | [**getAccountItem**](docs/Api/AccountApi.md#getaccountitem) | **GET** /user/accounts/{id} | Retrieves a Account resource.
 *AccountApi* | [**postAccountCollection**](docs/Api/AccountApi.md#postaccountcollection) | **POST** /user/accounts | Creates a Account resource.
 *AccountApi* | [**putAccountItem**](docs/Api/AccountApi.md#putaccountitem) | **PUT** /user/accounts/{id} | Replaces the Account resource.
+*AddressApi* | [**getAddressCollection**](docs/Api/AddressApi.md#getaddresscollection) | **GET** /user/addresses | Retrieves the collection of Address resources.
+*AddressApi* | [**getAddressItem**](docs/Api/AddressApi.md#getaddressitem) | **GET** /user/addresses/{id} | Retrieves a Address resource.
+*AddressApi* | [**postAddressCollection**](docs/Api/AddressApi.md#postaddresscollection) | **POST** /user/addresses | Creates a Address resource.
+*AddressApi* | [**putAddressItem**](docs/Api/AddressApi.md#putaddressitem) | **PUT** /user/addresses/{id} | Replaces the Address resource.
 *ConfigurationEntryApi* | [**deleteConfigurationEntryItem**](docs/Api/ConfigurationEntryApi.md#deleteconfigurationentryitem) | **DELETE** /user/configuration_entries/{id} | Removes the ConfigurationEntry resource.
 *ConfigurationEntryApi* | [**getConfigurationEntryCollection**](docs/Api/ConfigurationEntryApi.md#getconfigurationentrycollection) | **GET** /user/configuration_entries | Retrieves the collection of ConfigurationEntry resources.
 *ConfigurationEntryApi* | [**getConfigurationEntryItem**](docs/Api/ConfigurationEntryApi.md#getconfigurationentryitem) | **GET** /user/configuration_entries/{id} | Retrieves a ConfigurationEntry resource.
@@ -176,12 +180,15 @@ Class | Method | HTTP request | Description
  - [Account](docs/Model/Account.md)
  - [AccountJsonldAccountRead](docs/Model/AccountJsonldAccountRead.md)
  - [AccountJsonldAccountWrite](docs/Model/AccountJsonldAccountWrite.md)
+ - [AddressJsonldAddressRead](docs/Model/AddressJsonldAddressRead.md)
+ - [AddressJsonldAddressWrite](docs/Model/AddressJsonldAddressWrite.md)
  - [ConfigurationEntryJsonldConfigurationRead](docs/Model/ConfigurationEntryJsonldConfigurationRead.md)
  - [ConfigurationEntryJsonldConfigurationWrite](docs/Model/ConfigurationEntryJsonldConfigurationWrite.md)
  - [Credentials](docs/Model/Credentials.md)
  - [InlineResponse200](docs/Model/InlineResponse200.md)
  - [InlineResponse2001](docs/Model/InlineResponse2001.md)
  - [InlineResponse2002](docs/Model/InlineResponse2002.md)
+ - [InlineResponse2003](docs/Model/InlineResponse2003.md)
  - [InlineResponse200Hydrasearch](docs/Model/InlineResponse200Hydrasearch.md)
  - [InlineResponse200HydrasearchHydramapping](docs/Model/InlineResponse200HydrasearchHydramapping.md)
  - [InlineResponse200Hydraview](docs/Model/InlineResponse200Hydraview.md)
