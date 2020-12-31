@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **id** | **string** |  | [optional] 
 **type** | **string** |  | [optional] 
 **uuid** | **string** |  | [optional] 
-**roles** | **string[]** |  | 
-**email** | **string** |  | 
+**roles** | **string[]** |  | [optional] 
+**email** | **string** |  | [optional] 
 **username** | **string** |  | [optional] 
 **first_name** | **string** |  | [optional] 
 **last_name** | **string** |  | [optional] 

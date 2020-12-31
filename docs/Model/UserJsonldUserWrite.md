@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 **context** | **string** |  | [optional] 
 **id** | **string** |  | [optional] 
 **type** | **string** |  | [optional] 
-**roles** | **string[]** |  | 
-**email** | **string** |  | 
+**roles** | **string[]** |  | [optional] 
+**email** | **string** |  | [optional] 
 **username** | **string** |  | [optional] 
 **password** | **string** |  | [optional] 
 **encoded_password** | **string** |  | [optional] 
