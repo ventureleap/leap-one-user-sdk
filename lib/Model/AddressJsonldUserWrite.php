@@ -48,7 +48,7 @@ class AddressJsonldUserWrite implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Address:jsonld-user:write';
+    protected static $swaggerModelName = 'Address:jsonld-UserWrite';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -65,7 +65,8 @@ class AddressJsonldUserWrite implements ModelInterface, ArrayAccess
 'city' => 'string',
 'country' => 'string',
 'additional_information' => 'string',
-'address_type' => 'string'    ];
+'address_type' => 'string',
+'active' => 'bool'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -82,7 +83,8 @@ class AddressJsonldUserWrite implements ModelInterface, ArrayAccess
 'city' => null,
 'country' => null,
 'additional_information' => null,
-'address_type' => null    ];
+'address_type' => null,
+'active' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -120,7 +122,8 @@ class AddressJsonldUserWrite implements ModelInterface, ArrayAccess
 'city' => 'city',
 'country' => 'country',
 'additional_information' => 'additionalInformation',
-'address_type' => 'addressType'    ];
+'address_type' => 'addressType',
+'active' => 'active'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -137,7 +140,8 @@ class AddressJsonldUserWrite implements ModelInterface, ArrayAccess
 'city' => 'setCity',
 'country' => 'setCountry',
 'additional_information' => 'setAdditionalInformation',
-'address_type' => 'setAddressType'    ];
+'address_type' => 'setAddressType',
+'active' => 'setActive'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -154,7 +158,8 @@ class AddressJsonldUserWrite implements ModelInterface, ArrayAccess
 'city' => 'getCity',
 'country' => 'getCountry',
 'additional_information' => 'getAdditionalInformation',
-'address_type' => 'getAddressType'    ];
+'address_type' => 'getAddressType',
+'active' => 'getActive'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -224,6 +229,7 @@ class AddressJsonldUserWrite implements ModelInterface, ArrayAccess
         $this->container['country'] = isset($data['country']) ? $data['country'] : null;
         $this->container['additional_information'] = isset($data['additional_information']) ? $data['additional_information'] : null;
         $this->container['address_type'] = isset($data['address_type']) ? $data['address_type'] : null;
+        $this->container['active'] = isset($data['active']) ? $data['active'] : null;
     }
 
     /**
@@ -486,6 +492,30 @@ class AddressJsonldUserWrite implements ModelInterface, ArrayAccess
     public function setAddressType($address_type)
     {
         $this->container['address_type'] = $address_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets active
+     *
+     * @return bool
+     */
+    public function getActive()
+    {
+        return $this->container['active'];
+    }
+
+    /**
+     * Sets active
+     *
+     * @param bool $active active
+     *
+     * @return $this
+     */
+    public function setActive($active)
+    {
+        $this->container['active'] = $active;
 
         return $this;
     }

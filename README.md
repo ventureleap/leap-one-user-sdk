@@ -177,7 +177,6 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [Account](docs/Model/Account.md)
  - [AccountJsonldAccountRead](docs/Model/AccountJsonldAccountRead.md)
  - [AccountJsonldAccountWrite](docs/Model/AccountJsonldAccountWrite.md)
  - [AddressJsonldAddressRead](docs/Model/AddressJsonldAddressRead.md)
@@ -196,6 +195,7 @@ Class | Method | HTTP request | Description
  - [InlineResponse200Hydraview](docs/Model/InlineResponse200Hydraview.md)
  - [SocialAuthUrl](docs/Model/SocialAuthUrl.md)
  - [User](docs/Model/User.md)
+ - [UserJsonldAccountRead](docs/Model/UserJsonldAccountRead.md)
  - [UserJsonldAddressRead](docs/Model/UserJsonldAddressRead.md)
  - [UserJsonldUserRead](docs/Model/UserJsonldUserRead.md)
  - [UserJsonldUserWrite](docs/Model/UserJsonldUserWrite.md)

@@ -48,7 +48,7 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'User:jsonld-user:write';
+    protected static $swaggerModelName = 'User:jsonld-UserWrite';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -73,10 +73,10 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'failed_login_time' => '\DateTime',
 'user_type' => 'string',
 'account' => 'string',
-'active' => 'bool',
 'date_of_birth' => '\DateTime',
 'gender' => 'string',
-'addresses' => '\VentureLeap\UserService\Model\AddressJsonldUserWrite[]'    ];
+'addresses' => '\VentureLeap\UserService\Model\AddressJsonldUserWrite[]',
+'active' => 'bool'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -101,10 +101,10 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'failed_login_time' => 'date-time',
 'user_type' => null,
 'account' => 'iri-reference',
-'active' => null,
 'date_of_birth' => 'date-time',
 'gender' => null,
-'addresses' => null    ];
+'addresses' => null,
+'active' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -150,10 +150,10 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'failed_login_time' => 'failedLoginTime',
 'user_type' => 'userType',
 'account' => 'account',
-'active' => 'active',
 'date_of_birth' => 'dateOfBirth',
 'gender' => 'gender',
-'addresses' => 'addresses'    ];
+'addresses' => 'addresses',
+'active' => 'active'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -178,10 +178,10 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'failed_login_time' => 'setFailedLoginTime',
 'user_type' => 'setUserType',
 'account' => 'setAccount',
-'active' => 'setActive',
 'date_of_birth' => 'setDateOfBirth',
 'gender' => 'setGender',
-'addresses' => 'setAddresses'    ];
+'addresses' => 'setAddresses',
+'active' => 'setActive'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -206,10 +206,10 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'failed_login_time' => 'getFailedLoginTime',
 'user_type' => 'getUserType',
 'account' => 'getAccount',
-'active' => 'getActive',
 'date_of_birth' => 'getDateOfBirth',
 'gender' => 'getGender',
-'addresses' => 'getAddresses'    ];
+'addresses' => 'getAddresses',
+'active' => 'getActive'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -286,10 +286,10 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
         $this->container['failed_login_time'] = isset($data['failed_login_time']) ? $data['failed_login_time'] : null;
         $this->container['user_type'] = isset($data['user_type']) ? $data['user_type'] : null;
         $this->container['account'] = isset($data['account']) ? $data['account'] : null;
-        $this->container['active'] = isset($data['active']) ? $data['active'] : null;
         $this->container['date_of_birth'] = isset($data['date_of_birth']) ? $data['date_of_birth'] : null;
         $this->container['gender'] = isset($data['gender']) ? $data['gender'] : null;
         $this->container['addresses'] = isset($data['addresses']) ? $data['addresses'] : null;
+        $this->container['active'] = isset($data['active']) ? $data['active'] : null;
     }
 
     /**
@@ -725,30 +725,6 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets active
-     *
-     * @return bool
-     */
-    public function getActive()
-    {
-        return $this->container['active'];
-    }
-
-    /**
-     * Sets active
-     *
-     * @param bool $active active
-     *
-     * @return $this
-     */
-    public function setActive($active)
-    {
-        $this->container['active'] = $active;
-
-        return $this;
-    }
-
-    /**
      * Gets date_of_birth
      *
      * @return \DateTime
@@ -816,6 +792,30 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
     public function setAddresses($addresses)
     {
         $this->container['addresses'] = $addresses;
+
+        return $this;
+    }
+
+    /**
+     * Gets active
+     *
+     * @return bool
+     */
+    public function getActive()
+    {
+        return $this->container['active'];
+    }
+
+    /**
+     * Sets active
+     *
+     * @param bool $active active
+     *
+     * @return $this
+     */
+    public function setActive($active)
+    {
+        $this->container['active'] = $active;
 
         return $this;
     }

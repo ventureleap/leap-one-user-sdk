@@ -111,16 +111,16 @@ class AccountJsonldAccountWriteTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "deleted"
+     * Test attribute "active"
      */
-    public function testPropertyDeleted()
+    public function testPropertyActive()
     {
     }
 
     /**
-     * Test attribute "active"
+     * Test attribute "deleted"
      */
-    public function testPropertyActive()
+    public function testPropertyDeleted()
     {
     }
 }

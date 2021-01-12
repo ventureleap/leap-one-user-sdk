@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **type** | **string** |  | [optional] 
 **name** | **string** |  | 
 **account_number** | **string** |  | 
-**deleted** | **bool** |  | [optional] 
 **active** | **bool** |  | [optional] 
+**deleted** | **bool** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -9,11 +9,9 @@ Name | Type | Description | Notes
 **uuid** | **string** |  | [optional] 
 **name** | **string** |  | 
 **account_number** | **string** |  | 
-**deleted** | **bool** |  | [optional] 
-**created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
-**updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
-**users** | **string[]** |  | [optional] 
+**users** | [**\VentureLeap\UserService\Model\UserJsonldAccountRead[]**](UserJsonldAccountRead.md) |  | [optional] 
 **active** | **bool** |  | [optional] 
+**deleted** | **bool** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

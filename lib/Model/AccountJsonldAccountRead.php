@@ -48,7 +48,7 @@ class AccountJsonldAccountRead implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Account:jsonld-account:read';
+    protected static $swaggerModelName = 'Account:jsonld-AccountRead';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -62,11 +62,9 @@ class AccountJsonldAccountRead implements ModelInterface, ArrayAccess
 'uuid' => 'string',
 'name' => 'string',
 'account_number' => 'string',
-'deleted' => 'bool',
-'created_at' => '\DateTime',
-'updated_at' => '\DateTime',
-'users' => 'string[]',
-'active' => 'bool'    ];
+'users' => '\VentureLeap\UserService\Model\UserJsonldAccountRead[]',
+'active' => 'bool',
+'deleted' => 'bool'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -80,11 +78,9 @@ class AccountJsonldAccountRead implements ModelInterface, ArrayAccess
 'uuid' => 'uuid',
 'name' => null,
 'account_number' => null,
-'deleted' => null,
-'created_at' => 'date-time',
-'updated_at' => 'date-time',
-'users' => 'iri-reference',
-'active' => null    ];
+'users' => null,
+'active' => null,
+'deleted' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -119,11 +115,9 @@ class AccountJsonldAccountRead implements ModelInterface, ArrayAccess
 'uuid' => 'uuid',
 'name' => 'name',
 'account_number' => 'accountNumber',
-'deleted' => 'deleted',
-'created_at' => 'createdAt',
-'updated_at' => 'updatedAt',
 'users' => 'users',
-'active' => 'active'    ];
+'active' => 'active',
+'deleted' => 'deleted'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -137,11 +131,9 @@ class AccountJsonldAccountRead implements ModelInterface, ArrayAccess
 'uuid' => 'setUuid',
 'name' => 'setName',
 'account_number' => 'setAccountNumber',
-'deleted' => 'setDeleted',
-'created_at' => 'setCreatedAt',
-'updated_at' => 'setUpdatedAt',
 'users' => 'setUsers',
-'active' => 'setActive'    ];
+'active' => 'setActive',
+'deleted' => 'setDeleted'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -155,11 +147,9 @@ class AccountJsonldAccountRead implements ModelInterface, ArrayAccess
 'uuid' => 'getUuid',
 'name' => 'getName',
 'account_number' => 'getAccountNumber',
-'deleted' => 'getDeleted',
-'created_at' => 'getCreatedAt',
-'updated_at' => 'getUpdatedAt',
 'users' => 'getUsers',
-'active' => 'getActive'    ];
+'active' => 'getActive',
+'deleted' => 'getDeleted'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -225,11 +215,9 @@ class AccountJsonldAccountRead implements ModelInterface, ArrayAccess
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['account_number'] = isset($data['account_number']) ? $data['account_number'] : null;
-        $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
-        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
-        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['users'] = isset($data['users']) ? $data['users'] : null;
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
+        $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
     }
 
     /**
@@ -407,81 +395,9 @@ class AccountJsonldAccountRead implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets deleted
-     *
-     * @return bool
-     */
-    public function getDeleted()
-    {
-        return $this->container['deleted'];
-    }
-
-    /**
-     * Sets deleted
-     *
-     * @param bool $deleted deleted
-     *
-     * @return $this
-     */
-    public function setDeleted($deleted)
-    {
-        $this->container['deleted'] = $deleted;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime $created_at created_at
-     *
-     * @return $this
-     */
-    public function setCreatedAt($created_at)
-    {
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param \DateTime $updated_at updated_at
-     *
-     * @return $this
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
      * Gets users
      *
-     * @return string[]
+     * @return \VentureLeap\UserService\Model\UserJsonldAccountRead[]
      */
     public function getUsers()
     {
@@ -491,7 +407,7 @@ class AccountJsonldAccountRead implements ModelInterface, ArrayAccess
     /**
      * Sets users
      *
-     * @param string[] $users users
+     * @param \VentureLeap\UserService\Model\UserJsonldAccountRead[] $users users
      *
      * @return $this
      */
@@ -522,6 +438,30 @@ class AccountJsonldAccountRead implements ModelInterface, ArrayAccess
     public function setActive($active)
     {
         $this->container['active'] = $active;
+
+        return $this;
+    }
+
+    /**
+     * Gets deleted
+     *
+     * @return bool
+     */
+    public function getDeleted()
+    {
+        return $this->container['deleted'];
+    }
+
+    /**
+     * Sets deleted
+     *
+     * @param bool $deleted deleted
+     *
+     * @return $this
+     */
+    public function setDeleted($deleted)
+    {
+        $this->container['deleted'] = $deleted;
 
         return $this;
     }

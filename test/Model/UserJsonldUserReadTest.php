@@ -209,13 +209,6 @@ class UserJsonldUserReadTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "active"
-     */
-    public function testPropertyActive()
-    {
-    }
-
-    /**
      * Test attribute "date_of_birth"
      */
     public function testPropertyDateOfBirth()
@@ -233,6 +226,13 @@ class UserJsonldUserReadTest extends \PHPUnit_Framework_TestCase
      * Test attribute "addresses"
      */
     public function testPropertyAddresses()
+    {
+    }
+
+    /**
+     * Test attribute "active"
+     */
+    public function testPropertyActive()
     {
     }
 }

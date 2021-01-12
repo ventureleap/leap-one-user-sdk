@@ -1,6 +1,6 @@
 <?php
 /**
- * AccountTest
+ * UserJsonldAccountReadTest
  *
  * PHP version 5
  *
@@ -29,15 +29,15 @@
 namespace VentureLeap\UserService;
 
 /**
- * AccountTest Class Doc Comment
+ * UserJsonldAccountReadTest Class Doc Comment
  *
  * @category    Class
- * @description Account
+ * @description UserJsonldAccountRead
  * @package     VentureLeap\UserService
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class AccountTest extends \PHPUnit_Framework_TestCase
+class UserJsonldAccountReadTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -69,23 +69,30 @@ class AccountTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "Account"
+     * Test "UserJsonldAccountRead"
      */
-    public function testAccount()
+    public function testUserJsonldAccountRead()
     {
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "context"
      */
-    public function testPropertyName()
+    public function testPropertyContext()
     {
     }
 
     /**
-     * Test attribute "account_number"
+     * Test attribute "id"
      */
-    public function testPropertyAccountNumber()
+    public function testPropertyId()
+    {
+    }
+
+    /**
+     * Test attribute "type"
+     */
+    public function testPropertyType()
     {
     }
 
@@ -93,13 +100,6 @@ class AccountTest extends \PHPUnit_Framework_TestCase
      * Test attribute "active"
      */
     public function testPropertyActive()
-    {
-    }
-
-    /**
-     * Test attribute "deleted"
-     */
-    public function testPropertyDeleted()
     {
     }
 }

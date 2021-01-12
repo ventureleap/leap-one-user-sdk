@@ -1,6 +1,6 @@
 <?php
 /**
- * Account
+ * UserJsonldAccountRead
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \VentureLeap\UserService\ObjectSerializer;
 
 /**
- * Account Class Doc Comment
+ * UserJsonldAccountRead Class Doc Comment
  *
  * @category Class
  * @package  VentureLeap\UserService
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Account implements ModelInterface, ArrayAccess
+class UserJsonldAccountRead implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class Account implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Account';
+    protected static $swaggerModelName = 'User:jsonld-AccountRead';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,10 +56,10 @@ class Account implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name' => 'string',
-'account_number' => 'string',
-'active' => 'bool',
-'deleted' => 'bool'    ];
+        'context' => 'string',
+'id' => 'string',
+'type' => 'string',
+'active' => 'bool'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -67,10 +67,10 @@ class Account implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'name' => null,
-'account_number' => null,
-'active' => null,
-'deleted' => null    ];
+        'context' => null,
+'id' => null,
+'type' => null,
+'active' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -99,10 +99,10 @@ class Account implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-'account_number' => 'accountNumber',
-'active' => 'active',
-'deleted' => 'deleted'    ];
+        'context' => '@context',
+'id' => '@id',
+'type' => '@type',
+'active' => 'active'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -110,10 +110,10 @@ class Account implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-'account_number' => 'setAccountNumber',
-'active' => 'setActive',
-'deleted' => 'setDeleted'    ];
+        'context' => 'setContext',
+'id' => 'setId',
+'type' => 'setType',
+'active' => 'setActive'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -121,10 +121,10 @@ class Account implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-'account_number' => 'getAccountNumber',
-'active' => 'getActive',
-'deleted' => 'getDeleted'    ];
+        'context' => 'getContext',
+'id' => 'getId',
+'type' => 'getType',
+'active' => 'getActive'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -184,10 +184,10 @@ class Account implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['account_number'] = isset($data['account_number']) ? $data['account_number'] : null;
+        $this->container['context'] = isset($data['context']) ? $data['context'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
-        $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : false;
     }
 
     /**
@@ -215,49 +215,73 @@ class Account implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name
+     * Gets context
      *
      * @return string
      */
-    public function getName()
+    public function getContext()
     {
-        return $this->container['name'];
+        return $this->container['context'];
     }
 
     /**
-     * Sets name
+     * Sets context
      *
-     * @param string $name name
+     * @param string $context context
      *
      * @return $this
      */
-    public function setName($name)
+    public function setContext($context)
     {
-        $this->container['name'] = $name;
+        $this->container['context'] = $context;
 
         return $this;
     }
 
     /**
-     * Gets account_number
+     * Gets id
      *
      * @return string
      */
-    public function getAccountNumber()
+    public function getId()
     {
-        return $this->container['account_number'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets account_number
+     * Sets id
      *
-     * @param string $account_number account_number
+     * @param string $id id
      *
      * @return $this
      */
-    public function setAccountNumber($account_number)
+    public function setId($id)
     {
-        $this->container['account_number'] = $account_number;
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
 
         return $this;
     }
@@ -282,30 +306,6 @@ class Account implements ModelInterface, ArrayAccess
     public function setActive($active)
     {
         $this->container['active'] = $active;
-
-        return $this;
-    }
-
-    /**
-     * Gets deleted
-     *
-     * @return bool
-     */
-    public function getDeleted()
-    {
-        return $this->container['deleted'];
-    }
-
-    /**
-     * Sets deleted
-     *
-     * @param bool $deleted deleted
-     *
-     * @return $this
-     */
-    public function setDeleted($deleted)
-    {
-        $this->container['deleted'] = $deleted;
 
         return $this;
     }

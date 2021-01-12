@@ -144,4 +144,11 @@ class AddressJsonldUserWriteTest extends \PHPUnit_Framework_TestCase
     public function testPropertyAddressType()
     {
     }
+
+    /**
+     * Test attribute "active"
+     */
+    public function testPropertyActive()
+    {
+    }
 }

@@ -118,27 +118,6 @@ class AccountJsonldAccountReadTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "deleted"
-     */
-    public function testPropertyDeleted()
-    {
-    }
-
-    /**
-     * Test attribute "created_at"
-     */
-    public function testPropertyCreatedAt()
-    {
-    }
-
-    /**
-     * Test attribute "updated_at"
-     */
-    public function testPropertyUpdatedAt()
-    {
-    }
-
-    /**
      * Test attribute "users"
      */
     public function testPropertyUsers()
@@ -149,6 +128,13 @@ class AccountJsonldAccountReadTest extends \PHPUnit_Framework_TestCase
      * Test attribute "active"
      */
     public function testPropertyActive()
+    {
+    }
+
+    /**
+     * Test attribute "deleted"
+     */
+    public function testPropertyDeleted()
     {
     }
 }

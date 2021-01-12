@@ -20,10 +20,10 @@ Name | Type | Description | Notes
 **failed_login_time** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **user_type** | **string** |  | [optional] 
 **account** | **string** |  | [optional] 
-**active** | **bool** |  | [optional] 
 **date_of_birth** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **gender** | **string** |  | [optional] 
 **addresses** | [**\VentureLeap\UserService\Model\AddressJsonldUserWrite[]**](AddressJsonldUserWrite.md) |  | [optional] 
+**active** | **bool** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -48,7 +48,7 @@ class AccountJsonldAccountWrite implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Account:jsonld-account:write';
+    protected static $swaggerModelName = 'Account:jsonld-AccountWrite';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -61,8 +61,8 @@ class AccountJsonldAccountWrite implements ModelInterface, ArrayAccess
 'type' => 'string',
 'name' => 'string',
 'account_number' => 'string',
-'deleted' => 'bool',
-'active' => 'bool'    ];
+'active' => 'bool',
+'deleted' => 'bool'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -75,8 +75,8 @@ class AccountJsonldAccountWrite implements ModelInterface, ArrayAccess
 'type' => null,
 'name' => null,
 'account_number' => null,
-'deleted' => null,
-'active' => null    ];
+'active' => null,
+'deleted' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -110,8 +110,8 @@ class AccountJsonldAccountWrite implements ModelInterface, ArrayAccess
 'type' => '@type',
 'name' => 'name',
 'account_number' => 'accountNumber',
-'deleted' => 'deleted',
-'active' => 'active'    ];
+'active' => 'active',
+'deleted' => 'deleted'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -124,8 +124,8 @@ class AccountJsonldAccountWrite implements ModelInterface, ArrayAccess
 'type' => 'setType',
 'name' => 'setName',
 'account_number' => 'setAccountNumber',
-'deleted' => 'setDeleted',
-'active' => 'setActive'    ];
+'active' => 'setActive',
+'deleted' => 'setDeleted'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -138,8 +138,8 @@ class AccountJsonldAccountWrite implements ModelInterface, ArrayAccess
 'type' => 'getType',
 'name' => 'getName',
 'account_number' => 'getAccountNumber',
-'deleted' => 'getDeleted',
-'active' => 'getActive'    ];
+'active' => 'getActive',
+'deleted' => 'getDeleted'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -204,8 +204,8 @@ class AccountJsonldAccountWrite implements ModelInterface, ArrayAccess
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['account_number'] = isset($data['account_number']) ? $data['account_number'] : null;
-        $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
+        $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
     }
 
     /**
@@ -359,30 +359,6 @@ class AccountJsonldAccountWrite implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets deleted
-     *
-     * @return bool
-     */
-    public function getDeleted()
-    {
-        return $this->container['deleted'];
-    }
-
-    /**
-     * Sets deleted
-     *
-     * @param bool $deleted deleted
-     *
-     * @return $this
-     */
-    public function setDeleted($deleted)
-    {
-        $this->container['deleted'] = $deleted;
-
-        return $this;
-    }
-
-    /**
      * Gets active
      *
      * @return bool
@@ -402,6 +378,30 @@ class AccountJsonldAccountWrite implements ModelInterface, ArrayAccess
     public function setActive($active)
     {
         $this->container['active'] = $active;
+
+        return $this;
+    }
+
+    /**
+     * Gets deleted
+     *
+     * @return bool
+     */
+    public function getDeleted()
+    {
+        return $this->container['deleted'];
+    }
+
+    /**
+     * Sets deleted
+     *
+     * @param bool $deleted deleted
+     *
+     * @return $this
+     */
+    public function setDeleted($deleted)
+    {
+        $this->container['deleted'] = $deleted;
 
         return $this;
     }
