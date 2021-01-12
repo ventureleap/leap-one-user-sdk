@@ -169,11 +169,11 @@ Class | Method | HTTP request | Description
 *UserApi* | [**getUserCollection**](docs/Api/UserApi.md#getusercollection) | **GET** /user/users | Retrieves the collection of User resources.
 *UserApi* | [**getUserItem**](docs/Api/UserApi.md#getuseritem) | **GET** /user/users/{id} | Retrieves a User resource.
 *UserApi* | [**loginByTokenUserItem**](docs/Api/UserApi.md#loginbytokenuseritem) | **POST** /user/users/login-by-token/{token} | Get User resource from token
-*UserApi* | [**postCredentialsItem**](docs/Api/UserApi.md#postcredentialsitem) | **POST** /user/users/login | Check User Credentials.
 *UserApi* | [**postUserCollection**](docs/Api/UserApi.md#postusercollection) | **POST** /user/users | Creates a User resource.
 *UserApi* | [**putUserItem**](docs/Api/UserApi.md#putuseritem) | **PUT** /user/users/{id} | Replaces the User resource.
 *UserApi* | [**resetUserPasswordUserItem**](docs/Api/UserApi.md#resetuserpassworduseritem) | **PATCH** /user/users/{id}/reset-password | Updates the User resource.
 *UserApi* | [**sendInvitationEmailUserItem**](docs/Api/UserApi.md#sendinvitationemailuseritem) | **POST** /user/users/{id}/invitation-email | Send Invitation email to User
+*UserApi* | [**userLoginUserItem**](docs/Api/UserApi.md#userloginuseritem) | **POST** /user/users/login | Check User Credentials
 
 ## Documentation For Models
 
@@ -194,7 +194,6 @@ Class | Method | HTTP request | Description
  - [InlineResponse200HydrasearchHydramapping](docs/Model/InlineResponse200HydrasearchHydramapping.md)
  - [InlineResponse200Hydraview](docs/Model/InlineResponse200Hydraview.md)
  - [SocialAuthUrl](docs/Model/SocialAuthUrl.md)
- - [User](docs/Model/User.md)
  - [UserJsonldAccountRead](docs/Model/UserJsonldAccountRead.md)
  - [UserJsonldAddressRead](docs/Model/UserJsonldAddressRead.md)
  - [UserJsonldUserRead](docs/Model/UserJsonldUserRead.md)
