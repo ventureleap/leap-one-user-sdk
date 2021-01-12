@@ -111,6 +111,16 @@ class UserApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for postCredentialsItem
+     *
+     * Check User Credentials.
+     *
+     */
+    public function testPostCredentialsItem()
+    {
+    }
+
+    /**
      * Test case for postUserCollection
      *
      * Creates a User resource..
@@ -147,16 +157,6 @@ class UserApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function testSendInvitationEmailUserItem()
-    {
-    }
-
-    /**
-     * Test case for userLoginUserItem
-     *
-     * Check User Credentials.
-     *
-     */
-    public function testUserLoginUserItem()
     {
     }
 }
