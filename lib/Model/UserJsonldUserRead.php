@@ -67,7 +67,6 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
 'last_name' => 'string',
 'login_token' => 'string',
 'deleted' => 'bool',
-'additional_properties' => 'string',
 'created_at' => '\DateTime',
 'updated_at' => '\DateTime',
 'auth_code' => 'string',
@@ -78,7 +77,8 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
 'date_of_birth' => '\DateTime',
 'gender' => 'string',
 'addresses' => '\VentureLeap\UserService\Model\AddressJsonldUserRead[]',
-'active' => 'bool'    ];
+'active' => 'bool',
+'custom_data' => 'object'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -97,7 +97,6 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
 'last_name' => null,
 'login_token' => null,
 'deleted' => null,
-'additional_properties' => null,
 'created_at' => 'date-time',
 'updated_at' => 'date-time',
 'auth_code' => null,
@@ -108,7 +107,8 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
 'date_of_birth' => 'date-time',
 'gender' => null,
 'addresses' => null,
-'active' => null    ];
+'active' => null,
+'custom_data' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -148,7 +148,6 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
 'last_name' => 'lastName',
 'login_token' => 'loginToken',
 'deleted' => 'deleted',
-'additional_properties' => 'additionalProperties',
 'created_at' => 'createdAt',
 'updated_at' => 'updatedAt',
 'auth_code' => 'authCode',
@@ -159,7 +158,8 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
 'date_of_birth' => 'dateOfBirth',
 'gender' => 'gender',
 'addresses' => 'addresses',
-'active' => 'active'    ];
+'active' => 'active',
+'custom_data' => 'customData'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -178,7 +178,6 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
 'last_name' => 'setLastName',
 'login_token' => 'setLoginToken',
 'deleted' => 'setDeleted',
-'additional_properties' => 'setAdditionalProperties',
 'created_at' => 'setCreatedAt',
 'updated_at' => 'setUpdatedAt',
 'auth_code' => 'setAuthCode',
@@ -189,7 +188,8 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
 'date_of_birth' => 'setDateOfBirth',
 'gender' => 'setGender',
 'addresses' => 'setAddresses',
-'active' => 'setActive'    ];
+'active' => 'setActive',
+'custom_data' => 'setCustomData'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -208,7 +208,6 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
 'last_name' => 'getLastName',
 'login_token' => 'getLoginToken',
 'deleted' => 'getDeleted',
-'additional_properties' => 'getAdditionalProperties',
 'created_at' => 'getCreatedAt',
 'updated_at' => 'getUpdatedAt',
 'auth_code' => 'getAuthCode',
@@ -219,7 +218,8 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
 'date_of_birth' => 'getDateOfBirth',
 'gender' => 'getGender',
 'addresses' => 'getAddresses',
-'active' => 'getActive'    ];
+'active' => 'getActive',
+'custom_data' => 'getCustomData'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -290,7 +290,6 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
         $this->container['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
         $this->container['login_token'] = isset($data['login_token']) ? $data['login_token'] : null;
         $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
-        $this->container['additional_properties'] = isset($data['additional_properties']) ? $data['additional_properties'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['auth_code'] = isset($data['auth_code']) ? $data['auth_code'] : null;
@@ -302,6 +301,7 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
         $this->container['gender'] = isset($data['gender']) ? $data['gender'] : null;
         $this->container['addresses'] = isset($data['addresses']) ? $data['addresses'] : null;
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
+        $this->container['custom_data'] = isset($data['custom_data']) ? $data['custom_data'] : null;
     }
 
     /**
@@ -593,30 +593,6 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets additional_properties
-     *
-     * @return string
-     */
-    public function getAdditionalProperties()
-    {
-        return $this->container['additional_properties'];
-    }
-
-    /**
-     * Sets additional_properties
-     *
-     * @param string $additional_properties An explicit json array would make much more sense here. Unfortunately, the SDK generator does not understand this properly, so we have to encode and decode id manually.
-     *
-     * @return $this
-     */
-    public function setAdditionalProperties($additional_properties)
-    {
-        $this->container['additional_properties'] = $additional_properties;
-
-        return $this;
-    }
-
-    /**
      * Gets created_at
      *
      * @return \DateTime
@@ -876,6 +852,30 @@ class UserJsonldUserRead implements ModelInterface, ArrayAccess
     public function setActive($active)
     {
         $this->container['active'] = $active;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_data
+     *
+     * @return object
+     */
+    public function getCustomData()
+    {
+        return $this->container['custom_data'];
+    }
+
+    /**
+     * Sets custom_data
+     *
+     * @param object $custom_data custom_data
+     *
+     * @return $this
+     */
+    public function setCustomData($custom_data)
+    {
+        $this->container['custom_data'] = $custom_data;
 
         return $this;
     }

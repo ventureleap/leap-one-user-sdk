@@ -351,7 +351,6 @@ class UserApi
      * @param  string $email email (optional)
      * @param  string $first_name first_name (optional)
      * @param  string $last_name last_name (optional)
-     * @param  string $additional_properties additional_properties (optional)
      * @param  string $user_type user_type (optional)
      * @param  bool $active active (optional)
      * @param  bool $deleted deleted (optional)
@@ -363,9 +362,9 @@ class UserApi
      * @throws \InvalidArgumentException
      * @return \VentureLeap\UserService\Model\InlineResponse2003
      */
-    public function getUserCollection($username = null, $email = null, $first_name = null, $last_name = null, $additional_properties = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
+    public function getUserCollection($username = null, $email = null, $first_name = null, $last_name = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
     {
-        list($response) = $this->getUserCollectionWithHttpInfo($username, $email, $first_name, $last_name, $additional_properties, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
+        list($response) = $this->getUserCollectionWithHttpInfo($username, $email, $first_name, $last_name, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
         return $response;
     }
 
@@ -378,7 +377,6 @@ class UserApi
      * @param  string $email (optional)
      * @param  string $first_name (optional)
      * @param  string $last_name (optional)
-     * @param  string $additional_properties (optional)
      * @param  string $user_type (optional)
      * @param  bool $active (optional)
      * @param  bool $deleted (optional)
@@ -390,10 +388,10 @@ class UserApi
      * @throws \InvalidArgumentException
      * @return array of \VentureLeap\UserService\Model\InlineResponse2003, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUserCollectionWithHttpInfo($username = null, $email = null, $first_name = null, $last_name = null, $additional_properties = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
+    public function getUserCollectionWithHttpInfo($username = null, $email = null, $first_name = null, $last_name = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
     {
         $returnType = '\VentureLeap\UserService\Model\InlineResponse2003';
-        $request = $this->getUserCollectionRequest($username, $email, $first_name, $last_name, $additional_properties, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
+        $request = $this->getUserCollectionRequest($username, $email, $first_name, $last_name, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
 
         try {
             $options = $this->createHttpClientOption();
@@ -463,7 +461,6 @@ class UserApi
      * @param  string $email (optional)
      * @param  string $first_name (optional)
      * @param  string $last_name (optional)
-     * @param  string $additional_properties (optional)
      * @param  string $user_type (optional)
      * @param  bool $active (optional)
      * @param  bool $deleted (optional)
@@ -474,9 +471,9 @@ class UserApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserCollectionAsync($username = null, $email = null, $first_name = null, $last_name = null, $additional_properties = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
+    public function getUserCollectionAsync($username = null, $email = null, $first_name = null, $last_name = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
     {
-        return $this->getUserCollectionAsyncWithHttpInfo($username, $email, $first_name, $last_name, $additional_properties, $user_type, $active, $deleted, $page, $items_per_page, $pagination)
+        return $this->getUserCollectionAsyncWithHttpInfo($username, $email, $first_name, $last_name, $user_type, $active, $deleted, $page, $items_per_page, $pagination)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -493,7 +490,6 @@ class UserApi
      * @param  string $email (optional)
      * @param  string $first_name (optional)
      * @param  string $last_name (optional)
-     * @param  string $additional_properties (optional)
      * @param  string $user_type (optional)
      * @param  bool $active (optional)
      * @param  bool $deleted (optional)
@@ -504,10 +500,10 @@ class UserApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserCollectionAsyncWithHttpInfo($username = null, $email = null, $first_name = null, $last_name = null, $additional_properties = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
+    public function getUserCollectionAsyncWithHttpInfo($username = null, $email = null, $first_name = null, $last_name = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
     {
         $returnType = '\VentureLeap\UserService\Model\InlineResponse2003';
-        $request = $this->getUserCollectionRequest($username, $email, $first_name, $last_name, $additional_properties, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
+        $request = $this->getUserCollectionRequest($username, $email, $first_name, $last_name, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -553,7 +549,6 @@ class UserApi
      * @param  string $email (optional)
      * @param  string $first_name (optional)
      * @param  string $last_name (optional)
-     * @param  string $additional_properties (optional)
      * @param  string $user_type (optional)
      * @param  bool $active (optional)
      * @param  bool $deleted (optional)
@@ -564,7 +559,7 @@ class UserApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getUserCollectionRequest($username = null, $email = null, $first_name = null, $last_name = null, $additional_properties = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
+    protected function getUserCollectionRequest($username = null, $email = null, $first_name = null, $last_name = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
     {
 
         $resourcePath = '/user/users';
@@ -589,10 +584,6 @@ class UserApi
         // query params
         if ($last_name !== null) {
             $queryParams['lastName'] = ObjectSerializer::toQueryValue($last_name, null);
-        }
-        // query params
-        if ($additional_properties !== null) {
-            $queryParams['additionalProperties'] = ObjectSerializer::toQueryValue($additional_properties, null);
         }
         // query params
         if ($user_type !== null) {
@@ -959,35 +950,37 @@ class UserApi
     /**
      * Operation loginByTokenUserItem
      *
-     * Retrieves a User resource.
+     * Get User resource from token
      *
      * @param  string $token token (required)
+     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The new User resource (optional)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \VentureLeap\UserService\Model\UserJsonldUserRead
      */
-    public function loginByTokenUserItem($token)
+    public function loginByTokenUserItem($token, $body = null)
     {
-        list($response) = $this->loginByTokenUserItemWithHttpInfo($token);
+        list($response) = $this->loginByTokenUserItemWithHttpInfo($token, $body);
         return $response;
     }
 
     /**
      * Operation loginByTokenUserItemWithHttpInfo
      *
-     * Retrieves a User resource.
+     * Get User resource from token
      *
      * @param  string $token (required)
+     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The new User resource (optional)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \VentureLeap\UserService\Model\UserJsonldUserRead, HTTP status code, HTTP response headers (array of strings)
      */
-    public function loginByTokenUserItemWithHttpInfo($token)
+    public function loginByTokenUserItemWithHttpInfo($token, $body = null)
     {
         $returnType = '\VentureLeap\UserService\Model\UserJsonldUserRead';
-        $request = $this->loginByTokenUserItemRequest($token);
+        $request = $this->loginByTokenUserItemRequest($token, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1051,16 +1044,17 @@ class UserApi
     /**
      * Operation loginByTokenUserItemAsync
      *
-     * Retrieves a User resource.
+     * Get User resource from token
      *
      * @param  string $token (required)
+     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The new User resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function loginByTokenUserItemAsync($token)
+    public function loginByTokenUserItemAsync($token, $body = null)
     {
-        return $this->loginByTokenUserItemAsyncWithHttpInfo($token)
+        return $this->loginByTokenUserItemAsyncWithHttpInfo($token, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1071,17 +1065,18 @@ class UserApi
     /**
      * Operation loginByTokenUserItemAsyncWithHttpInfo
      *
-     * Retrieves a User resource.
+     * Get User resource from token
      *
      * @param  string $token (required)
+     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The new User resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function loginByTokenUserItemAsyncWithHttpInfo($token)
+    public function loginByTokenUserItemAsyncWithHttpInfo($token, $body = null)
     {
         $returnType = '\VentureLeap\UserService\Model\UserJsonldUserRead';
-        $request = $this->loginByTokenUserItemRequest($token);
+        $request = $this->loginByTokenUserItemRequest($token, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1124,11 +1119,12 @@ class UserApi
      * Create request for operation 'loginByTokenUserItem'
      *
      * @param  string $token (required)
+     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The new User resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function loginByTokenUserItemRequest($token)
+    protected function loginByTokenUserItemRequest($token, $body = null)
     {
         // verify the required parameter 'token' is set
         if ($token === null || (is_array($token) && count($token) === 0)) {
@@ -1156,6 +1152,9 @@ class UserApi
 
         // body params
         $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -1164,7 +1163,7 @@ class UserApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/ld+json'],
-                []
+                ['application/ld+json']
             );
         }
 
@@ -1216,7 +1215,7 @@ class UserApi
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
-            'GET',
+            'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -1226,7 +1225,7 @@ class UserApi
     /**
      * Operation postCredentialsItem
      *
-     * Gets Logged in User.
+     * Check User Credentials.
      *
      * @param  \VentureLeap\UserService\Model\Credentials $body Authenticates user based on credentials (optional)
      *
@@ -1243,7 +1242,7 @@ class UserApi
     /**
      * Operation postCredentialsItemWithHttpInfo
      *
-     * Gets Logged in User.
+     * Check User Credentials.
      *
      * @param  \VentureLeap\UserService\Model\Credentials $body Authenticates user based on credentials (optional)
      *
@@ -1318,7 +1317,7 @@ class UserApi
     /**
      * Operation postCredentialsItemAsync
      *
-     * Gets Logged in User.
+     * Check User Credentials.
      *
      * @param  \VentureLeap\UserService\Model\Credentials $body Authenticates user based on credentials (optional)
      *
@@ -1338,7 +1337,7 @@ class UserApi
     /**
      * Operation postCredentialsItemAsyncWithHttpInfo
      *
-     * Gets Logged in User.
+     * Check User Credentials.
      *
      * @param  \VentureLeap\UserService\Model\Credentials $body Authenticates user based on credentials (optional)
      *
@@ -2288,35 +2287,37 @@ class UserApi
     /**
      * Operation sendInvitationEmailUserItem
      *
-     * Retrieves a User resource.
+     * Send Invitation email to User
      *
      * @param  string $id id (required)
+     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The new User resource (optional)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \VentureLeap\UserService\Model\UserJsonldUserRead
      */
-    public function sendInvitationEmailUserItem($id)
+    public function sendInvitationEmailUserItem($id, $body = null)
     {
-        list($response) = $this->sendInvitationEmailUserItemWithHttpInfo($id);
+        list($response) = $this->sendInvitationEmailUserItemWithHttpInfo($id, $body);
         return $response;
     }
 
     /**
      * Operation sendInvitationEmailUserItemWithHttpInfo
      *
-     * Retrieves a User resource.
+     * Send Invitation email to User
      *
      * @param  string $id (required)
+     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The new User resource (optional)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \VentureLeap\UserService\Model\UserJsonldUserRead, HTTP status code, HTTP response headers (array of strings)
      */
-    public function sendInvitationEmailUserItemWithHttpInfo($id)
+    public function sendInvitationEmailUserItemWithHttpInfo($id, $body = null)
     {
         $returnType = '\VentureLeap\UserService\Model\UserJsonldUserRead';
-        $request = $this->sendInvitationEmailUserItemRequest($id);
+        $request = $this->sendInvitationEmailUserItemRequest($id, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2380,16 +2381,17 @@ class UserApi
     /**
      * Operation sendInvitationEmailUserItemAsync
      *
-     * Retrieves a User resource.
+     * Send Invitation email to User
      *
      * @param  string $id (required)
+     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The new User resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendInvitationEmailUserItemAsync($id)
+    public function sendInvitationEmailUserItemAsync($id, $body = null)
     {
-        return $this->sendInvitationEmailUserItemAsyncWithHttpInfo($id)
+        return $this->sendInvitationEmailUserItemAsyncWithHttpInfo($id, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2400,17 +2402,18 @@ class UserApi
     /**
      * Operation sendInvitationEmailUserItemAsyncWithHttpInfo
      *
-     * Retrieves a User resource.
+     * Send Invitation email to User
      *
      * @param  string $id (required)
+     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The new User resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sendInvitationEmailUserItemAsyncWithHttpInfo($id)
+    public function sendInvitationEmailUserItemAsyncWithHttpInfo($id, $body = null)
     {
         $returnType = '\VentureLeap\UserService\Model\UserJsonldUserRead';
-        $request = $this->sendInvitationEmailUserItemRequest($id);
+        $request = $this->sendInvitationEmailUserItemRequest($id, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2453,11 +2456,12 @@ class UserApi
      * Create request for operation 'sendInvitationEmailUserItem'
      *
      * @param  string $id (required)
+     * @param  \VentureLeap\UserService\Model\UserJsonldUserWrite $body The new User resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function sendInvitationEmailUserItemRequest($id)
+    protected function sendInvitationEmailUserItemRequest($id, $body = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -2485,6 +2489,9 @@ class UserApi
 
         // body params
         $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -2493,7 +2500,7 @@ class UserApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/ld+json'],
-                []
+                ['application/ld+json']
             );
         }
 
@@ -2545,7 +2552,7 @@ class UserApi
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
-            'GET',
+            'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

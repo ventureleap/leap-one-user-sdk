@@ -168,12 +168,12 @@ Class | Method | HTTP request | Description
 *UserApi* | [**getToken**](docs/Api/UserApi.md#gettoken) | **POST** /user/get-token | Gets JWT token for a user
 *UserApi* | [**getUserCollection**](docs/Api/UserApi.md#getusercollection) | **GET** /user/users | Retrieves the collection of User resources.
 *UserApi* | [**getUserItem**](docs/Api/UserApi.md#getuseritem) | **GET** /user/users/{id} | Retrieves a User resource.
-*UserApi* | [**loginByTokenUserItem**](docs/Api/UserApi.md#loginbytokenuseritem) | **GET** /user/users/login-by-token/{token} | Retrieves a User resource.
-*UserApi* | [**postCredentialsItem**](docs/Api/UserApi.md#postcredentialsitem) | **POST** /user/users/login | Gets Logged in User.
+*UserApi* | [**loginByTokenUserItem**](docs/Api/UserApi.md#loginbytokenuseritem) | **POST** /user/users/login-by-token/{token} | Get User resource from token
+*UserApi* | [**postCredentialsItem**](docs/Api/UserApi.md#postcredentialsitem) | **POST** /user/users/login | Check User Credentials.
 *UserApi* | [**postUserCollection**](docs/Api/UserApi.md#postusercollection) | **POST** /user/users | Creates a User resource.
 *UserApi* | [**putUserItem**](docs/Api/UserApi.md#putuseritem) | **PUT** /user/users/{id} | Replaces the User resource.
 *UserApi* | [**resetUserPasswordUserItem**](docs/Api/UserApi.md#resetuserpassworduseritem) | **PATCH** /user/users/{id}/reset-password | Updates the User resource.
-*UserApi* | [**sendInvitationEmailUserItem**](docs/Api/UserApi.md#sendinvitationemailuseritem) | **GET** /user/users/{id}/invitation-email | Retrieves a User resource.
+*UserApi* | [**sendInvitationEmailUserItem**](docs/Api/UserApi.md#sendinvitationemailuseritem) | **POST** /user/users/{id}/invitation-email | Send Invitation email to User
 
 ## Documentation For Models
 

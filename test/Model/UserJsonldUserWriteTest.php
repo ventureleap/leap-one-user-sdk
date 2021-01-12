@@ -153,13 +153,6 @@ class UserJsonldUserWriteTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "additional_properties"
-     */
-    public function testPropertyAdditionalProperties()
-    {
-    }
-
-    /**
      * Test attribute "auth_code"
      */
     public function testPropertyAuthCode()
@@ -219,6 +212,13 @@ class UserJsonldUserWriteTest extends \PHPUnit_Framework_TestCase
      * Test attribute "active"
      */
     public function testPropertyActive()
+    {
+    }
+
+    /**
+     * Test attribute "custom_data"
+     */
+    public function testPropertyCustomData()
     {
     }
 }

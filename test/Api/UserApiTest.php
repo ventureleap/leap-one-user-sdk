@@ -103,7 +103,7 @@ class UserApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for loginByTokenUserItem
      *
-     * Retrieves a User resource..
+     * Get User resource from token.
      *
      */
     public function testLoginByTokenUserItem()
@@ -113,7 +113,7 @@ class UserApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for postCredentialsItem
      *
-     * Gets Logged in User..
+     * Check User Credentials..
      *
      */
     public function testPostCredentialsItem()
@@ -153,7 +153,7 @@ class UserApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for sendInvitationEmailUserItem
      *
-     * Retrieves a User resource..
+     * Send Invitation email to User.
      *
      */
     public function testSendInvitationEmailUserItem()

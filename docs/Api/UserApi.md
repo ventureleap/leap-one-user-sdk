@@ -7,12 +7,12 @@ Method | HTTP request | Description
 [**getToken**](UserApi.md#gettoken) | **POST** /user/get-token | Gets JWT token for a user
 [**getUserCollection**](UserApi.md#getusercollection) | **GET** /user/users | Retrieves the collection of User resources.
 [**getUserItem**](UserApi.md#getuseritem) | **GET** /user/users/{id} | Retrieves a User resource.
-[**loginByTokenUserItem**](UserApi.md#loginbytokenuseritem) | **GET** /user/users/login-by-token/{token} | Retrieves a User resource.
-[**postCredentialsItem**](UserApi.md#postcredentialsitem) | **POST** /user/users/login | Gets Logged in User.
+[**loginByTokenUserItem**](UserApi.md#loginbytokenuseritem) | **POST** /user/users/login-by-token/{token} | Get User resource from token
+[**postCredentialsItem**](UserApi.md#postcredentialsitem) | **POST** /user/users/login | Check User Credentials.
 [**postUserCollection**](UserApi.md#postusercollection) | **POST** /user/users | Creates a User resource.
 [**putUserItem**](UserApi.md#putuseritem) | **PUT** /user/users/{id} | Replaces the User resource.
 [**resetUserPasswordUserItem**](UserApi.md#resetuserpassworduseritem) | **PATCH** /user/users/{id}/reset-password | Updates the User resource.
-[**sendInvitationEmailUserItem**](UserApi.md#sendinvitationemailuseritem) | **GET** /user/users/{id}/invitation-email | Retrieves a User resource.
+[**sendInvitationEmailUserItem**](UserApi.md#sendinvitationemailuseritem) | **POST** /user/users/{id}/invitation-email | Send Invitation email to User
 
 # **getToken**
 > \VentureLeap\UserService\Model\User getToken($body)
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUserCollection**
-> \VentureLeap\UserService\Model\InlineResponse2003 getUserCollection($username, $email, $first_name, $last_name, $additional_properties, $user_type, $active, $deleted, $page, $items_per_page, $pagination)
+> \VentureLeap\UserService\Model\InlineResponse2003 getUserCollection($username, $email, $first_name, $last_name, $user_type, $active, $deleted, $page, $items_per_page, $pagination)
 
 Retrieves the collection of User resources.
 
@@ -90,7 +90,6 @@ $username = "username_example"; // string |
 $email = "email_example"; // string | 
 $first_name = "first_name_example"; // string | 
 $last_name = "last_name_example"; // string | 
-$additional_properties = "additional_properties_example"; // string | 
 $user_type = "user_type_example"; // string | 
 $active = true; // bool | 
 $deleted = true; // bool | 
@@ -99,7 +98,7 @@ $items_per_page = 10; // int | The number of items per page
 $pagination = true; // bool | Enable or disable pagination
 
 try {
-    $result = $apiInstance->getUserCollection($username, $email, $first_name, $last_name, $additional_properties, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
+    $result = $apiInstance->getUserCollection($username, $email, $first_name, $last_name, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->getUserCollection: ', $e->getMessage(), PHP_EOL;
@@ -115,7 +114,6 @@ Name | Type | Description  | Notes
  **email** | **string**|  | [optional]
  **first_name** | **string**|  | [optional]
  **last_name** | **string**|  | [optional]
- **additional_properties** | **string**|  | [optional]
  **user_type** | **string**|  | [optional]
  **active** | **bool**|  | [optional]
  **deleted** | **bool**|  | [optional]
@@ -191,9 +189,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **loginByTokenUserItem**
-> \VentureLeap\UserService\Model\UserJsonldUserRead loginByTokenUserItem($token)
+> \VentureLeap\UserService\Model\UserJsonldUserRead loginByTokenUserItem($token, $body)
 
-Retrieves a User resource.
+Get User resource from token
 
 ### Example
 ```php
@@ -211,9 +209,10 @@ $apiInstance = new VentureLeap\UserService\Api\UserApi(
     $config
 );
 $token = "token_example"; // string | 
+$body = new \VentureLeap\UserService\Model\UserJsonldUserWrite(); // \VentureLeap\UserService\Model\UserJsonldUserWrite | The new User resource
 
 try {
-    $result = $apiInstance->loginByTokenUserItem($token);
+    $result = $apiInstance->loginByTokenUserItem($token, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->loginByTokenUserItem: ', $e->getMessage(), PHP_EOL;
@@ -226,6 +225,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **token** | **string**|  |
+ **body** | [**\VentureLeap\UserService\Model\UserJsonldUserWrite**](../Model/UserJsonldUserWrite.md)| The new User resource | [optional]
 
 ### Return type
 
@@ -237,7 +237,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/ld+json
  - **Accept**: application/ld+json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 # **postCredentialsItem**
 > \VentureLeap\UserService\Model\User postCredentialsItem($body)
 
-Gets Logged in User.
+Check User Credentials.
 
 ### Example
 ```php
@@ -455,9 +455,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **sendInvitationEmailUserItem**
-> \VentureLeap\UserService\Model\UserJsonldUserRead sendInvitationEmailUserItem($id)
+> \VentureLeap\UserService\Model\UserJsonldUserRead sendInvitationEmailUserItem($id, $body)
 
-Retrieves a User resource.
+Send Invitation email to User
 
 ### Example
 ```php
@@ -475,9 +475,10 @@ $apiInstance = new VentureLeap\UserService\Api\UserApi(
     $config
 );
 $id = "id_example"; // string | 
+$body = new \VentureLeap\UserService\Model\UserJsonldUserWrite(); // \VentureLeap\UserService\Model\UserJsonldUserWrite | The new User resource
 
 try {
-    $result = $apiInstance->sendInvitationEmailUserItem($id);
+    $result = $apiInstance->sendInvitationEmailUserItem($id, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->sendInvitationEmailUserItem: ', $e->getMessage(), PHP_EOL;
@@ -490,6 +491,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**|  |
+ **body** | [**\VentureLeap\UserService\Model\UserJsonldUserWrite**](../Model/UserJsonldUserWrite.md)| The new User resource | [optional]
 
 ### Return type
 
@@ -501,7 +503,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/ld+json
  - **Accept**: application/ld+json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

@@ -67,7 +67,6 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'first_name' => 'string',
 'last_name' => 'string',
 'deleted' => 'bool',
-'additional_properties' => 'string',
 'auth_code' => 'string',
 'failed_login_attempts' => 'int',
 'failed_login_time' => '\DateTime',
@@ -76,7 +75,8 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'date_of_birth' => '\DateTime',
 'gender' => 'string',
 'addresses' => '\VentureLeap\UserService\Model\AddressJsonldUserWrite[]',
-'active' => 'bool'    ];
+'active' => 'bool',
+'custom_data' => 'object'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -95,7 +95,6 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'first_name' => null,
 'last_name' => null,
 'deleted' => null,
-'additional_properties' => null,
 'auth_code' => null,
 'failed_login_attempts' => null,
 'failed_login_time' => 'date-time',
@@ -104,7 +103,8 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'date_of_birth' => 'date-time',
 'gender' => null,
 'addresses' => null,
-'active' => null    ];
+'active' => null,
+'custom_data' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -144,7 +144,6 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'first_name' => 'firstName',
 'last_name' => 'lastName',
 'deleted' => 'deleted',
-'additional_properties' => 'additionalProperties',
 'auth_code' => 'authCode',
 'failed_login_attempts' => 'failedLoginAttempts',
 'failed_login_time' => 'failedLoginTime',
@@ -153,7 +152,8 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'date_of_birth' => 'dateOfBirth',
 'gender' => 'gender',
 'addresses' => 'addresses',
-'active' => 'active'    ];
+'active' => 'active',
+'custom_data' => 'customData'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -172,7 +172,6 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'first_name' => 'setFirstName',
 'last_name' => 'setLastName',
 'deleted' => 'setDeleted',
-'additional_properties' => 'setAdditionalProperties',
 'auth_code' => 'setAuthCode',
 'failed_login_attempts' => 'setFailedLoginAttempts',
 'failed_login_time' => 'setFailedLoginTime',
@@ -181,7 +180,8 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'date_of_birth' => 'setDateOfBirth',
 'gender' => 'setGender',
 'addresses' => 'setAddresses',
-'active' => 'setActive'    ];
+'active' => 'setActive',
+'custom_data' => 'setCustomData'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -200,7 +200,6 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'first_name' => 'getFirstName',
 'last_name' => 'getLastName',
 'deleted' => 'getDeleted',
-'additional_properties' => 'getAdditionalProperties',
 'auth_code' => 'getAuthCode',
 'failed_login_attempts' => 'getFailedLoginAttempts',
 'failed_login_time' => 'getFailedLoginTime',
@@ -209,7 +208,8 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'date_of_birth' => 'getDateOfBirth',
 'gender' => 'getGender',
 'addresses' => 'getAddresses',
-'active' => 'getActive'    ];
+'active' => 'getActive',
+'custom_data' => 'getCustomData'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -280,7 +280,6 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
         $this->container['first_name'] = isset($data['first_name']) ? $data['first_name'] : null;
         $this->container['last_name'] = isset($data['last_name']) ? $data['last_name'] : null;
         $this->container['deleted'] = isset($data['deleted']) ? $data['deleted'] : null;
-        $this->container['additional_properties'] = isset($data['additional_properties']) ? $data['additional_properties'] : null;
         $this->container['auth_code'] = isset($data['auth_code']) ? $data['auth_code'] : null;
         $this->container['failed_login_attempts'] = isset($data['failed_login_attempts']) ? $data['failed_login_attempts'] : null;
         $this->container['failed_login_time'] = isset($data['failed_login_time']) ? $data['failed_login_time'] : null;
@@ -290,6 +289,7 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
         $this->container['gender'] = isset($data['gender']) ? $data['gender'] : null;
         $this->container['addresses'] = isset($data['addresses']) ? $data['addresses'] : null;
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
+        $this->container['custom_data'] = isset($data['custom_data']) ? $data['custom_data'] : null;
     }
 
     /**
@@ -581,30 +581,6 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets additional_properties
-     *
-     * @return string
-     */
-    public function getAdditionalProperties()
-    {
-        return $this->container['additional_properties'];
-    }
-
-    /**
-     * Sets additional_properties
-     *
-     * @param string $additional_properties An explicit json array would make much more sense here. Unfortunately, the SDK generator does not understand this properly, so we have to encode and decode id manually.
-     *
-     * @return $this
-     */
-    public function setAdditionalProperties($additional_properties)
-    {
-        $this->container['additional_properties'] = $additional_properties;
-
-        return $this;
-    }
-
-    /**
      * Gets auth_code
      *
      * @return string
@@ -816,6 +792,30 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
     public function setActive($active)
     {
         $this->container['active'] = $active;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_data
+     *
+     * @return object
+     */
+    public function getCustomData()
+    {
+        return $this->container['custom_data'];
+    }
+
+    /**
+     * Sets custom_data
+     *
+     * @param object $custom_data custom_data
+     *
+     * @return $this
+     */
+    public function setCustomData($custom_data)
+    {
+        $this->container['custom_data'] = $custom_data;
 
         return $this;
     }
