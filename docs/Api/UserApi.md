@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUserCollection**
-> \VentureLeap\UserService\Model\InlineResponse2003 getUserCollection($username, $email, $first_name, $last_name, $user_type, $active, $deleted, $page, $items_per_page, $pagination)
+> \VentureLeap\UserService\Model\InlineResponse2003 getUserCollection($username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $page, $items_per_page, $pagination)
 
 Retrieves the collection of User resources.
 
@@ -90,6 +90,7 @@ $username = "username_example"; // string |
 $email = "email_example"; // string | 
 $first_name = "first_name_example"; // string | 
 $last_name = "last_name_example"; // string | 
+$custom_data = "custom_data_example"; // string | 
 $user_type = "user_type_example"; // string | 
 $active = true; // bool | 
 $deleted = true; // bool | 
@@ -98,7 +99,7 @@ $items_per_page = 10; // int | The number of items per page
 $pagination = true; // bool | Enable or disable pagination
 
 try {
-    $result = $apiInstance->getUserCollection($username, $email, $first_name, $last_name, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
+    $result = $apiInstance->getUserCollection($username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->getUserCollection: ', $e->getMessage(), PHP_EOL;
@@ -114,6 +115,7 @@ Name | Type | Description  | Notes
  **email** | **string**|  | [optional]
  **first_name** | **string**|  | [optional]
  **last_name** | **string**|  | [optional]
+ **custom_data** | **string**|  | [optional]
  **user_type** | **string**|  | [optional]
  **active** | **bool**|  | [optional]
  **deleted** | **bool**|  | [optional]

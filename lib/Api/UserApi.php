@@ -351,6 +351,7 @@ class UserApi
      * @param  string $email email (optional)
      * @param  string $first_name first_name (optional)
      * @param  string $last_name last_name (optional)
+     * @param  string $custom_data custom_data (optional)
      * @param  string $user_type user_type (optional)
      * @param  bool $active active (optional)
      * @param  bool $deleted deleted (optional)
@@ -362,9 +363,9 @@ class UserApi
      * @throws \InvalidArgumentException
      * @return \VentureLeap\UserService\Model\InlineResponse2003
      */
-    public function getUserCollection($username = null, $email = null, $first_name = null, $last_name = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
+    public function getUserCollection($username = null, $email = null, $first_name = null, $last_name = null, $custom_data = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
     {
-        list($response) = $this->getUserCollectionWithHttpInfo($username, $email, $first_name, $last_name, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
+        list($response) = $this->getUserCollectionWithHttpInfo($username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
         return $response;
     }
 
@@ -377,6 +378,7 @@ class UserApi
      * @param  string $email (optional)
      * @param  string $first_name (optional)
      * @param  string $last_name (optional)
+     * @param  string $custom_data (optional)
      * @param  string $user_type (optional)
      * @param  bool $active (optional)
      * @param  bool $deleted (optional)
@@ -388,10 +390,10 @@ class UserApi
      * @throws \InvalidArgumentException
      * @return array of \VentureLeap\UserService\Model\InlineResponse2003, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUserCollectionWithHttpInfo($username = null, $email = null, $first_name = null, $last_name = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
+    public function getUserCollectionWithHttpInfo($username = null, $email = null, $first_name = null, $last_name = null, $custom_data = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
     {
         $returnType = '\VentureLeap\UserService\Model\InlineResponse2003';
-        $request = $this->getUserCollectionRequest($username, $email, $first_name, $last_name, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
+        $request = $this->getUserCollectionRequest($username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
 
         try {
             $options = $this->createHttpClientOption();
@@ -461,6 +463,7 @@ class UserApi
      * @param  string $email (optional)
      * @param  string $first_name (optional)
      * @param  string $last_name (optional)
+     * @param  string $custom_data (optional)
      * @param  string $user_type (optional)
      * @param  bool $active (optional)
      * @param  bool $deleted (optional)
@@ -471,9 +474,9 @@ class UserApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserCollectionAsync($username = null, $email = null, $first_name = null, $last_name = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
+    public function getUserCollectionAsync($username = null, $email = null, $first_name = null, $last_name = null, $custom_data = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
     {
-        return $this->getUserCollectionAsyncWithHttpInfo($username, $email, $first_name, $last_name, $user_type, $active, $deleted, $page, $items_per_page, $pagination)
+        return $this->getUserCollectionAsyncWithHttpInfo($username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $page, $items_per_page, $pagination)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -490,6 +493,7 @@ class UserApi
      * @param  string $email (optional)
      * @param  string $first_name (optional)
      * @param  string $last_name (optional)
+     * @param  string $custom_data (optional)
      * @param  string $user_type (optional)
      * @param  bool $active (optional)
      * @param  bool $deleted (optional)
@@ -500,10 +504,10 @@ class UserApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserCollectionAsyncWithHttpInfo($username = null, $email = null, $first_name = null, $last_name = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
+    public function getUserCollectionAsyncWithHttpInfo($username = null, $email = null, $first_name = null, $last_name = null, $custom_data = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
     {
         $returnType = '\VentureLeap\UserService\Model\InlineResponse2003';
-        $request = $this->getUserCollectionRequest($username, $email, $first_name, $last_name, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
+        $request = $this->getUserCollectionRequest($username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -549,6 +553,7 @@ class UserApi
      * @param  string $email (optional)
      * @param  string $first_name (optional)
      * @param  string $last_name (optional)
+     * @param  string $custom_data (optional)
      * @param  string $user_type (optional)
      * @param  bool $active (optional)
      * @param  bool $deleted (optional)
@@ -559,7 +564,7 @@ class UserApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getUserCollectionRequest($username = null, $email = null, $first_name = null, $last_name = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
+    protected function getUserCollectionRequest($username = null, $email = null, $first_name = null, $last_name = null, $custom_data = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
     {
 
         $resourcePath = '/user/users';
@@ -584,6 +589,10 @@ class UserApi
         // query params
         if ($last_name !== null) {
             $queryParams['lastName'] = ObjectSerializer::toQueryValue($last_name, null);
+        }
+        // query params
+        if ($custom_data !== null) {
+            $queryParams['customData'] = ObjectSerializer::toQueryValue($custom_data, null);
         }
         // query params
         if ($user_type !== null) {
