@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**getUserItem**](UserApi.md#getuseritem) | **GET** /user/users/{id} | Retrieves a User resource.
 [**loginByTokenUserItem**](UserApi.md#loginbytokenuseritem) | **POST** /user/users/login-by-token/{token} | Get User resource from token
 [**postCredentialsItem**](UserApi.md#postcredentialsitem) | **POST** /user/users/login | Check User Credentials
+[**postPasswordRequest**](UserApi.md#postpasswordrequest) | **POST** /user/users/request-password | Checks User Email is correct and sends Password reset link
 [**postUserCollection**](UserApi.md#postusercollection) | **POST** /user/users | Creates a User resource.
 [**putUserItem**](UserApi.md#putuseritem) | **PUT** /user/users/{id} | Replaces the User resource.
 [**resetUserPasswordUserItem**](UserApi.md#resetuserpassworduseritem) | **PATCH** /user/users/{id}/reset-password | Updates the User resource.
@@ -292,6 +293,58 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/ld+json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **postPasswordRequest**
+> \VentureLeap\UserService\Model\UserJsonldUserRead postPasswordRequest($body)
+
+Checks User Email is correct and sends Password reset link
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+// Configure API key authorization: apiKey
+$config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$apiInstance = new VentureLeap\UserService\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$body = new \VentureLeap\UserService\Model\UserJsonldPasswordRequest(); // \VentureLeap\UserService\Model\UserJsonldPasswordRequest | The new User resource
+
+try {
+    $result = $apiInstance->postPasswordRequest($body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->postPasswordRequest: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\VentureLeap\UserService\Model\UserJsonldPasswordRequest**](../Model/UserJsonldPasswordRequest.md)| The new User resource | [optional]
+
+### Return type
+
+[**\VentureLeap\UserService\Model\UserJsonldUserRead**](../Model/UserJsonldUserRead.md)
+
+### Authorization
+
+[apiKey](../../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/ld+json
  - **Accept**: application/ld+json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

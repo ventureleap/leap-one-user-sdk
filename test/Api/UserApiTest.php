@@ -121,6 +121,16 @@ class UserApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for postPasswordRequest
+     *
+     * Checks User Email is correct and sends Password reset link.
+     *
+     */
+    public function testPostPasswordRequest()
+    {
+    }
+
+    /**
      * Test case for postUserCollection
      *
      * Creates a User resource..

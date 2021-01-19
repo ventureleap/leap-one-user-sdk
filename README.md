@@ -170,6 +170,7 @@ Class | Method | HTTP request | Description
 *UserApi* | [**getUserItem**](docs/Api/UserApi.md#getuseritem) | **GET** /user/users/{id} | Retrieves a User resource.
 *UserApi* | [**loginByTokenUserItem**](docs/Api/UserApi.md#loginbytokenuseritem) | **POST** /user/users/login-by-token/{token} | Get User resource from token
 *UserApi* | [**postCredentialsItem**](docs/Api/UserApi.md#postcredentialsitem) | **POST** /user/users/login | Check User Credentials
+*UserApi* | [**postPasswordRequest**](docs/Api/UserApi.md#postpasswordrequest) | **POST** /user/users/request-password | Checks User Email is correct and sends Password reset link
 *UserApi* | [**postUserCollection**](docs/Api/UserApi.md#postusercollection) | **POST** /user/users | Creates a User resource.
 *UserApi* | [**putUserItem**](docs/Api/UserApi.md#putuseritem) | **PUT** /user/users/{id} | Replaces the User resource.
 *UserApi* | [**resetUserPasswordUserItem**](docs/Api/UserApi.md#resetuserpassworduseritem) | **PATCH** /user/users/{id}/reset-password | Updates the User resource.
@@ -196,6 +197,7 @@ Class | Method | HTTP request | Description
  - [SocialAuthUrl](docs/Model/SocialAuthUrl.md)
  - [UserJsonldAccountRead](docs/Model/UserJsonldAccountRead.md)
  - [UserJsonldAddressRead](docs/Model/UserJsonldAddressRead.md)
+ - [UserJsonldPasswordRequest](docs/Model/UserJsonldPasswordRequest.md)
  - [UserJsonldUserRead](docs/Model/UserJsonldUserRead.md)
  - [UserJsonldUserWrite](docs/Model/UserJsonldUserWrite.md)
  - [UserPasswordReset](docs/Model/UserPasswordReset.md)
