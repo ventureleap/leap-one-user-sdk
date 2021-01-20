@@ -16,7 +16,7 @@ Method | HTTP request | Description
 [**sendInvitationEmailUserItem**](UserApi.md#sendinvitationemailuseritem) | **POST** /user/users/{id}/invitation-email | Send Invitation email to User
 
 # **getToken**
-> \VentureLeap\UserService\Model\User getToken($body)
+> \VentureLeap\UserService\Model\UserJsonldUserRead getToken($body)
 
 Gets JWT token for a user
 
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\VentureLeap\UserService\Model\User**](../Model/User.md)
+[**\VentureLeap\UserService\Model\UserJsonldUserRead**](../Model/UserJsonldUserRead.md)
 
 ### Authorization
 

@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **socialLoginGetUser**
-> \VentureLeap\UserService\Model\User socialLoginGetUser($platform, $state, $code)
+> \VentureLeap\UserService\Model\UserJsonldUserRead socialLoginGetUser($platform, $state, $code)
 
 Perform Social Login/Registration for user
 
@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\VentureLeap\UserService\Model\User**](../Model/User.md)
+[**\VentureLeap\UserService\Model\UserJsonldUserRead**](../Model/UserJsonldUserRead.md)
 
 ### Authorization
 

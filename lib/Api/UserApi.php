@@ -95,7 +95,7 @@ class UserApi
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \VentureLeap\UserService\Model\User
+     * @return \VentureLeap\UserService\Model\UserJsonldUserRead
      */
     public function getToken($body = null)
     {
@@ -112,11 +112,11 @@ class UserApi
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \VentureLeap\UserService\Model\User, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \VentureLeap\UserService\Model\UserJsonldUserRead, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTokenWithHttpInfo($body = null)
     {
-        $returnType = '\VentureLeap\UserService\Model\User';
+        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserRead';
         $request = $this->getTokenRequest($body);
 
         try {
@@ -168,7 +168,7 @@ class UserApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\VentureLeap\UserService\Model\User',
+                        '\VentureLeap\UserService\Model\UserJsonldUserRead',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -210,7 +210,7 @@ class UserApi
      */
     public function getTokenAsyncWithHttpInfo($body = null)
     {
-        $returnType = '\VentureLeap\UserService\Model\User';
+        $returnType = '\VentureLeap\UserService\Model\UserJsonldUserRead';
         $request = $this->getTokenRequest($body);
 
         return $this->client
