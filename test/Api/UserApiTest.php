@@ -71,6 +71,16 @@ class UserApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for apiAccountsUsersGetSubresource
+     *
+     * Retrieves the collection of User resources..
+     *
+     */
+    public function testApiAccountsUsersGetSubresource()
+    {
+    }
+
+    /**
      * Test case for getToken
      *
      * Gets JWT token for a user.

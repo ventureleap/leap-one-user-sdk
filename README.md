@@ -67,6 +67,37 @@ $apiInstance = new VentureLeap\UserService\Api\AccountApi(
     new GuzzleHttp\Client(),
     $config
 );
+$id = "id_example"; // string | 
+$username = "username_example"; // string | 
+$email = "email_example"; // string | 
+$first_name = "first_name_example"; // string | 
+$last_name = "last_name_example"; // string | 
+$custom_data = "custom_data_example"; // string | 
+$user_type = "user_type_example"; // string | 
+$active = true; // bool | 
+$deleted = true; // bool | 
+$page = 1; // int | The collection page number
+$items_per_page = 10; // int | The number of items per page
+$pagination = true; // bool | Enable or disable pagination
+
+try {
+    $result = $apiInstance->apiAccountsUsersGetSubresource($id, $username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountApi->apiAccountsUsersGetSubresource: ', $e->getMessage(), PHP_EOL;
+}
+
+// Configure API key authorization: apiKey
+$config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$apiInstance = new VentureLeap\UserService\Api\AccountApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $account_number = "account_number_example"; // string | 
 $active = true; // bool | 
 $deleted = true; // bool | 
@@ -150,6 +181,7 @@ All URIs are relative to */*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AccountApi* | [**apiAccountsUsersGetSubresource**](docs/Api/AccountApi.md#apiaccountsusersgetsubresource) | **GET** /user/accounts/{id}/users | Retrieves the collection of User resources.
 *AccountApi* | [**getAccountCollection**](docs/Api/AccountApi.md#getaccountcollection) | **GET** /user/accounts | Retrieves the collection of Account resources.
 *AccountApi* | [**getAccountItem**](docs/Api/AccountApi.md#getaccountitem) | **GET** /user/accounts/{id} | Retrieves a Account resource.
 *AccountApi* | [**postAccountCollection**](docs/Api/AccountApi.md#postaccountcollection) | **POST** /user/accounts | Creates a Account resource.
@@ -165,6 +197,7 @@ Class | Method | HTTP request | Description
 *ConfigurationEntryApi* | [**putConfigurationEntryItem**](docs/Api/ConfigurationEntryApi.md#putconfigurationentryitem) | **PUT** /user/configuration_entries/{id} | Replaces the ConfigurationEntry resource.
 *SocialAuthenticationApi* | [**socialLoginGetAuthUrl**](docs/Api/SocialAuthenticationApi.md#sociallogingetauthurl) | **GET** /user/social/{platform}/auth-url | Get Social Platform Authorization Url
 *SocialAuthenticationApi* | [**socialLoginGetUser**](docs/Api/SocialAuthenticationApi.md#sociallogingetuser) | **GET** /user/social/{platform} | Perform Social Login/Registration for user
+*UserApi* | [**apiAccountsUsersGetSubresource**](docs/Api/UserApi.md#apiaccountsusersgetsubresource) | **GET** /user/accounts/{id}/users | Retrieves the collection of User resources.
 *UserApi* | [**getToken**](docs/Api/UserApi.md#gettoken) | **POST** /user/get-token | Gets JWT token for a user
 *UserApi* | [**getUserCollection**](docs/Api/UserApi.md#getusercollection) | **GET** /user/users | Retrieves the collection of User resources.
 *UserApi* | [**getUserItem**](docs/Api/UserApi.md#getuseritem) | **GET** /user/users/{id} | Retrieves a User resource.

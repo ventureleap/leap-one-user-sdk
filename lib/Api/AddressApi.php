@@ -97,7 +97,7 @@ class AddressApi
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \VentureLeap\UserService\Model\InlineResponse2001
+     * @return \VentureLeap\UserService\Model\InlineResponse2002
      */
     public function getAddressCollection($page = '1', $items_per_page = '10', $pagination = null)
     {
@@ -116,11 +116,11 @@ class AddressApi
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \VentureLeap\UserService\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \VentureLeap\UserService\Model\InlineResponse2002, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAddressCollectionWithHttpInfo($page = '1', $items_per_page = '10', $pagination = null)
     {
-        $returnType = '\VentureLeap\UserService\Model\InlineResponse2001';
+        $returnType = '\VentureLeap\UserService\Model\InlineResponse2002';
         $request = $this->getAddressCollectionRequest($page, $items_per_page, $pagination);
 
         try {
@@ -172,7 +172,7 @@ class AddressApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\VentureLeap\UserService\Model\InlineResponse2001',
+                        '\VentureLeap\UserService\Model\InlineResponse2002',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -218,7 +218,7 @@ class AddressApi
      */
     public function getAddressCollectionAsyncWithHttpInfo($page = '1', $items_per_page = '10', $pagination = null)
     {
-        $returnType = '\VentureLeap\UserService\Model\InlineResponse2001';
+        $returnType = '\VentureLeap\UserService\Model\InlineResponse2002';
         $request = $this->getAddressCollectionRequest($page, $items_per_page, $pagination);
 
         return $this->client

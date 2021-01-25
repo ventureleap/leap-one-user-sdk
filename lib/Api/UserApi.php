@@ -87,6 +87,372 @@ class UserApi
     }
 
     /**
+     * Operation apiAccountsUsersGetSubresource
+     *
+     * Retrieves the collection of User resources.
+     *
+     * @param  string $id id (required)
+     * @param  string $username username (optional)
+     * @param  string $email email (optional)
+     * @param  string $first_name first_name (optional)
+     * @param  string $last_name last_name (optional)
+     * @param  string $custom_data custom_data (optional)
+     * @param  string $user_type user_type (optional)
+     * @param  bool $active active (optional)
+     * @param  bool $deleted deleted (optional)
+     * @param  int $page The collection page number (optional, default to 1)
+     * @param  int $items_per_page The number of items per page (optional, default to 10)
+     * @param  bool $pagination Enable or disable pagination (optional)
+     *
+     * @throws \VentureLeap\UserService\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \VentureLeap\UserService\Model\InlineResponse2001
+     */
+    public function apiAccountsUsersGetSubresource($id, $username = null, $email = null, $first_name = null, $last_name = null, $custom_data = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
+    {
+        list($response) = $this->apiAccountsUsersGetSubresourceWithHttpInfo($id, $username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
+        return $response;
+    }
+
+    /**
+     * Operation apiAccountsUsersGetSubresourceWithHttpInfo
+     *
+     * Retrieves the collection of User resources.
+     *
+     * @param  string $id (required)
+     * @param  string $username (optional)
+     * @param  string $email (optional)
+     * @param  string $first_name (optional)
+     * @param  string $last_name (optional)
+     * @param  string $custom_data (optional)
+     * @param  string $user_type (optional)
+     * @param  bool $active (optional)
+     * @param  bool $deleted (optional)
+     * @param  int $page The collection page number (optional, default to 1)
+     * @param  int $items_per_page The number of items per page (optional, default to 10)
+     * @param  bool $pagination Enable or disable pagination (optional)
+     *
+     * @throws \VentureLeap\UserService\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \VentureLeap\UserService\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function apiAccountsUsersGetSubresourceWithHttpInfo($id, $username = null, $email = null, $first_name = null, $last_name = null, $custom_data = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
+    {
+        $returnType = '\VentureLeap\UserService\Model\InlineResponse2001';
+        $request = $this->apiAccountsUsersGetSubresourceRequest($id, $username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if (!in_array($returnType, ['string','integer','bool'])) {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\VentureLeap\UserService\Model\InlineResponse2001',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation apiAccountsUsersGetSubresourceAsync
+     *
+     * Retrieves the collection of User resources.
+     *
+     * @param  string $id (required)
+     * @param  string $username (optional)
+     * @param  string $email (optional)
+     * @param  string $first_name (optional)
+     * @param  string $last_name (optional)
+     * @param  string $custom_data (optional)
+     * @param  string $user_type (optional)
+     * @param  bool $active (optional)
+     * @param  bool $deleted (optional)
+     * @param  int $page The collection page number (optional, default to 1)
+     * @param  int $items_per_page The number of items per page (optional, default to 10)
+     * @param  bool $pagination Enable or disable pagination (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function apiAccountsUsersGetSubresourceAsync($id, $username = null, $email = null, $first_name = null, $last_name = null, $custom_data = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
+    {
+        return $this->apiAccountsUsersGetSubresourceAsyncWithHttpInfo($id, $username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $page, $items_per_page, $pagination)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation apiAccountsUsersGetSubresourceAsyncWithHttpInfo
+     *
+     * Retrieves the collection of User resources.
+     *
+     * @param  string $id (required)
+     * @param  string $username (optional)
+     * @param  string $email (optional)
+     * @param  string $first_name (optional)
+     * @param  string $last_name (optional)
+     * @param  string $custom_data (optional)
+     * @param  string $user_type (optional)
+     * @param  bool $active (optional)
+     * @param  bool $deleted (optional)
+     * @param  int $page The collection page number (optional, default to 1)
+     * @param  int $items_per_page The number of items per page (optional, default to 10)
+     * @param  bool $pagination Enable or disable pagination (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function apiAccountsUsersGetSubresourceAsyncWithHttpInfo($id, $username = null, $email = null, $first_name = null, $last_name = null, $custom_data = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
+    {
+        $returnType = '\VentureLeap\UserService\Model\InlineResponse2001';
+        $request = $this->apiAccountsUsersGetSubresourceRequest($id, $username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'apiAccountsUsersGetSubresource'
+     *
+     * @param  string $id (required)
+     * @param  string $username (optional)
+     * @param  string $email (optional)
+     * @param  string $first_name (optional)
+     * @param  string $last_name (optional)
+     * @param  string $custom_data (optional)
+     * @param  string $user_type (optional)
+     * @param  bool $active (optional)
+     * @param  bool $deleted (optional)
+     * @param  int $page The collection page number (optional, default to 1)
+     * @param  int $items_per_page The number of items per page (optional, default to 10)
+     * @param  bool $pagination Enable or disable pagination (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function apiAccountsUsersGetSubresourceRequest($id, $username = null, $email = null, $first_name = null, $last_name = null, $custom_data = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling apiAccountsUsersGetSubresource'
+            );
+        }
+
+        $resourcePath = '/user/accounts/{id}/users';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($username !== null) {
+            $queryParams['username'] = ObjectSerializer::toQueryValue($username, null);
+        }
+        // query params
+        if ($email !== null) {
+            $queryParams['email'] = ObjectSerializer::toQueryValue($email, null);
+        }
+        // query params
+        if ($first_name !== null) {
+            $queryParams['firstName'] = ObjectSerializer::toQueryValue($first_name, null);
+        }
+        // query params
+        if ($last_name !== null) {
+            $queryParams['lastName'] = ObjectSerializer::toQueryValue($last_name, null);
+        }
+        // query params
+        if ($custom_data !== null) {
+            $queryParams['customData'] = ObjectSerializer::toQueryValue($custom_data, null);
+        }
+        // query params
+        if ($user_type !== null) {
+            $queryParams['userType'] = ObjectSerializer::toQueryValue($user_type, null);
+        }
+        // query params
+        if ($active !== null) {
+            $queryParams['active'] = ObjectSerializer::toQueryValue($active, null);
+        }
+        // query params
+        if ($deleted !== null) {
+            $queryParams['deleted'] = ObjectSerializer::toQueryValue($deleted, null);
+        }
+        // query params
+        if ($page !== null) {
+            $queryParams['page'] = ObjectSerializer::toQueryValue($page, null);
+        }
+        // query params
+        if ($items_per_page !== null) {
+            $queryParams['itemsPerPage'] = ObjectSerializer::toQueryValue($items_per_page, null);
+        }
+        // query params
+        if ($pagination !== null) {
+            $queryParams['pagination'] = ObjectSerializer::toQueryValue($pagination, null);
+        }
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/ld+json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/ld+json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getToken
      *
      * Gets JWT token for a user
@@ -361,7 +727,7 @@ class UserApi
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \VentureLeap\UserService\Model\InlineResponse2003
+     * @return \VentureLeap\UserService\Model\InlineResponse2001
      */
     public function getUserCollection($username = null, $email = null, $first_name = null, $last_name = null, $custom_data = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
     {
@@ -388,11 +754,11 @@ class UserApi
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \VentureLeap\UserService\Model\InlineResponse2003, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \VentureLeap\UserService\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
      */
     public function getUserCollectionWithHttpInfo($username = null, $email = null, $first_name = null, $last_name = null, $custom_data = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
     {
-        $returnType = '\VentureLeap\UserService\Model\InlineResponse2003';
+        $returnType = '\VentureLeap\UserService\Model\InlineResponse2001';
         $request = $this->getUserCollectionRequest($username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
 
         try {
@@ -444,7 +810,7 @@ class UserApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\VentureLeap\UserService\Model\InlineResponse2003',
+                        '\VentureLeap\UserService\Model\InlineResponse2001',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -506,7 +872,7 @@ class UserApi
      */
     public function getUserCollectionAsyncWithHttpInfo($username = null, $email = null, $first_name = null, $last_name = null, $custom_data = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
     {
-        $returnType = '\VentureLeap\UserService\Model\InlineResponse2003';
+        $returnType = '\VentureLeap\UserService\Model\InlineResponse2001';
         $request = $this->getUserCollectionRequest($username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
 
         return $this->client

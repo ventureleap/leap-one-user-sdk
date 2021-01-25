@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**putAddressItem**](AddressApi.md#putaddressitem) | **PUT** /user/addresses/{id} | Replaces the Address resource.
 
 # **getAddressCollection**
-> \VentureLeap\UserService\Model\InlineResponse2001 getAddressCollection($page, $items_per_page, $pagination)
+> \VentureLeap\UserService\Model\InlineResponse2002 getAddressCollection($page, $items_per_page, $pagination)
 
 Retrieves the collection of Address resources.
 
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\VentureLeap\UserService\Model\InlineResponse2001**](../Model/InlineResponse2001.md)
+[**\VentureLeap\UserService\Model\InlineResponse2002**](../Model/InlineResponse2002.md)
 
 ### Authorization
 

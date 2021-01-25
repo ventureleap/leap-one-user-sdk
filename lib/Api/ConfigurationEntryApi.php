@@ -331,7 +331,7 @@ class ConfigurationEntryApi
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \VentureLeap\UserService\Model\InlineResponse2002
+     * @return \VentureLeap\UserService\Model\InlineResponse2003
      */
     public function getConfigurationEntryCollection($key = null, $sub_key = null, $value = null, $application_id = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
@@ -354,11 +354,11 @@ class ConfigurationEntryApi
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \VentureLeap\UserService\Model\InlineResponse2002, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \VentureLeap\UserService\Model\InlineResponse2003, HTTP status code, HTTP response headers (array of strings)
      */
     public function getConfigurationEntryCollectionWithHttpInfo($key = null, $sub_key = null, $value = null, $application_id = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
-        $returnType = '\VentureLeap\UserService\Model\InlineResponse2002';
+        $returnType = '\VentureLeap\UserService\Model\InlineResponse2003';
         $request = $this->getConfigurationEntryCollectionRequest($key, $sub_key, $value, $application_id, $page, $items_per_page, $pagination);
 
         try {
@@ -410,7 +410,7 @@ class ConfigurationEntryApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\VentureLeap\UserService\Model\InlineResponse2002',
+                        '\VentureLeap\UserService\Model\InlineResponse2003',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -464,7 +464,7 @@ class ConfigurationEntryApi
      */
     public function getConfigurationEntryCollectionAsyncWithHttpInfo($key = null, $sub_key = null, $value = null, $application_id = null, $page = '1', $items_per_page = '30', $pagination = null)
     {
-        $returnType = '\VentureLeap\UserService\Model\InlineResponse2002';
+        $returnType = '\VentureLeap\UserService\Model\InlineResponse2003';
         $request = $this->getConfigurationEntryCollectionRequest($key, $sub_key, $value, $application_id, $page, $items_per_page, $pagination);
 
         return $this->client
