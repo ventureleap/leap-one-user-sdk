@@ -199,6 +199,7 @@ Class | Method | HTTP request | Description
 *SocialAuthenticationApi* | [**socialLoginGetUser**](docs/Api/SocialAuthenticationApi.md#sociallogingetuser) | **GET** /user/social/{platform} | Perform Social Login/Registration for user
 *UserApi* | [**apiAccountsUsersGetSubresource**](docs/Api/UserApi.md#apiaccountsusersgetsubresource) | **GET** /user/accounts/{id}/users | Retrieves the collection of User resources.
 *UserApi* | [**getToken**](docs/Api/UserApi.md#gettoken) | **POST** /user/get-token | Gets JWT token for a user
+*UserApi* | [**getUserByTypeItem**](docs/Api/UserApi.md#getuserbytypeitem) | **GET** /user/users/{userType}/{username} | Retrieves a User resource.
 *UserApi* | [**getUserCollection**](docs/Api/UserApi.md#getusercollection) | **GET** /user/users | Retrieves the collection of User resources.
 *UserApi* | [**getUserItem**](docs/Api/UserApi.md#getuseritem) | **GET** /user/users/{id} | Retrieves a User resource.
 *UserApi* | [**loginByTokenUserItem**](docs/Api/UserApi.md#loginbytokenuseritem) | **POST** /user/users/login-by-token/{token} | Get User resource from token

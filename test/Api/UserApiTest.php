@@ -91,6 +91,16 @@ class UserApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for getUserByTypeItem
+     *
+     * Retrieves a User resource..
+     *
+     */
+    public function testGetUserByTypeItem()
+    {
+    }
+
+    /**
      * Test case for getUserCollection
      *
      * Retrieves the collection of User resources..

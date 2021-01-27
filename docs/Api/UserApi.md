@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**apiAccountsUsersGetSubresource**](UserApi.md#apiaccountsusersgetsubresource) | **GET** /user/accounts/{id}/users | Retrieves the collection of User resources.
 [**getToken**](UserApi.md#gettoken) | **POST** /user/get-token | Gets JWT token for a user
+[**getUserByTypeItem**](UserApi.md#getuserbytypeitem) | **GET** /user/users/{userType}/{username} | Retrieves a User resource.
 [**getUserCollection**](UserApi.md#getusercollection) | **GET** /user/users | Retrieves the collection of User resources.
 [**getUserItem**](UserApi.md#getuseritem) | **GET** /user/users/{id} | Retrieves a User resource.
 [**loginByTokenUserItem**](UserApi.md#loginbytokenuseritem) | **POST** /user/users/login-by-token/{token} | Get User resource from token
@@ -139,6 +140,60 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **getUserByTypeItem**
+> \VentureLeap\UserService\Model\UserJsonldUserRead getUserByTypeItem($user_type, $username)
+
+Retrieves a User resource.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+// Configure API key authorization: apiKey
+$config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$apiInstance = new VentureLeap\UserService\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$user_type = "user_type_example"; // string | 
+$username = "username_example"; // string | 
+
+try {
+    $result = $apiInstance->getUserByTypeItem($user_type, $username);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->getUserByTypeItem: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_type** | **string**|  |
+ **username** | **string**|  |
+
+### Return type
+
+[**\VentureLeap\UserService\Model\UserJsonldUserRead**](../Model/UserJsonldUserRead.md)
+
+### Authorization
+
+[apiKey](../../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/ld+json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
