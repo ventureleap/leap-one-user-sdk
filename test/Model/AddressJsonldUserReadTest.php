@@ -97,6 +97,13 @@ class AddressJsonldUserReadTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "uuid"
+     */
+    public function testPropertyUuid()
+    {
+    }
+
+    /**
      * Test attribute "street"
      */
     public function testPropertyStreet()

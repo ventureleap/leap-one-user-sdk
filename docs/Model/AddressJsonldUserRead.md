@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **context** | **string** |  | [optional] 
 **id** | **string** |  | [optional] 
 **type** | **string** |  | [optional] 
+**uuid** | **string** |  | [optional] 
 **street** | **string** |  | [optional] 
 **house_number** | **string** |  | [optional] 
 **zip_code** | **string** |  | [optional] 

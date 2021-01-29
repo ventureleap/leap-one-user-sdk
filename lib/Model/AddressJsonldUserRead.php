@@ -59,6 +59,7 @@ class AddressJsonldUserRead implements ModelInterface, ArrayAccess
         'context' => 'string',
 'id' => 'string',
 'type' => 'string',
+'uuid' => 'string',
 'street' => 'string',
 'house_number' => 'string',
 'zip_code' => 'string',
@@ -77,6 +78,7 @@ class AddressJsonldUserRead implements ModelInterface, ArrayAccess
         'context' => null,
 'id' => null,
 'type' => null,
+'uuid' => 'uuid',
 'street' => null,
 'house_number' => null,
 'zip_code' => null,
@@ -116,6 +118,7 @@ class AddressJsonldUserRead implements ModelInterface, ArrayAccess
         'context' => '@context',
 'id' => '@id',
 'type' => '@type',
+'uuid' => 'uuid',
 'street' => 'street',
 'house_number' => 'houseNumber',
 'zip_code' => 'zipCode',
@@ -134,6 +137,7 @@ class AddressJsonldUserRead implements ModelInterface, ArrayAccess
         'context' => 'setContext',
 'id' => 'setId',
 'type' => 'setType',
+'uuid' => 'setUuid',
 'street' => 'setStreet',
 'house_number' => 'setHouseNumber',
 'zip_code' => 'setZipCode',
@@ -152,6 +156,7 @@ class AddressJsonldUserRead implements ModelInterface, ArrayAccess
         'context' => 'getContext',
 'id' => 'getId',
 'type' => 'getType',
+'uuid' => 'getUuid',
 'street' => 'getStreet',
 'house_number' => 'getHouseNumber',
 'zip_code' => 'getZipCode',
@@ -222,6 +227,7 @@ class AddressJsonldUserRead implements ModelInterface, ArrayAccess
         $this->container['context'] = isset($data['context']) ? $data['context'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
         $this->container['street'] = isset($data['street']) ? $data['street'] : null;
         $this->container['house_number'] = isset($data['house_number']) ? $data['house_number'] : null;
         $this->container['zip_code'] = isset($data['zip_code']) ? $data['zip_code'] : null;
@@ -324,6 +330,30 @@ class AddressJsonldUserRead implements ModelInterface, ArrayAccess
     public function setType($type)
     {
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets uuid
+     *
+     * @return string
+     */
+    public function getUuid()
+    {
+        return $this->container['uuid'];
+    }
+
+    /**
+     * Sets uuid
+     *
+     * @param string $uuid uuid
+     *
+     * @return $this
+     */
+    public function setUuid($uuid)
+    {
+        $this->container['uuid'] = $uuid;
 
         return $this;
     }
