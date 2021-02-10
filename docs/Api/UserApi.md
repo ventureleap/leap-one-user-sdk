@@ -14,8 +14,10 @@ Method | HTTP request | Description
 [**postPasswordRequest**](UserApi.md#postpasswordrequest) | **POST** /user/users/request-password | Checks User Email is correct and sends Password reset link
 [**postUserCollection**](UserApi.md#postusercollection) | **POST** /user/users | Creates a User resource.
 [**putUserItem**](UserApi.md#putuseritem) | **PUT** /user/users/{id} | Replaces the User resource.
+[**requestMfaCodeUserItem**](UserApi.md#requestmfacodeuseritem) | **GET** /user/users/{id}/request-mfa-code | Retrieves a User resource.
 [**resetUserPasswordUserItem**](UserApi.md#resetuserpassworduseritem) | **PATCH** /user/users/{id}/reset-password | Updates the User resource.
 [**sendInvitationEmailUserItem**](UserApi.md#sendinvitationemailuseritem) | **POST** /user/users/{id}/invitation-email | Send Invitation email to User
+[**validateMfaCodeUserItem**](UserApi.md#validatemfacodeuseritem) | **POST** /user/users/{id}/check-mfa-code | Creates a User resource.
 
 # **apiAccountsUsersGetSubresource**
 > \VentureLeap\UserService\Model\InlineResponse2001 apiAccountsUsersGetSubresource($id, $username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $page, $items_per_page, $pagination)
@@ -585,6 +587,58 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **requestMfaCodeUserItem**
+> \VentureLeap\UserService\Model\UserJsonldMfaRequest requestMfaCodeUserItem($id)
+
+Retrieves a User resource.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+// Configure API key authorization: apiKey
+$config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$apiInstance = new VentureLeap\UserService\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = "id_example"; // string | 
+
+try {
+    $result = $apiInstance->requestMfaCodeUserItem($id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->requestMfaCodeUserItem: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**|  |
+
+### Return type
+
+[**\VentureLeap\UserService\Model\UserJsonldMfaRequest**](../Model/UserJsonldMfaRequest.md)
+
+### Authorization
+
+[apiKey](../../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/ld+json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **resetUserPasswordUserItem**
 > \VentureLeap\UserService\Model\UserJsonldUserRead resetUserPasswordUserItem($id, $body)
 
@@ -677,6 +731,60 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**|  |
  **body** | [**\VentureLeap\UserService\Model\UserJsonldUserWrite**](../Model/UserJsonldUserWrite.md)| The new User resource | [optional]
+
+### Return type
+
+[**\VentureLeap\UserService\Model\UserJsonldUserRead**](../Model/UserJsonldUserRead.md)
+
+### Authorization
+
+[apiKey](../../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/ld+json
+ - **Accept**: application/ld+json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **validateMfaCodeUserItem**
+> \VentureLeap\UserService\Model\UserJsonldUserRead validateMfaCodeUserItem($id, $body)
+
+Creates a User resource.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+// Configure API key authorization: apiKey
+$config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$apiInstance = new VentureLeap\UserService\Api\UserApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = "id_example"; // string | 
+$body = new \VentureLeap\UserService\Model\UserJsonldMfaCheck(); // \VentureLeap\UserService\Model\UserJsonldMfaCheck | The new User resource
+
+try {
+    $result = $apiInstance->validateMfaCodeUserItem($id, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling UserApi->validateMfaCodeUserItem: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**|  |
+ **body** | [**\VentureLeap\UserService\Model\UserJsonldMfaCheck**](../Model/UserJsonldMfaCheck.md)| The new User resource | [optional]
 
 ### Return type
 

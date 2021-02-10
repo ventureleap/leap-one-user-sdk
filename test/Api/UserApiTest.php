@@ -171,6 +171,16 @@ class UserApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for requestMfaCodeUserItem
+     *
+     * Retrieves a User resource..
+     *
+     */
+    public function testRequestMfaCodeUserItem()
+    {
+    }
+
+    /**
      * Test case for resetUserPasswordUserItem
      *
      * Updates the User resource..
@@ -187,6 +197,16 @@ class UserApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function testSendInvitationEmailUserItem()
+    {
+    }
+
+    /**
+     * Test case for validateMfaCodeUserItem
+     *
+     * Creates a User resource..
+     *
+     */
+    public function testValidateMfaCodeUserItem()
     {
     }
 }

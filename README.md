@@ -207,8 +207,10 @@ Class | Method | HTTP request | Description
 *UserApi* | [**postPasswordRequest**](docs/Api/UserApi.md#postpasswordrequest) | **POST** /user/users/request-password | Checks User Email is correct and sends Password reset link
 *UserApi* | [**postUserCollection**](docs/Api/UserApi.md#postusercollection) | **POST** /user/users | Creates a User resource.
 *UserApi* | [**putUserItem**](docs/Api/UserApi.md#putuseritem) | **PUT** /user/users/{id} | Replaces the User resource.
+*UserApi* | [**requestMfaCodeUserItem**](docs/Api/UserApi.md#requestmfacodeuseritem) | **GET** /user/users/{id}/request-mfa-code | Retrieves a User resource.
 *UserApi* | [**resetUserPasswordUserItem**](docs/Api/UserApi.md#resetuserpassworduseritem) | **PATCH** /user/users/{id}/reset-password | Updates the User resource.
 *UserApi* | [**sendInvitationEmailUserItem**](docs/Api/UserApi.md#sendinvitationemailuseritem) | **POST** /user/users/{id}/invitation-email | Send Invitation email to User
+*UserApi* | [**validateMfaCodeUserItem**](docs/Api/UserApi.md#validatemfacodeuseritem) | **POST** /user/users/{id}/check-mfa-code | Creates a User resource.
 
 ## Documentation For Models
 
@@ -231,6 +233,8 @@ Class | Method | HTTP request | Description
  - [SocialAuthUrl](docs/Model/SocialAuthUrl.md)
  - [UserJsonldAccountRead](docs/Model/UserJsonldAccountRead.md)
  - [UserJsonldAddressRead](docs/Model/UserJsonldAddressRead.md)
+ - [UserJsonldMfaCheck](docs/Model/UserJsonldMfaCheck.md)
+ - [UserJsonldMfaRequest](docs/Model/UserJsonldMfaRequest.md)
  - [UserJsonldPasswordRequest](docs/Model/UserJsonldPasswordRequest.md)
  - [UserJsonldUserRead](docs/Model/UserJsonldUserRead.md)
  - [UserJsonldUserWrite](docs/Model/UserJsonldUserWrite.md)
