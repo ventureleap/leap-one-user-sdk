@@ -75,6 +75,7 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'date_of_birth' => '\DateTime',
 'gender' => 'string',
 'addresses' => '\VentureLeap\UserService\Model\AddressJsonldUserWrite[]',
+'phone_number' => 'string',
 'active' => 'bool',
 'custom_data' => 'object'    ];
 
@@ -103,6 +104,7 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'date_of_birth' => 'date-time',
 'gender' => null,
 'addresses' => null,
+'phone_number' => null,
 'active' => null,
 'custom_data' => null    ];
 
@@ -152,6 +154,7 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'date_of_birth' => 'dateOfBirth',
 'gender' => 'gender',
 'addresses' => 'addresses',
+'phone_number' => 'phoneNumber',
 'active' => 'active',
 'custom_data' => 'customData'    ];
 
@@ -180,6 +183,7 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'date_of_birth' => 'setDateOfBirth',
 'gender' => 'setGender',
 'addresses' => 'setAddresses',
+'phone_number' => 'setPhoneNumber',
 'active' => 'setActive',
 'custom_data' => 'setCustomData'    ];
 
@@ -208,6 +212,7 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
 'date_of_birth' => 'getDateOfBirth',
 'gender' => 'getGender',
 'addresses' => 'getAddresses',
+'phone_number' => 'getPhoneNumber',
 'active' => 'getActive',
 'custom_data' => 'getCustomData'    ];
 
@@ -288,6 +293,7 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
         $this->container['date_of_birth'] = isset($data['date_of_birth']) ? $data['date_of_birth'] : null;
         $this->container['gender'] = isset($data['gender']) ? $data['gender'] : null;
         $this->container['addresses'] = isset($data['addresses']) ? $data['addresses'] : null;
+        $this->container['phone_number'] = isset($data['phone_number']) ? $data['phone_number'] : null;
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
         $this->container['custom_data'] = isset($data['custom_data']) ? $data['custom_data'] : null;
     }
@@ -768,6 +774,30 @@ class UserJsonldUserWrite implements ModelInterface, ArrayAccess
     public function setAddresses($addresses)
     {
         $this->container['addresses'] = $addresses;
+
+        return $this;
+    }
+
+    /**
+     * Gets phone_number
+     *
+     * @return string
+     */
+    public function getPhoneNumber()
+    {
+        return $this->container['phone_number'];
+    }
+
+    /**
+     * Sets phone_number
+     *
+     * @param string $phone_number phone_number
+     *
+     * @return $this
+     */
+    public function setPhoneNumber($phone_number)
+    {
+        $this->container['phone_number'] = $phone_number;
 
         return $this;
     }

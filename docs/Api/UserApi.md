@@ -14,7 +14,7 @@ Method | HTTP request | Description
 [**postPasswordRequest**](UserApi.md#postpasswordrequest) | **POST** /user/users/request-password | Checks User Email is correct and sends Password reset link
 [**postUserCollection**](UserApi.md#postusercollection) | **POST** /user/users | Creates a User resource.
 [**putUserItem**](UserApi.md#putuseritem) | **PUT** /user/users/{id} | Replaces the User resource.
-[**requestMfaCodeUserItem**](UserApi.md#requestmfacodeuseritem) | **GET** /user/users/{id}/request-mfa-code | Retrieves a User resource.
+[**requestMfaCodeUserItem**](UserApi.md#requestmfacodeuseritem) | **POST** /user/users/{id}/request-mfa-code | Creates a User resource.
 [**resetUserPasswordUserItem**](UserApi.md#resetuserpassworduseritem) | **PATCH** /user/users/{id}/reset-password | Updates the User resource.
 [**sendInvitationEmailUserItem**](UserApi.md#sendinvitationemailuseritem) | **POST** /user/users/{id}/invitation-email | Send Invitation email to User
 [**validateMfaCodeUserItem**](UserApi.md#validatemfacodeuseritem) | **POST** /user/users/{id}/check-mfa-code | Creates a User resource.
@@ -588,9 +588,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **requestMfaCodeUserItem**
-> \VentureLeap\UserService\Model\UserJsonldMfaRequest requestMfaCodeUserItem($id)
+> \VentureLeap\UserService\Model\UserJsonldMfaRequest requestMfaCodeUserItem($id, $body)
 
-Retrieves a User resource.
+Creates a User resource.
 
 ### Example
 ```php
@@ -608,9 +608,10 @@ $apiInstance = new VentureLeap\UserService\Api\UserApi(
     $config
 );
 $id = "id_example"; // string | 
+$body = new \VentureLeap\UserService\Model\UserJsonldMfaSms(); // \VentureLeap\UserService\Model\UserJsonldMfaSms | The new User resource
 
 try {
-    $result = $apiInstance->requestMfaCodeUserItem($id);
+    $result = $apiInstance->requestMfaCodeUserItem($id, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->requestMfaCodeUserItem: ', $e->getMessage(), PHP_EOL;
@@ -623,6 +624,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**|  |
+ **body** | [**\VentureLeap\UserService\Model\UserJsonldMfaSms**](../Model/UserJsonldMfaSms.md)| The new User resource | [optional]
 
 ### Return type
 
@@ -634,7 +636,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/ld+json
  - **Accept**: application/ld+json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

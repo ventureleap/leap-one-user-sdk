@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **date_of_birth** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **gender** | **string** |  | [optional] 
 **addresses** | [**\VentureLeap\UserService\Model\AddressJsonldUserRead[]**](AddressJsonldUserRead.md) |  | [optional] 
+**phone_number** | **string** |  | [optional] 
 **active** | **bool** |  | [optional] 
 **custom_data** | **object** |  | [optional] 
 

@@ -2929,35 +2929,37 @@ class UserApi
     /**
      * Operation requestMfaCodeUserItem
      *
-     * Retrieves a User resource.
+     * Creates a User resource.
      *
      * @param  string $id id (required)
+     * @param  \VentureLeap\UserService\Model\UserJsonldMfaSms $body The new User resource (optional)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \VentureLeap\UserService\Model\UserJsonldMfaRequest
      */
-    public function requestMfaCodeUserItem($id)
+    public function requestMfaCodeUserItem($id, $body = null)
     {
-        list($response) = $this->requestMfaCodeUserItemWithHttpInfo($id);
+        list($response) = $this->requestMfaCodeUserItemWithHttpInfo($id, $body);
         return $response;
     }
 
     /**
      * Operation requestMfaCodeUserItemWithHttpInfo
      *
-     * Retrieves a User resource.
+     * Creates a User resource.
      *
      * @param  string $id (required)
+     * @param  \VentureLeap\UserService\Model\UserJsonldMfaSms $body The new User resource (optional)
      *
      * @throws \VentureLeap\UserService\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \VentureLeap\UserService\Model\UserJsonldMfaRequest, HTTP status code, HTTP response headers (array of strings)
      */
-    public function requestMfaCodeUserItemWithHttpInfo($id)
+    public function requestMfaCodeUserItemWithHttpInfo($id, $body = null)
     {
         $returnType = '\VentureLeap\UserService\Model\UserJsonldMfaRequest';
-        $request = $this->requestMfaCodeUserItemRequest($id);
+        $request = $this->requestMfaCodeUserItemRequest($id, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3021,16 +3023,17 @@ class UserApi
     /**
      * Operation requestMfaCodeUserItemAsync
      *
-     * Retrieves a User resource.
+     * Creates a User resource.
      *
      * @param  string $id (required)
+     * @param  \VentureLeap\UserService\Model\UserJsonldMfaSms $body The new User resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function requestMfaCodeUserItemAsync($id)
+    public function requestMfaCodeUserItemAsync($id, $body = null)
     {
-        return $this->requestMfaCodeUserItemAsyncWithHttpInfo($id)
+        return $this->requestMfaCodeUserItemAsyncWithHttpInfo($id, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3041,17 +3044,18 @@ class UserApi
     /**
      * Operation requestMfaCodeUserItemAsyncWithHttpInfo
      *
-     * Retrieves a User resource.
+     * Creates a User resource.
      *
      * @param  string $id (required)
+     * @param  \VentureLeap\UserService\Model\UserJsonldMfaSms $body The new User resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function requestMfaCodeUserItemAsyncWithHttpInfo($id)
+    public function requestMfaCodeUserItemAsyncWithHttpInfo($id, $body = null)
     {
         $returnType = '\VentureLeap\UserService\Model\UserJsonldMfaRequest';
-        $request = $this->requestMfaCodeUserItemRequest($id);
+        $request = $this->requestMfaCodeUserItemRequest($id, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3094,11 +3098,12 @@ class UserApi
      * Create request for operation 'requestMfaCodeUserItem'
      *
      * @param  string $id (required)
+     * @param  \VentureLeap\UserService\Model\UserJsonldMfaSms $body The new User resource (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function requestMfaCodeUserItemRequest($id)
+    protected function requestMfaCodeUserItemRequest($id, $body = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -3126,6 +3131,9 @@ class UserApi
 
         // body params
         $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -3134,7 +3142,7 @@ class UserApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/ld+json'],
-                []
+                ['application/ld+json']
             );
         }
 
@@ -3186,7 +3194,7 @@ class UserApi
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
-            'GET',
+            'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

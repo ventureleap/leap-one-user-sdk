@@ -173,7 +173,7 @@ class UserApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for requestMfaCodeUserItem
      *
-     * Retrieves a User resource..
+     * Creates a User resource..
      *
      */
     public function testRequestMfaCodeUserItem()

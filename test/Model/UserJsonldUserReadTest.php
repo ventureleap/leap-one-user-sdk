@@ -223,6 +223,13 @@ class UserJsonldUserReadTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "phone_number"
+     */
+    public function testPropertyPhoneNumber()
+    {
+    }
+
+    /**
      * Test attribute "active"
      */
     public function testPropertyActive()
