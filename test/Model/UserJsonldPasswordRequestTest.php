@@ -102,4 +102,11 @@ class UserJsonldPasswordRequestTest extends \PHPUnit_Framework_TestCase
     public function testPropertyEmail()
     {
     }
+
+    /**
+     * Test attribute "user_type"
+     */
+    public function testPropertyUserType()
+    {
+    }
 }

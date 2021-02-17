@@ -59,7 +59,8 @@ class UserJsonldPasswordRequest implements ModelInterface, ArrayAccess
         'context' => 'string',
 'id' => 'string',
 'type' => 'string',
-'email' => 'string'    ];
+'email' => 'string',
+'user_type' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -70,7 +71,8 @@ class UserJsonldPasswordRequest implements ModelInterface, ArrayAccess
         'context' => null,
 'id' => null,
 'type' => null,
-'email' => null    ];
+'email' => null,
+'user_type' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -102,7 +104,8 @@ class UserJsonldPasswordRequest implements ModelInterface, ArrayAccess
         'context' => '@context',
 'id' => '@id',
 'type' => '@type',
-'email' => 'email'    ];
+'email' => 'email',
+'user_type' => 'userType'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -113,7 +116,8 @@ class UserJsonldPasswordRequest implements ModelInterface, ArrayAccess
         'context' => 'setContext',
 'id' => 'setId',
 'type' => 'setType',
-'email' => 'setEmail'    ];
+'email' => 'setEmail',
+'user_type' => 'setUserType'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -124,7 +128,8 @@ class UserJsonldPasswordRequest implements ModelInterface, ArrayAccess
         'context' => 'getContext',
 'id' => 'getId',
 'type' => 'getType',
-'email' => 'getEmail'    ];
+'email' => 'getEmail',
+'user_type' => 'getUserType'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -188,6 +193,7 @@ class UserJsonldPasswordRequest implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['user_type'] = isset($data['user_type']) ? $data['user_type'] : null;
     }
 
     /**
@@ -306,6 +312,30 @@ class UserJsonldPasswordRequest implements ModelInterface, ArrayAccess
     public function setEmail($email)
     {
         $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets user_type
+     *
+     * @return string
+     */
+    public function getUserType()
+    {
+        return $this->container['user_type'];
+    }
+
+    /**
+     * Sets user_type
+     *
+     * @param string $user_type user_type
+     *
+     * @return $this
+     */
+    public function setUserType($user_type)
+    {
+        $this->container['user_type'] = $user_type;
 
         return $this;
     }
