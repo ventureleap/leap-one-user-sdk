@@ -76,13 +76,12 @@ $custom_data = "custom_data_example"; // string |
 $user_type = "user_type_example"; // string | 
 $active = true; // bool | 
 $deleted = true; // bool | 
-$username = "username_example"; // string | 
 $page = 1; // int | The collection page number
 $items_per_page = 10; // int | The number of items per page
 $pagination = true; // bool | Enable or disable pagination
 
 try {
-    $result = $apiInstance->apiAccountsUsersGetSubresource($id, $username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $username, $page, $items_per_page, $pagination);
+    $result = $apiInstance->apiAccountsUsersGetSubresource($id, $username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AccountApi->apiAccountsUsersGetSubresource: ', $e->getMessage(), PHP_EOL;

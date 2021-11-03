@@ -100,7 +100,6 @@ class AccountApi
      * @param  string $user_type user_type (optional)
      * @param  bool $active active (optional)
      * @param  bool $deleted deleted (optional)
-     * @param  string $username username (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 10)
      * @param  bool $pagination Enable or disable pagination (optional)
@@ -109,9 +108,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \VentureLeap\UserService\Model\InlineResponse2001
      */
-    public function apiAccountsUsersGetSubresource($id, $username = null, $email = null, $first_name = null, $last_name = null, $custom_data = null, $user_type = null, $active = null, $deleted = null, $username = null, $page = '1', $items_per_page = '10', $pagination = null)
+    public function apiAccountsUsersGetSubresource($id, $username = null, $email = null, $first_name = null, $last_name = null, $custom_data = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
     {
-        list($response) = $this->apiAccountsUsersGetSubresourceWithHttpInfo($id, $username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $username, $page, $items_per_page, $pagination);
+        list($response) = $this->apiAccountsUsersGetSubresourceWithHttpInfo($id, $username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
         return $response;
     }
 
@@ -129,7 +128,6 @@ class AccountApi
      * @param  string $user_type (optional)
      * @param  bool $active (optional)
      * @param  bool $deleted (optional)
-     * @param  string $username (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 10)
      * @param  bool $pagination Enable or disable pagination (optional)
@@ -138,10 +136,10 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return array of \VentureLeap\UserService\Model\InlineResponse2001, HTTP status code, HTTP response headers (array of strings)
      */
-    public function apiAccountsUsersGetSubresourceWithHttpInfo($id, $username = null, $email = null, $first_name = null, $last_name = null, $custom_data = null, $user_type = null, $active = null, $deleted = null, $username = null, $page = '1', $items_per_page = '10', $pagination = null)
+    public function apiAccountsUsersGetSubresourceWithHttpInfo($id, $username = null, $email = null, $first_name = null, $last_name = null, $custom_data = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
     {
         $returnType = '\VentureLeap\UserService\Model\InlineResponse2001';
-        $request = $this->apiAccountsUsersGetSubresourceRequest($id, $username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $username, $page, $items_per_page, $pagination);
+        $request = $this->apiAccountsUsersGetSubresourceRequest($id, $username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
 
         try {
             $options = $this->createHttpClientOption();
@@ -216,7 +214,6 @@ class AccountApi
      * @param  string $user_type (optional)
      * @param  bool $active (optional)
      * @param  bool $deleted (optional)
-     * @param  string $username (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 10)
      * @param  bool $pagination Enable or disable pagination (optional)
@@ -224,9 +221,9 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiAccountsUsersGetSubresourceAsync($id, $username = null, $email = null, $first_name = null, $last_name = null, $custom_data = null, $user_type = null, $active = null, $deleted = null, $username = null, $page = '1', $items_per_page = '10', $pagination = null)
+    public function apiAccountsUsersGetSubresourceAsync($id, $username = null, $email = null, $first_name = null, $last_name = null, $custom_data = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
     {
-        return $this->apiAccountsUsersGetSubresourceAsyncWithHttpInfo($id, $username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $username, $page, $items_per_page, $pagination)
+        return $this->apiAccountsUsersGetSubresourceAsyncWithHttpInfo($id, $username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $page, $items_per_page, $pagination)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -248,7 +245,6 @@ class AccountApi
      * @param  string $user_type (optional)
      * @param  bool $active (optional)
      * @param  bool $deleted (optional)
-     * @param  string $username (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 10)
      * @param  bool $pagination Enable or disable pagination (optional)
@@ -256,10 +252,10 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function apiAccountsUsersGetSubresourceAsyncWithHttpInfo($id, $username = null, $email = null, $first_name = null, $last_name = null, $custom_data = null, $user_type = null, $active = null, $deleted = null, $username = null, $page = '1', $items_per_page = '10', $pagination = null)
+    public function apiAccountsUsersGetSubresourceAsyncWithHttpInfo($id, $username = null, $email = null, $first_name = null, $last_name = null, $custom_data = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
     {
         $returnType = '\VentureLeap\UserService\Model\InlineResponse2001';
-        $request = $this->apiAccountsUsersGetSubresourceRequest($id, $username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $username, $page, $items_per_page, $pagination);
+        $request = $this->apiAccountsUsersGetSubresourceRequest($id, $username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -310,7 +306,6 @@ class AccountApi
      * @param  string $user_type (optional)
      * @param  bool $active (optional)
      * @param  bool $deleted (optional)
-     * @param  string $username (optional)
      * @param  int $page The collection page number (optional, default to 1)
      * @param  int $items_per_page The number of items per page (optional, default to 10)
      * @param  bool $pagination Enable or disable pagination (optional)
@@ -318,7 +313,7 @@ class AccountApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function apiAccountsUsersGetSubresourceRequest($id, $username = null, $email = null, $first_name = null, $last_name = null, $custom_data = null, $user_type = null, $active = null, $deleted = null, $username = null, $page = '1', $items_per_page = '10', $pagination = null)
+    protected function apiAccountsUsersGetSubresourceRequest($id, $username = null, $email = null, $first_name = null, $last_name = null, $custom_data = null, $user_type = null, $active = null, $deleted = null, $page = '1', $items_per_page = '10', $pagination = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -365,10 +360,6 @@ class AccountApi
         // query params
         if ($deleted !== null) {
             $queryParams['deleted'] = ObjectSerializer::toQueryValue($deleted, null);
-        }
-        // query params
-        if ($username !== null) {
-            $queryParams['username'] = ObjectSerializer::toQueryValue($username, null);
         }
         // query params
         if ($page !== null) {

@@ -20,7 +20,7 @@ Method | HTTP request | Description
 [**validateMfaCodeUserItem**](UserApi.md#validatemfacodeuseritem) | **POST** /user/users/{id}/check-mfa-code | Creates a User resource.
 
 # **apiAccountsUsersGetSubresource**
-> \VentureLeap\UserService\Model\InlineResponse2001 apiAccountsUsersGetSubresource($id, $username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $username, $page, $items_per_page, $pagination)
+> \VentureLeap\UserService\Model\InlineResponse2001 apiAccountsUsersGetSubresource($id, $username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $page, $items_per_page, $pagination)
 
 Retrieves the collection of User resources.
 
@@ -48,13 +48,12 @@ $custom_data = "custom_data_example"; // string |
 $user_type = "user_type_example"; // string | 
 $active = true; // bool | 
 $deleted = true; // bool | 
-$username = "username_example"; // string | 
 $page = 1; // int | The collection page number
 $items_per_page = 10; // int | The number of items per page
 $pagination = true; // bool | Enable or disable pagination
 
 try {
-    $result = $apiInstance->apiAccountsUsersGetSubresource($id, $username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $username, $page, $items_per_page, $pagination);
+    $result = $apiInstance->apiAccountsUsersGetSubresource($id, $username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->apiAccountsUsersGetSubresource: ', $e->getMessage(), PHP_EOL;
@@ -75,7 +74,6 @@ Name | Type | Description  | Notes
  **user_type** | **string**|  | [optional]
  **active** | **bool**|  | [optional]
  **deleted** | **bool**|  | [optional]
- **username** | **string**|  | [optional]
  **page** | **int**| The collection page number | [optional] [default to 1]
  **items_per_page** | **int**| The number of items per page | [optional] [default to 10]
  **pagination** | **bool**| Enable or disable pagination | [optional]
@@ -202,7 +200,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getUserCollection**
-> \VentureLeap\UserService\Model\InlineResponse2001 getUserCollection($username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $username, $page, $items_per_page, $pagination)
+> \VentureLeap\UserService\Model\InlineResponse2001 getUserCollection($username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $page, $items_per_page, $pagination)
 
 Retrieves the collection of User resources.
 
@@ -229,13 +227,12 @@ $custom_data = "custom_data_example"; // string |
 $user_type = "user_type_example"; // string | 
 $active = true; // bool | 
 $deleted = true; // bool | 
-$username = "username_example"; // string | 
 $page = 1; // int | The collection page number
 $items_per_page = 10; // int | The number of items per page
 $pagination = true; // bool | Enable or disable pagination
 
 try {
-    $result = $apiInstance->getUserCollection($username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $username, $page, $items_per_page, $pagination);
+    $result = $apiInstance->getUserCollection($username, $email, $first_name, $last_name, $custom_data, $user_type, $active, $deleted, $page, $items_per_page, $pagination);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->getUserCollection: ', $e->getMessage(), PHP_EOL;
@@ -255,7 +252,6 @@ Name | Type | Description  | Notes
  **user_type** | **string**|  | [optional]
  **active** | **bool**|  | [optional]
  **deleted** | **bool**|  | [optional]
- **username** | **string**|  | [optional]
  **page** | **int**| The collection page number | [optional] [default to 1]
  **items_per_page** | **int**| The number of items per page | [optional] [default to 10]
  **pagination** | **bool**| Enable or disable pagination | [optional]
