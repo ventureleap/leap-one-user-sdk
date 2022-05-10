@@ -297,11 +297,11 @@ class AddressApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/ld+json']
+                ['application/ld+json', 'text/html']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/ld+json'],
+                ['application/ld+json', 'text/html'],
                 []
             );
         }
@@ -564,11 +564,11 @@ class AddressApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/ld+json']
+                ['application/ld+json', 'text/html']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/ld+json'],
+                ['application/ld+json', 'text/html'],
                 []
             );
         }
@@ -820,12 +820,268 @@ class AddressApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/ld+json']
+                ['application/ld+json', 'text/html']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/ld+json'],
-                ['application/ld+json']
+                ['application/ld+json', 'text/html'],
+                ['application/ld+json', 'text/html']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation postAddressCollection
+     *
+     * Creates a Address resource.
+     *
+     * @param  \VentureLeap\UserService\Model\AddressJsonldAddressWrite $body The new Address resource (optional)
+     *
+     * @throws \VentureLeap\UserService\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \VentureLeap\UserService\Model\AddressJsonldAddressRead
+     */
+    public function postAddressCollection($body = null)
+    {
+        list($response) = $this->postAddressCollectionWithHttpInfo($body);
+        return $response;
+    }
+
+    /**
+     * Operation postAddressCollectionWithHttpInfo
+     *
+     * Creates a Address resource.
+     *
+     * @param  \VentureLeap\UserService\Model\AddressJsonldAddressWrite $body The new Address resource (optional)
+     *
+     * @throws \VentureLeap\UserService\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \VentureLeap\UserService\Model\AddressJsonldAddressRead, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function postAddressCollectionWithHttpInfo($body = null)
+    {
+        $returnType = '\VentureLeap\UserService\Model\AddressJsonldAddressRead';
+        $request = $this->postAddressCollectionRequest($body);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if (!in_array($returnType, ['string','integer','bool'])) {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\VentureLeap\UserService\Model\AddressJsonldAddressRead',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation postAddressCollectionAsync
+     *
+     * Creates a Address resource.
+     *
+     * @param  \VentureLeap\UserService\Model\AddressJsonldAddressWrite $body The new Address resource (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postAddressCollectionAsync($body = null)
+    {
+        return $this->postAddressCollectionAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation postAddressCollectionAsyncWithHttpInfo
+     *
+     * Creates a Address resource.
+     *
+     * @param  \VentureLeap\UserService\Model\AddressJsonldAddressWrite $body The new Address resource (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function postAddressCollectionAsyncWithHttpInfo($body = null)
+    {
+        $returnType = '\VentureLeap\UserService\Model\AddressJsonldAddressRead';
+        $request = $this->postAddressCollectionRequest($body);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'postAddressCollection'
+     *
+     * @param  \VentureLeap\UserService\Model\AddressJsonldAddressWrite $body The new Address resource (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function postAddressCollectionRequest($body = null)
+    {
+
+        $resourcePath = '/user/addresses';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/ld+json', 'text/html']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/ld+json', 'text/html'],
+                ['application/ld+json', 'text/html']
             );
         }
 
@@ -1095,12 +1351,287 @@ class AddressApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/ld+json']
+                ['application/ld+json', 'text/html']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/ld+json'],
-                ['application/ld+json']
+                ['application/ld+json', 'text/html'],
+                ['application/ld+json', 'text/html']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'PUT',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation putAddressItem
+     *
+     * Replaces the Address resource.
+     *
+     * @param  string $id id (required)
+     * @param  \VentureLeap\UserService\Model\AddressJsonldAddressWrite $body The updated Address resource (optional)
+     *
+     * @throws \VentureLeap\UserService\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \VentureLeap\UserService\Model\AddressJsonldAddressRead
+     */
+    public function putAddressItem($id, $body = null)
+    {
+        list($response) = $this->putAddressItemWithHttpInfo($id, $body);
+        return $response;
+    }
+
+    /**
+     * Operation putAddressItemWithHttpInfo
+     *
+     * Replaces the Address resource.
+     *
+     * @param  string $id (required)
+     * @param  \VentureLeap\UserService\Model\AddressJsonldAddressWrite $body The updated Address resource (optional)
+     *
+     * @throws \VentureLeap\UserService\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \VentureLeap\UserService\Model\AddressJsonldAddressRead, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function putAddressItemWithHttpInfo($id, $body = null)
+    {
+        $returnType = '\VentureLeap\UserService\Model\AddressJsonldAddressRead';
+        $request = $this->putAddressItemRequest($id, $body);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if (!in_array($returnType, ['string','integer','bool'])) {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\VentureLeap\UserService\Model\AddressJsonldAddressRead',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation putAddressItemAsync
+     *
+     * Replaces the Address resource.
+     *
+     * @param  string $id (required)
+     * @param  \VentureLeap\UserService\Model\AddressJsonldAddressWrite $body The updated Address resource (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function putAddressItemAsync($id, $body = null)
+    {
+        return $this->putAddressItemAsyncWithHttpInfo($id, $body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation putAddressItemAsyncWithHttpInfo
+     *
+     * Replaces the Address resource.
+     *
+     * @param  string $id (required)
+     * @param  \VentureLeap\UserService\Model\AddressJsonldAddressWrite $body The updated Address resource (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function putAddressItemAsyncWithHttpInfo($id, $body = null)
+    {
+        $returnType = '\VentureLeap\UserService\Model\AddressJsonldAddressRead';
+        $request = $this->putAddressItemRequest($id, $body);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'putAddressItem'
+     *
+     * @param  string $id (required)
+     * @param  \VentureLeap\UserService\Model\AddressJsonldAddressWrite $body The updated Address resource (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function putAddressItemRequest($id, $body = null)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling putAddressItem'
+            );
+        }
+
+        $resourcePath = '/user/addresses/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/ld+json', 'text/html']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/ld+json', 'text/html'],
+                ['application/ld+json', 'text/html']
             );
         }
 

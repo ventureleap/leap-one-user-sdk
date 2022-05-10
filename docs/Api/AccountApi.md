@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/ld+json
+ - **Accept**: application/ld+json, text/html
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -142,7 +142,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/ld+json
+ - **Accept**: application/ld+json, text/html
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/ld+json
+ - **Accept**: application/ld+json, text/html
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -245,8 +245,60 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/ld+json
- - **Accept**: application/ld+json
+ - **Content-Type**: application/ld+json, text/html
+ - **Accept**: application/ld+json, text/html
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **postAccountCollection**
+> \VentureLeap\UserService\Model\AccountJsonldAccountRead postAccountCollection($body)
+
+Creates a Account resource.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+// Configure API key authorization: apiKey
+$config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$apiInstance = new VentureLeap\UserService\Api\AccountApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$body = new \VentureLeap\UserService\Model\AccountJsonldAccountWrite(); // \VentureLeap\UserService\Model\AccountJsonldAccountWrite | The new Account resource
+
+try {
+    $result = $apiInstance->postAccountCollection($body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountApi->postAccountCollection: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\VentureLeap\UserService\Model\AccountJsonldAccountWrite**](../Model/AccountJsonldAccountWrite.md)| The new Account resource | [optional]
+
+### Return type
+
+[**\VentureLeap\UserService\Model\AccountJsonldAccountRead**](../Model/AccountJsonldAccountRead.md)
+
+### Authorization
+
+[apiKey](../../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/ld+json, text/html
+ - **Accept**: application/ld+json, text/html
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -299,8 +351,62 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/ld+json
- - **Accept**: application/ld+json
+ - **Content-Type**: application/ld+json, text/html
+ - **Accept**: application/ld+json, text/html
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **putAccountItem**
+> \VentureLeap\UserService\Model\AccountJsonldAccountRead putAccountItem($id, $body)
+
+Replaces the Account resource.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+// Configure API key authorization: apiKey
+$config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = VentureLeap\UserService\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+$apiInstance = new VentureLeap\UserService\Api\AccountApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = "id_example"; // string | 
+$body = new \VentureLeap\UserService\Model\AccountJsonldAccountWrite(); // \VentureLeap\UserService\Model\AccountJsonldAccountWrite | The updated Account resource
+
+try {
+    $result = $apiInstance->putAccountItem($id, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AccountApi->putAccountItem: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **string**|  |
+ **body** | [**\VentureLeap\UserService\Model\AccountJsonldAccountWrite**](../Model/AccountJsonldAccountWrite.md)| The updated Account resource | [optional]
+
+### Return type
+
+[**\VentureLeap\UserService\Model\AccountJsonldAccountRead**](../Model/AccountJsonldAccountRead.md)
+
+### Authorization
+
+[apiKey](../../README.md#apiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/ld+json, text/html
+ - **Accept**: application/ld+json, text/html
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
