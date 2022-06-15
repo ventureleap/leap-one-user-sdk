@@ -214,20 +214,12 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [AccountAccountRead](docs/Model/AccountAccountRead.md)
- - [AccountAccountWrite](docs/Model/AccountAccountWrite.md)
  - [AccountJsonldAccountRead](docs/Model/AccountJsonldAccountRead.md)
  - [AccountJsonldAccountWrite](docs/Model/AccountJsonldAccountWrite.md)
- - [AddressAddressRead](docs/Model/AddressAddressRead.md)
- - [AddressAddressWrite](docs/Model/AddressAddressWrite.md)
  - [AddressJsonldAddressRead](docs/Model/AddressJsonldAddressRead.md)
  - [AddressJsonldAddressWrite](docs/Model/AddressJsonldAddressWrite.md)
  - [AddressJsonldUserRead](docs/Model/AddressJsonldUserRead.md)
  - [AddressJsonldUserWrite](docs/Model/AddressJsonldUserWrite.md)
- - [AddressUserRead](docs/Model/AddressUserRead.md)
- - [AddressUserWrite](docs/Model/AddressUserWrite.md)
- - [ConfigurationEntryConfigurationRead](docs/Model/ConfigurationEntryConfigurationRead.md)
- - [ConfigurationEntryConfigurationWrite](docs/Model/ConfigurationEntryConfigurationWrite.md)
  - [ConfigurationEntryJsonldConfigurationRead](docs/Model/ConfigurationEntryJsonldConfigurationRead.md)
  - [ConfigurationEntryJsonldConfigurationWrite](docs/Model/ConfigurationEntryJsonldConfigurationWrite.md)
  - [Credentials](docs/Model/Credentials.md)
@@ -239,8 +231,6 @@ Class | Method | HTTP request | Description
  - [InlineResponse200HydrasearchHydramapping](docs/Model/InlineResponse200HydrasearchHydramapping.md)
  - [InlineResponse200Hydraview](docs/Model/InlineResponse200Hydraview.md)
  - [SocialAuthUrl](docs/Model/SocialAuthUrl.md)
- - [UserAccountRead](docs/Model/UserAccountRead.md)
- - [UserAddressRead](docs/Model/UserAddressRead.md)
  - [UserJsonldAccountRead](docs/Model/UserJsonldAccountRead.md)
  - [UserJsonldAddressRead](docs/Model/UserJsonldAddressRead.md)
  - [UserJsonldMfaCheck](docs/Model/UserJsonldMfaCheck.md)
@@ -249,13 +239,7 @@ Class | Method | HTTP request | Description
  - [UserJsonldPasswordRequest](docs/Model/UserJsonldPasswordRequest.md)
  - [UserJsonldUserRead](docs/Model/UserJsonldUserRead.md)
  - [UserJsonldUserWrite](docs/Model/UserJsonldUserWrite.md)
- - [UserMfaCheck](docs/Model/UserMfaCheck.md)
- - [UserMfaRequest](docs/Model/UserMfaRequest.md)
- - [UserMfaSms](docs/Model/UserMfaSms.md)
- - [UserPasswordRequest](docs/Model/UserPasswordRequest.md)
  - [UserPasswordReset](docs/Model/UserPasswordReset.md)
- - [UserUserRead](docs/Model/UserUserRead.md)
- - [UserUserWrite](docs/Model/UserUserWrite.md)
 
 ## Documentation For Authorization
 
